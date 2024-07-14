@@ -1,0 +1,23 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v8.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v8.0": {
+      "Demo aplicacion angelica V1/1.0.0": {
+        "runtime": {
+          "Demo aplicacion angelica V1.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "Demo aplicacion angelica V1/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}

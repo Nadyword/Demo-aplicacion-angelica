@@ -1,0 +1,16 @@
+C:\Users\samue\OneDrive\Documentos\Proyectos\Demo aplicacion angelica\Demo aplicacion angelica V1\bin\Debug\net8.0-windows\Demo aplicacion angelica V1.exe
+C:\Users\samue\OneDrive\Documentos\Proyectos\Demo aplicacion angelica\Demo aplicacion angelica V1\bin\Debug\net8.0-windows\Demo aplicacion angelica V1.deps.json
+C:\Users\samue\OneDrive\Documentos\Proyectos\Demo aplicacion angelica\Demo aplicacion angelica V1\bin\Debug\net8.0-windows\Demo aplicacion angelica V1.runtimeconfig.json
+C:\Users\samue\OneDrive\Documentos\Proyectos\Demo aplicacion angelica\Demo aplicacion angelica V1\bin\Debug\net8.0-windows\Demo aplicacion angelica V1.dll
+C:\Users\samue\OneDrive\Documentos\Proyectos\Demo aplicacion angelica\Demo aplicacion angelica V1\bin\Debug\net8.0-windows\Demo aplicacion angelica V1.pdb
+C:\Users\samue\OneDrive\Documentos\Proyectos\Demo aplicacion angelica\Demo aplicacion angelica V1\obj\Debug\net8.0-windows\Demo_aplicacion_angelica_V1.FromInicio.resources
+C:\Users\samue\OneDrive\Documentos\Proyectos\Demo aplicacion angelica\Demo aplicacion angelica V1\obj\Debug\net8.0-windows\Demo aplicacion angelica V1.csproj.GenerateResource.cache
+C:\Users\samue\OneDrive\Documentos\Proyectos\Demo aplicacion angelica\Demo aplicacion angelica V1\obj\Debug\net8.0-windows\Demo aplicacion angelica V1.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\samue\OneDrive\Documentos\Proyectos\Demo aplicacion angelica\Demo aplicacion angelica V1\obj\Debug\net8.0-windows\Demo aplicacion angelica V1.AssemblyInfoInputs.cache
+C:\Users\samue\OneDrive\Documentos\Proyectos\Demo aplicacion angelica\Demo aplicacion angelica V1\obj\Debug\net8.0-windows\Demo aplicacion angelica V1.AssemblyInfo.cs
+C:\Users\samue\OneDrive\Documentos\Proyectos\Demo aplicacion angelica\Demo aplicacion angelica V1\obj\Debug\net8.0-windows\Demo aplicacion angelica V1.csproj.CoreCompileInputs.cache
+C:\Users\samue\OneDrive\Documentos\Proyectos\Demo aplicacion angelica\Demo aplicacion angelica V1\obj\Debug\net8.0-windows\Demo aplicacion angelica V1.dll
+C:\Users\samue\OneDrive\Documentos\Proyectos\Demo aplicacion angelica\Demo aplicacion angelica V1\obj\Debug\net8.0-windows\refint\Demo aplicacion angelica V1.dll
+C:\Users\samue\OneDrive\Documentos\Proyectos\Demo aplicacion angelica\Demo aplicacion angelica V1\obj\Debug\net8.0-windows\Demo aplicacion angelica V1.pdb
+C:\Users\samue\OneDrive\Documentos\Proyectos\Demo aplicacion angelica\Demo aplicacion angelica V1\obj\Debug\net8.0-windows\Demo aplicacion angelica V1.genruntimeconfig.cache
+C:\Users\samue\OneDrive\Documentos\Proyectos\Demo aplicacion angelica\Demo aplicacion angelica V1\obj\Debug\net8.0-windows\ref\Demo aplicacion angelica V1.dll
