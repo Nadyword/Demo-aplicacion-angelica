@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Demo aplicacion angelica V1")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+c1fc6aaf9a7600cf2f4a8f2fe2c3cc2b7601d9b3")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+cba69c02ce2f0bb68ee1e60b8a0b4b94fae842ba")]
 [assembly: System.Reflection.AssemblyProductAttribute("Demo aplicacion angelica V1")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Demo aplicacion angelica V1")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

@@ -7,16 +7,20 @@
       "RelativeMoniker": "D:0:0:{F1EF480D-B6CA-425C-923F-14057DBEA5BC}|Demo aplicacion angelica V1.csproj|solutionrelative:ucpacientes.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
+      "AbsoluteMoniker": "D:0:0:{F1EF480D-B6CA-425C-923F-14057DBEA5BC}|Demo aplicacion angelica V1.csproj|c:\\users\\samue\\onedrive\\documentos\\proyectos\\demo aplicacion angelica\\ucpacientes.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F1EF480D-B6CA-425C-923F-14057DBEA5BC}|Demo aplicacion angelica V1.csproj|solutionrelative:ucpacientes.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{F1EF480D-B6CA-425C-923F-14057DBEA5BC}|Demo aplicacion angelica V1.csproj|c:\\users\\samue\\onedrive\\documentos\\proyectos\\demo aplicacion angelica\\ucpacientes.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{F1EF480D-B6CA-425C-923F-14057DBEA5BC}|Demo aplicacion angelica V1.csproj|solutionrelative:ucpacientes.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{F1EF480D-B6CA-425C-923F-14057DBEA5BC}|Demo aplicacion angelica V1.csproj|c:\\users\\samue\\onedrive\\documentos\\proyectos\\demo aplicacion angelica\\programita.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{F1EF480D-B6CA-425C-923F-14057DBEA5BC}|Demo aplicacion angelica V1.csproj|solutionrelative:programita.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{F1EF480D-B6CA-425C-923F-14057DBEA5BC}|Demo aplicacion angelica V1.csproj|C:\\Users\\samue\\OneDrive\\Documentos\\Proyectos\\Demo aplicacion angelica\\programita.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
       "RelativeMoniker": "D:0:0:{F1EF480D-B6CA-425C-923F-14057DBEA5BC}|Demo aplicacion angelica V1.csproj|solutionrelative:programita.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F1EF480D-B6CA-425C-923F-14057DBEA5BC}|Demo aplicacion angelica V1.csproj|c:\\users\\samue\\onedrive\\documentos\\proyectos\\demo aplicacion angelica\\programita.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F1EF480D-B6CA-425C-923F-14057DBEA5BC}|Demo aplicacion angelica V1.csproj|solutionrelative:programita.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{F1EF480D-B6CA-425C-923F-14057DBEA5BC}|Demo aplicacion angelica V1.csproj|c:\\users\\samue\\onedrive\\documentos\\proyectos\\demo aplicacion angelica\\programita.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -35,27 +39,39 @@
             {
               "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "UcPacientes.Designer.cs",
-              "DocumentMoniker": "C:\\Users\\samue\\OneDrive\\Documentos\\Proyectos\\Demo aplicacion angelica\\UcPacientes.Designer.cs",
-              "RelativeDocumentMoniker": "UcPacientes.Designer.cs",
-              "ToolTip": "C:\\Users\\samue\\OneDrive\\Documentos\\Proyectos\\Demo aplicacion angelica\\UcPacientes.Designer.cs",
-              "RelativeToolTip": "UcPacientes.Designer.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Title": "UcPacientes.cs",
+              "DocumentMoniker": "C:\\Users\\samue\\OneDrive\\Documentos\\Proyectos\\Demo aplicacion angelica\\UcPacientes.cs",
+              "RelativeDocumentMoniker": "UcPacientes.cs",
+              "ToolTip": "C:\\Users\\samue\\OneDrive\\Documentos\\Proyectos\\Demo aplicacion angelica\\UcPacientes.cs",
+              "RelativeToolTip": "UcPacientes.cs",
+              "ViewState": "AQIAABAAAAAAAAAAAAASwB0AAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-07-18T09:29:03.971Z",
+              "WhenOpened": "2024-07-18T10:43:47.131Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "UcPacientes.cs [Dise\u00F1o]",
+              "Title": "UcPacientes.cs [Design]",
               "DocumentMoniker": "C:\\Users\\samue\\OneDrive\\Documentos\\Proyectos\\Demo aplicacion angelica\\UcPacientes.cs",
               "RelativeDocumentMoniker": "UcPacientes.cs",
-              "ToolTip": "C:\\Users\\samue\\OneDrive\\Documentos\\Proyectos\\Demo aplicacion angelica\\UcPacientes.cs [Dise\u00F1o]",
-              "RelativeToolTip": "UcPacientes.cs [Dise\u00F1o]",
+              "ToolTip": "C:\\Users\\samue\\OneDrive\\Documentos\\Proyectos\\Demo aplicacion angelica\\UcPacientes.cs [Design]",
+              "RelativeToolTip": "UcPacientes.cs [Design]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-07-18T09:27:22.986Z",
-              "EditorCaption": " [Dise\u00F1o]"
+              "WhenOpened": "2024-07-18T10:41:12.107Z",
+              "EditorCaption": " [Design]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "UcPacientes.Designer.cs",
+              "DocumentMoniker": "C:\\Users\\samue\\OneDrive\\Documentos\\Proyectos\\Demo aplicacion angelica\\UcPacientes.Designer.cs",
+              "RelativeDocumentMoniker": "UcPacientes.Designer.cs",
+              "ToolTip": "C:\\Users\\samue\\OneDrive\\Documentos\\Proyectos\\Demo aplicacion angelica\\UcPacientes.Designer.cs",
+              "RelativeToolTip": "UcPacientes.Designer.cs",
+              "ViewState": "AQIAAMUAAAAAAAAAAAApwMgAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-07-18T09:29:03.971Z"
             },
             {
               "$type": "Document",
@@ -66,12 +82,11 @@
               "ToolTip": "C:\\Users\\samue\\OneDrive\\Documentos\\Proyectos\\Demo aplicacion angelica\\Programita.cs [Dise\u00F1o]",
               "RelativeToolTip": "Programita.cs [Dise\u00F1o]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-07-16T03:50:49.145Z",
-              "EditorCaption": " [Dise\u00F1o]"
+              "WhenOpened": "2024-07-16T03:50:49.145Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 4,
               "Title": "Programita.cs",
               "DocumentMoniker": "C:\\Users\\samue\\OneDrive\\Documentos\\Proyectos\\Demo aplicacion angelica\\Programita.cs",
               "RelativeDocumentMoniker": "Programita.cs",
@@ -79,12 +94,11 @@
               "RelativeToolTip": "Programita.cs",
               "ViewState": "AQIAAAEAAAAAAAAAAAApwAsAAAANAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-07-14T22:52:08.036Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-07-14T22:52:08.036Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 5,
               "Title": "Programita.Designer.cs",
               "DocumentMoniker": "C:\\Users\\samue\\OneDrive\\Documentos\\Proyectos\\Demo aplicacion angelica\\Programita.Designer.cs",
               "RelativeDocumentMoniker": "Programita.Designer.cs",
@@ -92,8 +106,7 @@
               "RelativeToolTip": "Programita.Designer.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAADEAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-07-14T22:50:21.055Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-07-14T22:50:21.055Z"
             }
           ]
         }
