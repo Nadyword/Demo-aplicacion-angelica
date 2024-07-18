@@ -8,7 +8,7 @@ namespace Demo_aplicacion_angelica_V1
         {
             InitializeComponent();
 
-            UnProgramita miUserControl = new()
+            UcPacientes miUserControl = new()
             {
                 Dock = DockStyle.Fill 
             };

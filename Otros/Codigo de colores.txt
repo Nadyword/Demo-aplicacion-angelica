@@ -1,0 +1,5 @@
+ROSADO			= #e27396 
+ROSADO CLARO		= #ea9ab2 
+ROSADO MAS CLARO	= #efcfe3 
+VERDE			= #eaf2d7 
+AZUL			= #b3dee2

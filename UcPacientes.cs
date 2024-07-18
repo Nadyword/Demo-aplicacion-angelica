@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace Demo_aplicacion_angelica_V1
 {
-    public partial class UnProgramita : UserControl
+    public partial class UcPacientes : UserControl
     {
-        public UnProgramita()
+        public UcPacientes()
         {
             InitializeComponent();
         }

@@ -19,10 +19,9 @@ C:\Users\samue\OneDrive\Documentos\Proyectos\Demo aplicacion angelica\bin\Debug\
 C:\Users\samue\OneDrive\Documentos\Proyectos\Demo aplicacion angelica\bin\Debug\net8.0-windows\Demo aplicacion angelica V1.runtimeconfig.json
 C:\Users\samue\OneDrive\Documentos\Proyectos\Demo aplicacion angelica\bin\Debug\net8.0-windows\Demo aplicacion angelica V1.dll
 C:\Users\samue\OneDrive\Documentos\Proyectos\Demo aplicacion angelica\bin\Debug\net8.0-windows\Demo aplicacion angelica V1.pdb
-C:\Users\samue\OneDrive\Documentos\Proyectos\Demo aplicacion angelica\obj\Debug\net8.0-windows\Demo_aplicacion_angelica_V1.ControlPanels.resources
 C:\Users\samue\OneDrive\Documentos\Proyectos\Demo aplicacion angelica\obj\Debug\net8.0-windows\Demo_aplicacion_angelica_V1.FromInicio.resources
 C:\Users\samue\OneDrive\Documentos\Proyectos\Demo aplicacion angelica\obj\Debug\net8.0-windows\Demo_aplicacion_angelica_V1.Properties.Resources.resources
-C:\Users\samue\OneDrive\Documentos\Proyectos\Demo aplicacion angelica\obj\Debug\net8.0-windows\Demo_aplicacion_angelica_V1.UnProgramita.resources
+C:\Users\samue\OneDrive\Documentos\Proyectos\Demo aplicacion angelica\obj\Debug\net8.0-windows\Demo_aplicacion_angelica_V1.UcPacientes.resources
 C:\Users\samue\OneDrive\Documentos\Proyectos\Demo aplicacion angelica\obj\Debug\net8.0-windows\Demo aplicacion angelica V1.csproj.GenerateResource.cache
 C:\Users\samue\OneDrive\Documentos\Proyectos\Demo aplicacion angelica\obj\Debug\net8.0-windows\Demo aplicacion angelica V1.GeneratedMSBuildEditorConfig.editorconfig
 C:\Users\samue\OneDrive\Documentos\Proyectos\Demo aplicacion angelica\obj\Debug\net8.0-windows\Demo aplicacion angelica V1.AssemblyInfoInputs.cache

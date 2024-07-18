@@ -1,13 +1,10 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="Current" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <Compile Update="ControlPanels.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
     <Compile Update="Programita.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="UnProgramita.cs">
+    <Compile Update="UcPacientes.cs">
       <SubType>UserControl</SubType>
     </Compile>
   </ItemGroup>
