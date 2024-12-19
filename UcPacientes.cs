@@ -1,72 +1,101 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
+﻿using System.Text.RegularExpressions;
 
-namespace Demo_aplicacion_angelica_V1
+namespace Demo_aplicacion_angelica_V1;
+
+public partial class UcPacientes : UserControl
 {
-    public partial class UcPacientes : UserControl
+    public UcPacientes()
     {
-        public UcPacientes()
+        InitializeComponent();
+        ShowPanels(1);
+        DtNacimiendo.ValueChanged += DtNacimiendo_ValueChanged;
+        TbTele.TextChanged += TbTele_TextChanged;
+        cbSexo.SelectedIndex = 0;
+        CbEnfermedad.CheckedChanged += CbEnfermedad_CheckedChanged;
+        CbAlegiaMedi.CheckedChanged += CbAlegiaMedi_CheckedChanged;
+        CbAlergiAli.CheckedChanged += CbAlergiAli_CheckedChanged;
+        CbCiru.CheckedChanged += CbCiru_CheckedChanged;
+        CbTrata.CheckedChanged += CbTrata_CheckedChanged;
+        CbBiopoli.Click += CbBiopoli_CheckedChanged;
+        CbOtro.CheckedChanged += CbOtro_CheckedChanged;
+    }
+
+    private void UcPacientes_Load(object sender, EventArgs e)
+    {
+
+    }
+
+    private void ShowPanels(int Panel)
+    {
+        switch (Panel)
         {
-            InitializeComponent();
-            mcFechaNaci.SetDate(new DateTime(1990, 01, 01));
-            ShowPanels(1);
+            case 1:
+                PanelFromulario.Visible = true;
+                PanelContrato.Visible = false;
+                break;
+            case 2:
+                PanelFromulario.Visible = false;
+                PanelContrato.Visible = true;
+                break;
         }
+    }
 
-        private void McFechaNaci_DateChanged(object sender, DateRangeEventArgs e)
-        {
-            TimeSpan edad = DateTime.Now - mcFechaNaci.SelectionStart;
+    private void PictureBox1_Click(object sender, EventArgs e)
+    {
+        ShowPanels(2);
+    }
 
-            tbEdad.Text = Math.Floor(edad.TotalDays / 365) + " años";
-        }
+    private void DtNacimiendo_ValueChanged(object? sender, EventArgs e)
+    {
+        DateTime Edad = DtNacimiendo.Value;
+        tbEdad.Text = (DateTime.Now.Year - Edad.Year).ToString() + "Años";
+    }
 
-        private void CblHabitos_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            if (cblHabitos.SelectedItem != null)
-            {
-                if (cblHabitos.SelectedItem.ToString() == "OCUPACION")
-                {
-                    tbOcupacion.Enabled = true;
-                }
-                else
-                {
-                    tbOcupacion.Enabled = false;
-                }
-            }
-        }
+    private void TbTele_TextChanged(object? sender, EventArgs e)
+    {
+        int selectionStart = TbTele.SelectionStart - 1;
+        TbTele.Text = Regex.Replace(TbTele.Text, @"[^\d]", "");
+        TbTele.SelectionStart = Math.Max(0, selectionStart);
+    }
 
-        private void UcPacientes_Load(object sender, EventArgs e)
-        {
+    private void CbEnfermedad_CheckedChanged(object? sender, EventArgs e)
+    {
+        tbExpliEnfer.Enabled = CbEnfermedad.Checked;
+        tbExpliEnfer.Text = !CbEnfermedad.Checked ? "Niega" : "";
+    }
 
-        }
+    private void CbAlegiaMedi_CheckedChanged(object? sender, EventArgs e)
+    {
+        TbExplAlergiaMed.Enabled = CbAlegiaMedi.Checked;
+        TbExplAlergiaMed.Text = !CbAlegiaMedi.Checked ? "Niega" : "";
+    }
 
-        private void ShowPanels(int Panel)
-        {
-            switch (Panel)
-            {
-                case 1:
-                    PanelFromulario.Visible = true;
-                    PanelContrato.Visible = false;
-                    break;
-                case 2:
-                    PanelFromulario.Visible = false;
-                    PanelContrato.Visible = true;
-                    break;
-            }
-        }
+    private void CbAlergiAli_CheckedChanged(object? sender, EventArgs e)
+    {
+        TbExpliAlergAli.Enabled = CbAlergiAli.Checked;
+        TbExpliAlergAli.Text = !CbAlergiAli.Checked ? "Niega" : "";
+    }
 
-        private void PictureBox1_Click(object sender, EventArgs e)
-        {
-            ShowPanels(2);
-            lblNombFirma.Text = tbPrimerApi.Text.ToUpper() + " " + tbSeguApe.Text.ToUpper() 
-                + " " + TbPrimNombre.Text.ToUpper() + " " + tbSeguNomb.Text.ToUpper()+ "\n" +
-                "C.I: " + tbCedula.Text;
-        }
+    private void CbCiru_CheckedChanged(object? sender, EventArgs e)
+    {
+        TbExpliCiru.Enabled = CbCiru.Checked;
+        TbExpliCiru.Text = !CbCiru.Checked ? "Niega" : "";
+    }
+
+    private void CbTrata_CheckedChanged(object? sender, EventArgs e)
+    {
+        TbExpliTrata.Enabled = CbTrata.Checked;
+        TbExpliTrata.Text = !CbTrata.Checked ? "Niega" : "";
+    }
+
+    private void CbBiopoli_CheckedChanged(object? sender, EventArgs e)
+    {
+        tbExpliBio.Enabled = CbBiopoli.Checked;
+        tbExpliBio.Text = !CbBiopoli.Checked ? "Niega" : "";
+    }
+
+    private void CbOtro_CheckedChanged(object? sender, EventArgs e)
+    {
+        TbOtros.Visible = CbOtro.Checked;
     }
 }

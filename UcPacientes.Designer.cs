@@ -29,397 +29,101 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UcPacientes));
-            MsPrisical = new MenuStrip();
-            MsItemPaci = new ToolStripMenuItem();
-            MsItemPaciCrear = new ToolStripMenuItem();
-            MsItemPaciModif = new ToolStripMenuItem();
-            MsItemPaciBusca = new ToolStripMenuItem();
-            MsItemPaciElimi = new ToolStripMenuItem();
-            MsItemPaciSalir = new ToolStripMenuItem();
-            lblDatosPerso = new Label();
-            TbPrimNombre = new TextBox();
-            tbSeguApe = new TextBox();
-            tbPrimerApi = new TextBox();
-            tbSeguNomb = new TextBox();
-            mcFechaNaci = new MonthCalendar();
-            tbEdad = new TextBox();
+            tbNombre = new TextBox();
             tb = new TextBox();
-            tbTelef = new TextBox();
             cbSexo = new ComboBox();
-            tbFacial = new TextBox();
-            Ambas = new TextBox();
-            tbCorpo = new TextBox();
-            lblAntecendentes = new Label();
-            tbEnfermedad = new TextBox();
-            tbAlergia = new TextBox();
-            tbCirugia = new TextBox();
-            tbTratamientosAn = new TextBox();
-            lblHabitos = new Label();
-            cblHabitos = new CheckedListBox();
-            tbOcupacion = new TextBox();
             tbCedula = new TextBox();
             pictureBox1 = new PictureBox();
             PanelFromulario = new Panel();
+            TxOcupa = new TextBox();
+            TbOtros = new TextBox();
+            CbTaba = new CheckBox();
+            CbAlcho = new CheckBox();
+            checkBox2 = new CheckBox();
+            CbOtro = new CheckBox();
+            label5 = new Label();
+            tbExpliBio = new TextBox();
+            CbBiopoli = new CheckBox();
+            TbExpliTrata = new TextBox();
+            CbTrata = new CheckBox();
+            TbExpliCiru = new TextBox();
+            CbCiru = new CheckBox();
+            TbExpliAlergAli = new TextBox();
+            CbAlergiAli = new CheckBox();
+            TbExplAlergiaMed = new TextBox();
+            CbAlegiaMedi = new CheckBox();
+            tbExpliEnfer = new TextBox();
+            CbEnfermedad = new CheckBox();
+            label4 = new Label();
+            TbApellido = new TextBox();
+            TbTele = new TextBox();
+            DtNacimiendo = new DateTimePicker();
+            tbEdad = new TextBox();
+            label3 = new Label();
             PanelContrato = new Panel();
             lblNombFirma = new Label();
             label2 = new Label();
-            tbExamenFisi = new TextBox();
             label1 = new Label();
-            MsPrisical.SuspendLayout();
+            pictureBox2 = new PictureBox();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             PanelFromulario.SuspendLayout();
             PanelContrato.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
             SuspendLayout();
             // 
-            // MsPrisical
+            // tbNombre
             // 
-            MsPrisical.BackColor = Color.FromArgb(234, 242, 215);
-            MsPrisical.Items.AddRange(new ToolStripItem[] { MsItemPaci });
-            MsPrisical.Location = new Point(0, 0);
-            MsPrisical.Name = "MsPrisical";
-            MsPrisical.Size = new Size(964, 24);
-            MsPrisical.TabIndex = 2;
-            MsPrisical.Text = "MsPrincial";
-            // 
-            // MsItemPaci
-            // 
-            MsItemPaci.DropDownItems.AddRange(new ToolStripItem[] { MsItemPaciCrear, MsItemPaciModif, MsItemPaciBusca, MsItemPaciElimi, MsItemPaciSalir });
-            MsItemPaci.Name = "MsItemPaci";
-            MsItemPaci.Size = new Size(69, 20);
-            MsItemPaci.Text = "Pacientes";
-            // 
-            // MsItemPaciCrear
-            // 
-            MsItemPaciCrear.BackColor = Color.FromArgb(234, 242, 215);
-            MsItemPaciCrear.Image = (Image)resources.GetObject("MsItemPaciCrear.Image");
-            MsItemPaciCrear.Name = "MsItemPaciCrear";
-            MsItemPaciCrear.ShortcutKeys = Keys.Control | Keys.N;
-            MsItemPaciCrear.Size = new Size(170, 22);
-            MsItemPaciCrear.Text = "Crear";
-            // 
-            // MsItemPaciModif
-            // 
-            MsItemPaciModif.BackColor = Color.FromArgb(234, 242, 215);
-            MsItemPaciModif.Image = (Image)resources.GetObject("MsItemPaciModif.Image");
-            MsItemPaciModif.Name = "MsItemPaciModif";
-            MsItemPaciModif.ShortcutKeys = Keys.Control | Keys.M;
-            MsItemPaciModif.Size = new Size(170, 22);
-            MsItemPaciModif.Text = "Modificar";
-            // 
-            // MsItemPaciBusca
-            // 
-            MsItemPaciBusca.BackColor = Color.FromArgb(234, 242, 215);
-            MsItemPaciBusca.Image = (Image)resources.GetObject("MsItemPaciBusca.Image");
-            MsItemPaciBusca.Name = "MsItemPaciBusca";
-            MsItemPaciBusca.ShortcutKeys = Keys.Control | Keys.B;
-            MsItemPaciBusca.Size = new Size(170, 22);
-            MsItemPaciBusca.Text = "Buscar";
-            // 
-            // MsItemPaciElimi
-            // 
-            MsItemPaciElimi.BackColor = Color.FromArgb(234, 242, 215);
-            MsItemPaciElimi.Image = (Image)resources.GetObject("MsItemPaciElimi.Image");
-            MsItemPaciElimi.Name = "MsItemPaciElimi";
-            MsItemPaciElimi.ShortcutKeys = Keys.Control | Keys.E;
-            MsItemPaciElimi.Size = new Size(170, 22);
-            MsItemPaciElimi.Text = "Eliminar";
-            // 
-            // MsItemPaciSalir
-            // 
-            MsItemPaciSalir.BackColor = Color.FromArgb(234, 242, 215);
-            MsItemPaciSalir.Image = (Image)resources.GetObject("MsItemPaciSalir.Image");
-            MsItemPaciSalir.Name = "MsItemPaciSalir";
-            MsItemPaciSalir.ShortcutKeys = Keys.Control | Keys.S;
-            MsItemPaciSalir.Size = new Size(170, 22);
-            MsItemPaciSalir.Text = "Salir";
-            // 
-            // lblDatosPerso
-            // 
-            lblDatosPerso.AutoSize = true;
-            lblDatosPerso.FlatStyle = FlatStyle.Flat;
-            lblDatosPerso.Font = new Font("Arial", 27.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lblDatosPerso.ForeColor = Color.Black;
-            lblDatosPerso.Location = new Point(218, 10);
-            lblDatosPerso.Name = "lblDatosPerso";
-            lblDatosPerso.Size = new Size(414, 44);
-            lblDatosPerso.TabIndex = 3;
-            lblDatosPerso.Text = "DATOS PERSONALES";
-            // 
-            // TbPrimNombre
-            // 
-            TbPrimNombre.BackColor = SystemColors.ControlLightLight;
-            TbPrimNombre.BorderStyle = BorderStyle.FixedSingle;
-            TbPrimNombre.Cursor = Cursors.IBeam;
-            TbPrimNombre.Font = new Font("Arial", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            TbPrimNombre.Location = new Point(12, 133);
-            TbPrimNombre.Margin = new Padding(5);
-            TbPrimNombre.Name = "TbPrimNombre";
-            TbPrimNombre.PlaceholderText = "Primer nombre";
-            TbPrimNombre.Size = new Size(206, 26);
-            TbPrimNombre.TabIndex = 0;
-            // 
-            // tbSeguApe
-            // 
-            tbSeguApe.BackColor = SystemColors.ControlLightLight;
-            tbSeguApe.BorderStyle = BorderStyle.FixedSingle;
-            tbSeguApe.Cursor = Cursors.IBeam;
-            tbSeguApe.Font = new Font("Arial", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            tbSeguApe.Location = new Point(659, 133);
-            tbSeguApe.Margin = new Padding(5);
-            tbSeguApe.Name = "tbSeguApe";
-            tbSeguApe.PlaceholderText = "Segundo apellido";
-            tbSeguApe.Size = new Size(206, 26);
-            tbSeguApe.TabIndex = 3;
-            // 
-            // tbPrimerApi
-            // 
-            tbPrimerApi.BackColor = SystemColors.ControlLightLight;
-            tbPrimerApi.BorderStyle = BorderStyle.FixedSingle;
-            tbPrimerApi.Cursor = Cursors.IBeam;
-            tbPrimerApi.Font = new Font("Arial", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            tbPrimerApi.Location = new Point(443, 133);
-            tbPrimerApi.Margin = new Padding(5);
-            tbPrimerApi.Name = "tbPrimerApi";
-            tbPrimerApi.PlaceholderText = "Primer apellido";
-            tbPrimerApi.Size = new Size(206, 26);
-            tbPrimerApi.TabIndex = 2;
-            // 
-            // tbSeguNomb
-            // 
-            tbSeguNomb.BackColor = SystemColors.ControlLightLight;
-            tbSeguNomb.BorderStyle = BorderStyle.FixedSingle;
-            tbSeguNomb.Cursor = Cursors.IBeam;
-            tbSeguNomb.Font = new Font("Arial", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            tbSeguNomb.Location = new Point(228, 133);
-            tbSeguNomb.Margin = new Padding(5);
-            tbSeguNomb.Name = "tbSeguNomb";
-            tbSeguNomb.PlaceholderText = "Segundo nombre";
-            tbSeguNomb.Size = new Size(206, 26);
-            tbSeguNomb.TabIndex = 1;
-            // 
-            // mcFechaNaci
-            // 
-            mcFechaNaci.Font = new Font("Arial", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            mcFechaNaci.Location = new Point(12, 169);
-            mcFechaNaci.MaxDate = new DateTime(3500, 12, 31, 0, 0, 0, 0);
-            mcFechaNaci.Name = "mcFechaNaci";
-            mcFechaNaci.TabIndex = 7;
-            mcFechaNaci.DateChanged += McFechaNaci_DateChanged;
-            // 
-            // tbEdad
-            // 
-            tbEdad.BackColor = SystemColors.ControlLightLight;
-            tbEdad.BorderStyle = BorderStyle.FixedSingle;
-            tbEdad.Cursor = Cursors.IBeam;
-            tbEdad.Enabled = false;
-            tbEdad.Font = new Font("Arial", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            tbEdad.Location = new Point(265, 168);
-            tbEdad.Margin = new Padding(5);
-            tbEdad.Name = "tbEdad";
-            tbEdad.PlaceholderText = "Edad";
-            tbEdad.Size = new Size(144, 26);
-            tbEdad.TabIndex = 999;
+            tbNombre.BackColor = SystemColors.ControlLight;
+            tbNombre.Cursor = Cursors.IBeam;
+            tbNombre.Font = new Font("Arial", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            tbNombre.Location = new Point(22, 82);
+            tbNombre.Margin = new Padding(5);
+            tbNombre.Name = "tbNombre";
+            tbNombre.PlaceholderText = "Nombres";
+            tbNombre.Size = new Size(310, 26);
+            tbNombre.TabIndex = 1;
             // 
             // tb
             // 
-            tb.BackColor = SystemColors.ControlLightLight;
-            tb.BorderStyle = BorderStyle.FixedSingle;
+            tb.BackColor = SystemColors.ControlLight;
             tb.Cursor = Cursors.IBeam;
             tb.Font = new Font("Arial", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            tb.Location = new Point(265, 205);
+            tb.Location = new Point(22, 150);
             tb.Margin = new Padding(5);
             tb.Multiline = true;
             tb.Name = "tb";
             tb.PlaceholderText = "Direccion";
-            tb.Size = new Size(600, 126);
-            tb.TabIndex = 6;
-            // 
-            // tbTelef
-            // 
-            tbTelef.BackColor = SystemColors.ControlLightLight;
-            tbTelef.BorderStyle = BorderStyle.FixedSingle;
-            tbTelef.Cursor = Cursors.IBeam;
-            tbTelef.Font = new Font("Arial", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            tbTelef.Location = new Point(443, 169);
-            tbTelef.Margin = new Padding(5);
-            tbTelef.Name = "tbTelef";
-            tbTelef.PlaceholderText = "Telefono";
-            tbTelef.Size = new Size(206, 26);
-            tbTelef.TabIndex = 4;
+            tb.Size = new Size(853, 46);
+            tb.TabIndex = 8;
             // 
             // cbSexo
             // 
+            cbSexo.BackColor = SystemColors.ControlLight;
+            cbSexo.Font = new Font("Arial", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             cbSexo.FormattingEnabled = true;
-            cbSexo.Items.AddRange(new object[] { "< SEXO >", "MASCULINO", "FEMENICNO", "OTROS" });
-            cbSexo.Location = new Point(659, 171);
+            cbSexo.Items.AddRange(new object[] { "< Sexo >", "Masculino", "Femenino", "OTROS" });
+            cbSexo.Location = new Point(669, 116);
             cbSexo.Name = "cbSexo";
-            cbSexo.Size = new Size(206, 23);
-            cbSexo.TabIndex = 5;
-            // 
-            // tbFacial
-            // 
-            tbFacial.BackColor = SystemColors.ControlLightLight;
-            tbFacial.BorderStyle = BorderStyle.FixedSingle;
-            tbFacial.Cursor = Cursors.IBeam;
-            tbFacial.Font = new Font("Arial", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            tbFacial.Location = new Point(12, 341);
-            tbFacial.Margin = new Padding(5);
-            tbFacial.Multiline = true;
-            tbFacial.Name = "tbFacial";
-            tbFacial.PlaceholderText = "Facial";
-            tbFacial.Size = new Size(853, 67);
-            tbFacial.TabIndex = 7;
-            // 
-            // Ambas
-            // 
-            Ambas.BackColor = SystemColors.ControlLightLight;
-            Ambas.BorderStyle = BorderStyle.FixedSingle;
-            Ambas.Cursor = Cursors.IBeam;
-            Ambas.Font = new Font("Arial", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            Ambas.Location = new Point(12, 495);
-            Ambas.Margin = new Padding(5);
-            Ambas.Multiline = true;
-            Ambas.Name = "Ambas";
-            Ambas.PlaceholderText = "Ambas";
-            Ambas.Size = new Size(853, 67);
-            Ambas.TabIndex = 9;
-            // 
-            // tbCorpo
-            // 
-            tbCorpo.BackColor = SystemColors.ControlLightLight;
-            tbCorpo.BorderStyle = BorderStyle.FixedSingle;
-            tbCorpo.Cursor = Cursors.IBeam;
-            tbCorpo.Font = new Font("Arial", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            tbCorpo.Location = new Point(12, 418);
-            tbCorpo.Margin = new Padding(5);
-            tbCorpo.Multiline = true;
-            tbCorpo.Name = "tbCorpo";
-            tbCorpo.PlaceholderText = "Corporal";
-            tbCorpo.Size = new Size(853, 67);
-            tbCorpo.TabIndex = 8;
-            // 
-            // lblAntecendentes
-            // 
-            lblAntecendentes.AutoSize = true;
-            lblAntecendentes.FlatStyle = FlatStyle.Flat;
-            lblAntecendentes.Font = new Font("Arial", 27.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lblAntecendentes.ForeColor = Color.Black;
-            lblAntecendentes.Location = new Point(141, 580);
-            lblAntecendentes.Name = "lblAntecendentes";
-            lblAntecendentes.Size = new Size(593, 44);
-            lblAntecendentes.TabIndex = 1000;
-            lblAntecendentes.Text = "ANTECEDENTES PERSONALES";
-            // 
-            // tbEnfermedad
-            // 
-            tbEnfermedad.BackColor = SystemColors.ControlLightLight;
-            tbEnfermedad.BorderStyle = BorderStyle.FixedSingle;
-            tbEnfermedad.Cursor = Cursors.IBeam;
-            tbEnfermedad.Font = new Font("Arial", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            tbEnfermedad.Location = new Point(12, 629);
-            tbEnfermedad.Margin = new Padding(5);
-            tbEnfermedad.Multiline = true;
-            tbEnfermedad.Name = "tbEnfermedad";
-            tbEnfermedad.PlaceholderText = "Enfermedad cronica";
-            tbEnfermedad.Size = new Size(853, 67);
-            tbEnfermedad.TabIndex = 10;
-            // 
-            // tbAlergia
-            // 
-            tbAlergia.BackColor = SystemColors.ControlLightLight;
-            tbAlergia.BorderStyle = BorderStyle.FixedSingle;
-            tbAlergia.Cursor = Cursors.IBeam;
-            tbAlergia.Font = new Font("Arial", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            tbAlergia.Location = new Point(12, 706);
-            tbAlergia.Margin = new Padding(5);
-            tbAlergia.Multiline = true;
-            tbAlergia.Name = "tbAlergia";
-            tbAlergia.PlaceholderText = "Alergia medicamento o alimentos";
-            tbAlergia.Size = new Size(853, 67);
-            tbAlergia.TabIndex = 11;
-            // 
-            // tbCirugia
-            // 
-            tbCirugia.BackColor = SystemColors.ControlLightLight;
-            tbCirugia.BorderStyle = BorderStyle.FixedSingle;
-            tbCirugia.Cursor = Cursors.IBeam;
-            tbCirugia.Font = new Font("Arial", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            tbCirugia.Location = new Point(12, 783);
-            tbCirugia.Margin = new Padding(5);
-            tbCirugia.Multiline = true;
-            tbCirugia.Name = "tbCirugia";
-            tbCirugia.PlaceholderText = "Cirugias";
-            tbCirugia.Size = new Size(853, 67);
-            tbCirugia.TabIndex = 12;
-            // 
-            // tbTratamientosAn
-            // 
-            tbTratamientosAn.BackColor = SystemColors.ControlLightLight;
-            tbTratamientosAn.BorderStyle = BorderStyle.FixedSingle;
-            tbTratamientosAn.Cursor = Cursors.IBeam;
-            tbTratamientosAn.Font = new Font("Arial", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            tbTratamientosAn.Location = new Point(12, 860);
-            tbTratamientosAn.Margin = new Padding(5);
-            tbTratamientosAn.Multiline = true;
-            tbTratamientosAn.Name = "tbTratamientosAn";
-            tbTratamientosAn.PlaceholderText = "Tratamientos anteriores";
-            tbTratamientosAn.Size = new Size(853, 67);
-            tbTratamientosAn.TabIndex = 13;
-            // 
-            // lblHabitos
-            // 
-            lblHabitos.AutoSize = true;
-            lblHabitos.FlatStyle = FlatStyle.Flat;
-            lblHabitos.Font = new Font("Arial", 27.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lblHabitos.ForeColor = Color.Black;
-            lblHabitos.Location = new Point(151, 947);
-            lblHabitos.Name = "lblHabitos";
-            lblHabitos.Size = new Size(546, 44);
-            lblHabitos.TabIndex = 1005;
-            lblHabitos.Text = "HABITOS PSICOBIOLOGICOS";
-            // 
-            // cblHabitos
-            // 
-            cblHabitos.FormattingEnabled = true;
-            cblHabitos.Items.AddRange(new object[] { "HÁBITO TABAQUICO", "ACTIVIDAD DEPORTIVA", "ALCOHOL", "OCUPACION", "ESTRES" });
-            cblHabitos.Location = new Point(5, 1009);
-            cblHabitos.Name = "cblHabitos";
-            cblHabitos.Size = new Size(167, 94);
-            cblHabitos.TabIndex = 1006;
-            cblHabitos.SelectedIndexChanged += CblHabitos_SelectedIndexChanged;
-            // 
-            // tbOcupacion
-            // 
-            tbOcupacion.BackColor = SystemColors.ControlLightLight;
-            tbOcupacion.BorderStyle = BorderStyle.FixedSingle;
-            tbOcupacion.Cursor = Cursors.IBeam;
-            tbOcupacion.Enabled = false;
-            tbOcupacion.Font = new Font("Arial", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            tbOcupacion.Location = new Point(198, 1055);
-            tbOcupacion.Margin = new Padding(5);
-            tbOcupacion.Name = "tbOcupacion";
-            tbOcupacion.PlaceholderText = "Ocupacion";
-            tbOcupacion.Size = new Size(367, 26);
-            tbOcupacion.TabIndex = 1007;
+            cbSexo.Size = new Size(206, 26);
+            cbSexo.TabIndex = 7;
             // 
             // tbCedula
             // 
-            tbCedula.BackColor = SystemColors.ControlLightLight;
-            tbCedula.BorderStyle = BorderStyle.FixedSingle;
+            tbCedula.BackColor = SystemColors.ControlLight;
             tbCedula.Cursor = Cursors.IBeam;
             tbCedula.Font = new Font("Arial", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            tbCedula.Location = new Point(308, 82);
+            tbCedula.Location = new Point(669, 82);
             tbCedula.Margin = new Padding(5);
             tbCedula.Name = "tbCedula";
             tbCedula.PlaceholderText = "Cedula";
             tbCedula.Size = new Size(206, 26);
-            tbCedula.TabIndex = 1008;
+            tbCedula.TabIndex = 3;
             // 
             // pictureBox1
             // 
             pictureBox1.Cursor = Cursors.Hand;
             pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
-            pictureBox1.Location = new Point(762, 986);
+            pictureBox1.Location = new Point(736, 627);
             pictureBox1.Name = "pictureBox1";
             pictureBox1.Size = new Size(134, 126);
             pictureBox1.TabIndex = 1009;
@@ -428,43 +132,389 @@
             // 
             // PanelFromulario
             // 
-            PanelFromulario.Controls.Add(lblDatosPerso);
-            PanelFromulario.Controls.Add(pictureBox1);
-            PanelFromulario.Controls.Add(TbPrimNombre);
-            PanelFromulario.Controls.Add(tbOcupacion);
-            PanelFromulario.Controls.Add(tbCedula);
-            PanelFromulario.Controls.Add(cblHabitos);
-            PanelFromulario.Controls.Add(tbSeguApe);
-            PanelFromulario.Controls.Add(lblHabitos);
-            PanelFromulario.Controls.Add(tbPrimerApi);
-            PanelFromulario.Controls.Add(tbTratamientosAn);
-            PanelFromulario.Controls.Add(tbSeguNomb);
-            PanelFromulario.Controls.Add(tbCirugia);
-            PanelFromulario.Controls.Add(mcFechaNaci);
+            PanelFromulario.BackColor = Color.Transparent;
+            PanelFromulario.Controls.Add(TxOcupa);
+            PanelFromulario.Controls.Add(TbOtros);
+            PanelFromulario.Controls.Add(CbTaba);
+            PanelFromulario.Controls.Add(CbAlcho);
+            PanelFromulario.Controls.Add(checkBox2);
+            PanelFromulario.Controls.Add(CbOtro);
+            PanelFromulario.Controls.Add(label5);
+            PanelFromulario.Controls.Add(tbExpliBio);
+            PanelFromulario.Controls.Add(CbBiopoli);
+            PanelFromulario.Controls.Add(TbExpliTrata);
+            PanelFromulario.Controls.Add(CbTrata);
+            PanelFromulario.Controls.Add(TbExpliCiru);
+            PanelFromulario.Controls.Add(CbCiru);
+            PanelFromulario.Controls.Add(TbExpliAlergAli);
+            PanelFromulario.Controls.Add(CbAlergiAli);
+            PanelFromulario.Controls.Add(TbExplAlergiaMed);
+            PanelFromulario.Controls.Add(CbAlegiaMedi);
+            PanelFromulario.Controls.Add(tbExpliEnfer);
+            PanelFromulario.Controls.Add(CbEnfermedad);
+            PanelFromulario.Controls.Add(label4);
+            PanelFromulario.Controls.Add(TbApellido);
+            PanelFromulario.Controls.Add(TbTele);
+            PanelFromulario.Controls.Add(DtNacimiendo);
             PanelFromulario.Controls.Add(tbEdad);
+            PanelFromulario.Controls.Add(label3);
+            PanelFromulario.Controls.Add(pictureBox1);
+            PanelFromulario.Controls.Add(tbCedula);
+            PanelFromulario.Controls.Add(tbNombre);
             PanelFromulario.Controls.Add(tb);
-            PanelFromulario.Controls.Add(tbAlergia);
-            PanelFromulario.Controls.Add(tbTelef);
-            PanelFromulario.Controls.Add(tbEnfermedad);
             PanelFromulario.Controls.Add(cbSexo);
-            PanelFromulario.Controls.Add(lblAntecendentes);
-            PanelFromulario.Controls.Add(tbFacial);
-            PanelFromulario.Controls.Add(tbCorpo);
-            PanelFromulario.Controls.Add(Ambas);
-            PanelFromulario.Location = new Point(27, 27);
+            PanelFromulario.Location = new Point(25, 193);
             PanelFromulario.Name = "PanelFromulario";
-            PanelFromulario.Size = new Size(906, 1139);
+            PanelFromulario.Size = new Size(895, 770);
             PanelFromulario.TabIndex = 1010;
+            // 
+            // TxOcupa
+            // 
+            TxOcupa.BackColor = SystemColors.ControlLight;
+            TxOcupa.Cursor = Cursors.IBeam;
+            TxOcupa.Font = new Font("Arial", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            TxOcupa.Location = new Point(22, 642);
+            TxOcupa.Margin = new Padding(5);
+            TxOcupa.Name = "TxOcupa";
+            TxOcupa.PlaceholderText = "Ocupacion";
+            TxOcupa.Size = new Size(697, 26);
+            TxOcupa.TabIndex = 1030;
+            // 
+            // TbOtros
+            // 
+            TbOtros.BackColor = SystemColors.ControlLight;
+            TbOtros.Cursor = Cursors.IBeam;
+            TbOtros.Font = new Font("Arial", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            TbOtros.Location = new Point(454, 599);
+            TbOtros.Margin = new Padding(5);
+            TbOtros.Name = "TbOtros";
+            TbOtros.PlaceholderText = "Explique";
+            TbOtros.Size = new Size(421, 26);
+            TbOtros.TabIndex = 1029;
+            TbOtros.Visible = false;
+            // 
+            // CbTaba
+            // 
+            CbTaba.AutoSize = true;
+            CbTaba.CheckAlign = ContentAlignment.MiddleRight;
+            CbTaba.Font = new Font("Arial", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            CbTaba.ForeColor = SystemColors.ControlLightLight;
+            CbTaba.Location = new Point(22, 601);
+            CbTaba.Name = "CbTaba";
+            CbTaba.Size = new Size(128, 23);
+            CbTaba.TabIndex = 1028;
+            CbTaba.Text = "Tabaquismo:";
+            CbTaba.TextAlign = ContentAlignment.MiddleCenter;
+            CbTaba.UseVisualStyleBackColor = true;
+            // 
+            // CbAlcho
+            // 
+            CbAlcho.AutoSize = true;
+            CbAlcho.CheckAlign = ContentAlignment.MiddleRight;
+            CbAlcho.Font = new Font("Arial", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            CbAlcho.ForeColor = SystemColors.ControlLightLight;
+            CbAlcho.Location = new Point(249, 600);
+            CbAlcho.Name = "CbAlcho";
+            CbAlcho.Size = new Size(92, 23);
+            CbAlcho.TabIndex = 1027;
+            CbAlcho.Text = "Alcohol:";
+            CbAlcho.TextAlign = ContentAlignment.MiddleCenter;
+            CbAlcho.UseVisualStyleBackColor = true;
+            // 
+            // checkBox2
+            // 
+            checkBox2.AutoSize = true;
+            checkBox2.CheckAlign = ContentAlignment.MiddleRight;
+            checkBox2.Font = new Font("Arial", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            checkBox2.ForeColor = SystemColors.ControlLightLight;
+            checkBox2.Location = new Point(160, 601);
+            checkBox2.Name = "checkBox2";
+            checkBox2.Size = new Size(79, 23);
+            checkBox2.TabIndex = 1026;
+            checkBox2.Text = "Física:";
+            checkBox2.TextAlign = ContentAlignment.MiddleCenter;
+            checkBox2.UseVisualStyleBackColor = true;
+            // 
+            // CbOtro
+            // 
+            CbOtro.AutoSize = true;
+            CbOtro.CheckAlign = ContentAlignment.MiddleRight;
+            CbOtro.Font = new Font("Arial", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            CbOtro.ForeColor = SystemColors.ControlLightLight;
+            CbOtro.Location = new Point(352, 600);
+            CbOtro.Name = "CbOtro";
+            CbOtro.Size = new Size(76, 23);
+            CbOtro.TabIndex = 1025;
+            CbOtro.Text = "Otros:";
+            CbOtro.TextAlign = ContentAlignment.MiddleCenter;
+            CbOtro.UseVisualStyleBackColor = true;
+            CbOtro.CheckedChanged += CbOtro_CheckedChanged;
+            // 
+            // label5
+            // 
+            label5.AutoSize = true;
+            label5.Font = new Font("Arial", 25F, FontStyle.Bold);
+            label5.ForeColor = SystemColors.Control;
+            label5.Location = new Point(238, 535);
+            label5.Name = "label5";
+            label5.Size = new Size(474, 40);
+            label5.TabIndex = 1024;
+            label5.Text = "HABITOS SICOBIOLÓGICOS";
+            // 
+            // tbExpliBio
+            // 
+            tbExpliBio.BackColor = SystemColors.ControlLight;
+            tbExpliBio.Cursor = Cursors.IBeam;
+            tbExpliBio.Enabled = false;
+            tbExpliBio.Font = new Font("Arial", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            tbExpliBio.Location = new Point(238, 470);
+            tbExpliBio.Margin = new Padding(5);
+            tbExpliBio.Name = "tbExpliBio";
+            tbExpliBio.PlaceholderText = "Explique";
+            tbExpliBio.Size = new Size(637, 26);
+            tbExpliBio.TabIndex = 1023;
+            tbExpliBio.Text = "Niega";
+            // 
+            // CbBiopoli
+            // 
+            CbBiopoli.AutoSize = true;
+            CbBiopoli.CheckAlign = ContentAlignment.MiddleRight;
+            CbBiopoli.Font = new Font("Arial", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            CbBiopoli.ForeColor = SystemColors.ControlLightLight;
+            CbBiopoli.Location = new Point(22, 473);
+            CbBiopoli.Name = "CbBiopoli";
+            CbBiopoli.Size = new Size(208, 23);
+            CbBiopoli.TabIndex = 1022;
+            CbBiopoli.Text = "Biopolímeros:                  ";
+            CbBiopoli.TextAlign = ContentAlignment.MiddleCenter;
+            CbBiopoli.UseVisualStyleBackColor = true;
+            CbBiopoli.CheckedChanged += CbBiopoli_CheckedChanged;
+            // 
+            // TbExpliTrata
+            // 
+            TbExpliTrata.BackColor = SystemColors.ControlLight;
+            TbExpliTrata.Cursor = Cursors.IBeam;
+            TbExpliTrata.Enabled = false;
+            TbExpliTrata.Font = new Font("Arial", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            TbExpliTrata.Location = new Point(238, 434);
+            TbExpliTrata.Margin = new Padding(5);
+            TbExpliTrata.Name = "TbExpliTrata";
+            TbExpliTrata.PlaceholderText = "Explique";
+            TbExpliTrata.Size = new Size(637, 26);
+            TbExpliTrata.TabIndex = 1021;
+            TbExpliTrata.Text = "Niega";
+            // 
+            // CbTrata
+            // 
+            CbTrata.AutoSize = true;
+            CbTrata.CheckAlign = ContentAlignment.MiddleRight;
+            CbTrata.Font = new Font("Arial", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            CbTrata.ForeColor = SystemColors.ControlLightLight;
+            CbTrata.Location = new Point(22, 437);
+            CbTrata.Name = "CbTrata";
+            CbTrata.Size = new Size(206, 23);
+            CbTrata.TabIndex = 1020;
+            CbTrata.Text = "Tratamientos estéticos:";
+            CbTrata.TextAlign = ContentAlignment.MiddleCenter;
+            CbTrata.UseVisualStyleBackColor = true;
+            CbTrata.CheckedChanged += CbTrata_CheckedChanged;
+            // 
+            // TbExpliCiru
+            // 
+            TbExpliCiru.BackColor = SystemColors.ControlLight;
+            TbExpliCiru.Cursor = Cursors.IBeam;
+            TbExpliCiru.Enabled = false;
+            TbExpliCiru.Font = new Font("Arial", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            TbExpliCiru.Location = new Point(238, 398);
+            TbExpliCiru.Margin = new Padding(5);
+            TbExpliCiru.Name = "TbExpliCiru";
+            TbExpliCiru.PlaceholderText = "Explique";
+            TbExpliCiru.Size = new Size(637, 26);
+            TbExpliCiru.TabIndex = 1019;
+            TbExpliCiru.Text = "Niega";
+            // 
+            // CbCiru
+            // 
+            CbCiru.AutoSize = true;
+            CbCiru.CheckAlign = ContentAlignment.MiddleRight;
+            CbCiru.Font = new Font("Arial", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            CbCiru.ForeColor = SystemColors.ControlLightLight;
+            CbCiru.Location = new Point(22, 401);
+            CbCiru.Name = "CbCiru";
+            CbCiru.Size = new Size(206, 23);
+            CbCiru.TabIndex = 1018;
+            CbCiru.Text = "Cirugias:                           ";
+            CbCiru.TextAlign = ContentAlignment.MiddleCenter;
+            CbCiru.UseVisualStyleBackColor = true;
+            CbCiru.CheckedChanged += CbCiru_CheckedChanged;
+            // 
+            // TbExpliAlergAli
+            // 
+            TbExpliAlergAli.BackColor = SystemColors.ControlLight;
+            TbExpliAlergAli.Cursor = Cursors.IBeam;
+            TbExpliAlergAli.Enabled = false;
+            TbExpliAlergAli.Font = new Font("Arial", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            TbExpliAlergAli.Location = new Point(238, 362);
+            TbExpliAlergAli.Margin = new Padding(5);
+            TbExpliAlergAli.Name = "TbExpliAlergAli";
+            TbExpliAlergAli.PlaceholderText = "Explique";
+            TbExpliAlergAli.Size = new Size(637, 26);
+            TbExpliAlergAli.TabIndex = 1017;
+            TbExpliAlergAli.Text = "Niega";
+            // 
+            // CbAlergiAli
+            // 
+            CbAlergiAli.AutoSize = true;
+            CbAlergiAli.CheckAlign = ContentAlignment.MiddleRight;
+            CbAlergiAli.Font = new Font("Arial", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            CbAlergiAli.ForeColor = SystemColors.ControlLightLight;
+            CbAlergiAli.Location = new Point(22, 365);
+            CbAlergiAli.Name = "CbAlergiAli";
+            CbAlergiAli.Size = new Size(206, 23);
+            CbAlergiAli.TabIndex = 1016;
+            CbAlergiAli.Text = "Alergia Alimentos:          ";
+            CbAlergiAli.TextAlign = ContentAlignment.MiddleCenter;
+            CbAlergiAli.UseVisualStyleBackColor = true;
+            CbAlergiAli.CheckedChanged += CbAlergiAli_CheckedChanged;
+            // 
+            // TbExplAlergiaMed
+            // 
+            TbExplAlergiaMed.BackColor = SystemColors.ControlLight;
+            TbExplAlergiaMed.Cursor = Cursors.IBeam;
+            TbExplAlergiaMed.Enabled = false;
+            TbExplAlergiaMed.Font = new Font("Arial", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            TbExplAlergiaMed.Location = new Point(238, 326);
+            TbExplAlergiaMed.Margin = new Padding(5);
+            TbExplAlergiaMed.Name = "TbExplAlergiaMed";
+            TbExplAlergiaMed.PlaceholderText = "Explique";
+            TbExplAlergiaMed.Size = new Size(637, 26);
+            TbExplAlergiaMed.TabIndex = 1015;
+            TbExplAlergiaMed.Text = "Niega";
+            // 
+            // CbAlegiaMedi
+            // 
+            CbAlegiaMedi.AutoSize = true;
+            CbAlegiaMedi.CheckAlign = ContentAlignment.MiddleRight;
+            CbAlegiaMedi.Font = new Font("Arial", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            CbAlegiaMedi.ForeColor = SystemColors.ControlLightLight;
+            CbAlegiaMedi.Location = new Point(22, 329);
+            CbAlegiaMedi.Name = "CbAlegiaMedi";
+            CbAlegiaMedi.Size = new Size(206, 23);
+            CbAlegiaMedi.TabIndex = 1014;
+            CbAlegiaMedi.Text = "Alergia Medicamentos: ";
+            CbAlegiaMedi.TextAlign = ContentAlignment.MiddleCenter;
+            CbAlegiaMedi.UseVisualStyleBackColor = true;
+            CbAlegiaMedi.CheckedChanged += CbAlegiaMedi_CheckedChanged;
+            // 
+            // tbExpliEnfer
+            // 
+            tbExpliEnfer.BackColor = SystemColors.ControlLight;
+            tbExpliEnfer.Cursor = Cursors.IBeam;
+            tbExpliEnfer.Enabled = false;
+            tbExpliEnfer.Font = new Font("Arial", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            tbExpliEnfer.Location = new Point(238, 290);
+            tbExpliEnfer.Margin = new Padding(5);
+            tbExpliEnfer.Name = "tbExpliEnfer";
+            tbExpliEnfer.PlaceholderText = "Explique";
+            tbExpliEnfer.Size = new Size(637, 26);
+            tbExpliEnfer.TabIndex = 1013;
+            tbExpliEnfer.Text = "Niega";
+            // 
+            // CbEnfermedad
+            // 
+            CbEnfermedad.AutoSize = true;
+            CbEnfermedad.CheckAlign = ContentAlignment.MiddleRight;
+            CbEnfermedad.Font = new Font("Arial", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            CbEnfermedad.ForeColor = SystemColors.ControlLightLight;
+            CbEnfermedad.Location = new Point(22, 293);
+            CbEnfermedad.Name = "CbEnfermedad";
+            CbEnfermedad.Size = new Size(208, 23);
+            CbEnfermedad.TabIndex = 1012;
+            CbEnfermedad.Text = "Enfermedad crónica:     ";
+            CbEnfermedad.TextAlign = ContentAlignment.MiddleCenter;
+            CbEnfermedad.UseVisualStyleBackColor = true;
+            CbEnfermedad.CheckedChanged += CbEnfermedad_CheckedChanged;
+            // 
+            // label4
+            // 
+            label4.AutoSize = true;
+            label4.Font = new Font("Arial", 25F, FontStyle.Bold);
+            label4.ForeColor = SystemColors.Control;
+            label4.Location = new Point(194, 231);
+            label4.Name = "label4";
+            label4.Size = new Size(541, 40);
+            label4.TabIndex = 1011;
+            label4.Text = "ANTECEDENTES PERSONALES";
+            // 
+            // TbApellido
+            // 
+            TbApellido.BackColor = SystemColors.ControlLight;
+            TbApellido.Cursor = Cursors.IBeam;
+            TbApellido.Font = new Font("Arial", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            TbApellido.Location = new Point(342, 82);
+            TbApellido.Margin = new Padding(5);
+            TbApellido.Name = "TbApellido";
+            TbApellido.PlaceholderText = "Apellidos";
+            TbApellido.Size = new Size(317, 26);
+            TbApellido.TabIndex = 2;
+            // 
+            // TbTele
+            // 
+            TbTele.BackColor = SystemColors.ControlLight;
+            TbTele.Cursor = Cursors.IBeam;
+            TbTele.Font = new Font("Arial", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            TbTele.Location = new Point(454, 116);
+            TbTele.Margin = new Padding(5);
+            TbTele.Name = "TbTele";
+            TbTele.PlaceholderText = "Telefono";
+            TbTele.Size = new Size(206, 26);
+            TbTele.TabIndex = 6;
+            TbTele.TextChanged += TbTele_TextChanged;
+            // 
+            // DtNacimiendo
+            // 
+            DtNacimiendo.CalendarMonthBackground = SystemColors.ControlLight;
+            DtNacimiendo.Cursor = Cursors.IBeam;
+            DtNacimiendo.Font = new Font("Arial", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            DtNacimiendo.Format = DateTimePickerFormat.Short;
+            DtNacimiendo.Location = new Point(22, 116);
+            DtNacimiendo.Name = "DtNacimiendo";
+            DtNacimiendo.RightToLeft = RightToLeft.Yes;
+            DtNacimiendo.Size = new Size(206, 26);
+            DtNacimiendo.TabIndex = 4;
+            DtNacimiendo.ValueChanged += DtNacimiendo_ValueChanged;
+            // 
+            // tbEdad
+            // 
+            tbEdad.BackColor = SystemColors.ControlLight;
+            tbEdad.Enabled = false;
+            tbEdad.Font = new Font("Arial", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            tbEdad.Location = new Point(238, 116);
+            tbEdad.Name = "tbEdad";
+            tbEdad.PlaceholderText = "Edad";
+            tbEdad.Size = new Size(206, 26);
+            tbEdad.TabIndex = 5;
+            // 
+            // label3
+            // 
+            label3.AutoSize = true;
+            label3.Font = new Font("Arial", 25F, FontStyle.Bold);
+            label3.ForeColor = SystemColors.Control;
+            label3.Location = new Point(275, 14);
+            label3.Name = "label3";
+            label3.Size = new Size(375, 40);
+            label3.TabIndex = 1010;
+            label3.Text = "DATOS PERSONALES";
             // 
             // PanelContrato
             // 
+            PanelContrato.BackColor = Color.Transparent;
             PanelContrato.Controls.Add(lblNombFirma);
             PanelContrato.Controls.Add(label2);
-            PanelContrato.Controls.Add(tbExamenFisi);
             PanelContrato.Controls.Add(label1);
-            PanelContrato.Location = new Point(24, 27);
+            PanelContrato.Location = new Point(3, 591);
             PanelContrato.Name = "PanelContrato";
-            PanelContrato.Size = new Size(906, 713);
+            PanelContrato.Size = new Size(38, 70);
             PanelContrato.TabIndex = 1011;
             // 
             // lblNombFirma
@@ -487,19 +537,6 @@
             label2.TabIndex = 9;
             label2.Text = resources.GetString("label2.Text");
             // 
-            // tbExamenFisi
-            // 
-            tbExamenFisi.BackColor = SystemColors.ControlLightLight;
-            tbExamenFisi.BorderStyle = BorderStyle.FixedSingle;
-            tbExamenFisi.Cursor = Cursors.IBeam;
-            tbExamenFisi.Font = new Font("Arial", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            tbExamenFisi.Location = new Point(26, 72);
-            tbExamenFisi.Margin = new Padding(5);
-            tbExamenFisi.Multiline = true;
-            tbExamenFisi.Name = "tbExamenFisi";
-            tbExamenFisi.Size = new Size(853, 201);
-            tbExamenFisi.TabIndex = 8;
-            // 
             // label1
             // 
             label1.AutoSize = true;
@@ -512,66 +549,76 @@
             label1.TabIndex = 4;
             label1.Text = "EXAMEN FISICO";
             // 
+            // pictureBox2
+            // 
+            pictureBox2.Image = (Image)resources.GetObject("pictureBox2.Image");
+            pictureBox2.Location = new Point(0, 18);
+            pictureBox2.Name = "pictureBox2";
+            pictureBox2.Size = new Size(934, 172);
+            pictureBox2.SizeMode = PictureBoxSizeMode.StretchImage;
+            pictureBox2.TabIndex = 1012;
+            pictureBox2.TabStop = false;
+            // 
             // UcPacientes
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             AutoScroll = true;
-            BackColor = Color.FromArgb(179, 222, 226);
+            BackColor = Color.Transparent;
+            BackgroundImage = (Image)resources.GetObject("$this.BackgroundImage");
+            Controls.Add(pictureBox2);
             Controls.Add(PanelContrato);
             Controls.Add(PanelFromulario);
-            Controls.Add(MsPrisical);
+            MaximumSize = new Size(955, 1000);
+            MinimumSize = new Size(955, 0);
             Name = "UcPacientes";
-            Size = new Size(964, 1176);
+            Size = new Size(938, 942);
             Load += UcPacientes_Load;
-            MsPrisical.ResumeLayout(false);
-            MsPrisical.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             PanelFromulario.ResumeLayout(false);
             PanelFromulario.PerformLayout();
             PanelContrato.ResumeLayout(false);
             PanelContrato.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
             ResumeLayout(false);
-            PerformLayout();
         }
 
         #endregion
-
-        private MenuStrip MsPrisical;
-        private ToolStripMenuItem MsItemPaci;
-        private ToolStripMenuItem MsItemPaciCrear;
-        private ToolStripMenuItem MsItemPaciModif;
-        private ToolStripMenuItem MsItemPaciBusca;
-        private ToolStripMenuItem MsItemPaciElimi;
-        private ToolStripMenuItem MsItemPaciSalir;
-        private Label lblDatosPerso;
-        private TextBox TbPrimNombre;
-        private TextBox tbSeguApe;
-        private TextBox tbPrimerApi;
-        private TextBox tbSeguNomb;
-        private MonthCalendar mcFechaNaci;
-        private TextBox tbEdad;
+        private TextBox tbNombre;
         private TextBox tb;
-        private TextBox tbTelef;
         private ComboBox cbSexo;
-        private TextBox tbFacial;
-        private TextBox Ambas;
-        private TextBox tbCorpo;
-        private Label lblAntecendentes;
-        private TextBox tbEnfermedad;
-        private TextBox tbAlergia;
-        private TextBox tbCirugia;
-        private TextBox tbTratamientosAn;
-        private Label lblHabitos;
-        private CheckedListBox cblHabitos;
-        private TextBox tbOcupacion;
         private TextBox tbCedula;
         private PictureBox pictureBox1;
         private Panel PanelFromulario;
         private Panel PanelContrato;
         private Label label1;
-        private TextBox tbExamenFisi;
         private Label label2;
         private Label lblNombFirma;
+        private PictureBox pictureBox2;
+        private Label label3;
+        private DateTimePicker DtNacimiendo;
+        private TextBox tbEdad;
+        private TextBox TbTele;
+        private TextBox TbApellido;
+        private Label label4;
+        private CheckBox CbEnfermedad;
+        private TextBox tbExpliEnfer;
+        private TextBox TbExplAlergiaMed;
+        private CheckBox CbAlegiaMedi;
+        private TextBox TbExpliAlergAli;
+        private CheckBox CbAlergiAli;
+        private TextBox TbExpliCiru;
+        private CheckBox CbCiru;
+        private TextBox tbExpliBio;
+        private CheckBox CbBiopoli;
+        private TextBox TbExpliTrata;
+        private CheckBox CbTrata;
+        private CheckBox CbTaba;
+        private CheckBox CbAlcho;
+        private CheckBox checkBox2;
+        private CheckBox CbOtro;
+        private Label label5;
+        private TextBox TbOtros;
+        private TextBox TxOcupa;
     }
 }
