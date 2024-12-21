@@ -1,4 +1,4 @@
-namespace Demo_aplicacion_angelica_V1
+namespace HitoriaClinica
 {
     internal static class Program
     {
@@ -8,8 +8,6 @@ namespace Demo_aplicacion_angelica_V1
         [STAThread]
         static void Main()
         {
-            // To customize application configuration such as set high DPI settings or default font,
-            // see https://aka.ms/applicationconfiguration.
             ApplicationConfiguration.Initialize();
             Application.Run(new FromInicio());
         }
