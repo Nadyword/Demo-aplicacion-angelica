@@ -5,7 +5,7 @@ CREATE TABLE clientes (
   apellido TEXT NOT NULL,
   cedula TEXT NOT NULL UNIQUE,
   telefono TEXT,
-  sexo INTEGER CHECK (sexo IN (1, 2, 3)), -- 1: Masculino, 2: Femenino, 3: Otro
+  sexo INTEGER,
   direccion TEXT,
   ocupacion TEXT
 );
@@ -40,19 +40,36 @@ CREATE TABLE examen_fisico (
 );
 
 -- Crear tabla de tratamientos
-CREATE TABLE tratamientos (
+CREATE TABLE "tratamientos" (
+  cliente_id	INTEGER,
+  id_trata	INTEGER,
+  descripcion	TEXT,
+  fecha"	TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+  FOREIGN KEY("cliente_id") REFERENCES "clientes"("id") ON DELETE CASCADE
+);
+
+-- Crear tabla de tratamientos (combo)
+CREATE TABLE tratamientos_combo (
   id INTEGER PRIMARY KEY AUTOINCREMENT,
-  cliente_id INTEGER,
   descripcion TEXT,
-  fecha TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-  FOREIGN KEY (cliente_id) REFERENCES clientes (id) ON DELETE CASCADE
+  orden INTEGER DEFAULT 0,
+  activo INTEGER DEFAULT 1
 );
 
 -- Crear tabla de historial de tratamiento
 CREATE TABLE historial_tratamiento (
-  id INTEGER PRIMARY KEY AUTOINCREMENT,
-  cliente_id INTEGER,
-  descripcion TEXT,
-  fecha DATE,
+  cliente_id INTEGER PRIMARY KEY,
+  descripcion TEXT
   FOREIGN KEY (cliente_id) REFERENCES clientes (id) ON DELETE CASCADE
 );
+
+-- Insertar registros de ejemplo en la tabla tratamientos
+INSERT INTO tratamientos_combo (descripcion, orden, activo) VALUES
+('Terapia física para rehabilitación de rodilla', 1, 1),
+('Sesión de acupuntura', 2, 1),
+('Tratamiento para hipertensión', 1, 1),
+('Revisión médica general', 2, 0),
+('Control de peso y nutrición', 1, 1),
+('Terapia psicológica', 2, 0),
+('Consulta dermatológica', 1, 1),
+('Tratamiento para alergias', 2, 1);

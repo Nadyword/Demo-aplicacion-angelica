@@ -42,7 +42,6 @@
             MinimumSize = new Size(950, 1038);
             Name = "FromInicio";
             Text = "Historial clínico Dra. Angélica Signorino";
-            Load += FromInicio_Load;
             ResumeLayout(false);
         }
 

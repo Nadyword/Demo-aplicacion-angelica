@@ -8,8 +8,15 @@ namespace HitoriaClinica
         [STAThread]
         static void Main()
         {
-            ApplicationConfiguration.Initialize();
-            Application.Run(new FromInicio());
+            try
+            {
+                ApplicationConfiguration.Initialize();
+                Application.Run(new FromInicio());
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show( "¡Algo salio mal! dandale un print a Samuel" + ex.Message,"Se produjo un error");
+            }
         }
     }
 }

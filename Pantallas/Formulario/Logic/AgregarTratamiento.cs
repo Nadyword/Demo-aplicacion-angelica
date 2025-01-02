@@ -1,15 +1,15 @@
-﻿using Microsoft.Data.Sqlite;
-using SQLite = HitoriaClinica.DataBase.Connection;
+﻿using HitoriaClinica.DataBase;
+using Microsoft.Data.Sqlite;
 
 namespace HitoriaClinica.Pantallas.Formulario.Logic;
 
-internal class AgregarTratamiento
+internal class AgregarTratamiento : Connection
 {
     public static List<Tratamiento> TraerTratamientos()
     {
         var tratamientos = new List<Tratamiento>();
 
-        using (SqliteDataReader reader = SQLite.ExecuteQuery("SELECT Id, Descripcion FROM Tratamientos"))
+        using (SqliteDataReader reader = Connection.ExecuteQuery("SELECT Id, Descripcion FROM tratamientos_combo WHERE activo = 1 ORDER BY orden"))
         {
             while (reader.Read())
             {

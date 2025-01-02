@@ -15,20 +15,5 @@ namespace HitoriaClinica
 
             this.Controls.Add(miUserControl);
         }
-
-        private void MsItemPaciCrear_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void MsItemPaciSalir_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void FromInicio_Load(object sender, EventArgs e)
-        {
-
-        }
     }
 }

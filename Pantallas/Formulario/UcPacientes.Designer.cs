@@ -30,7 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UcPacientes));
             tbNombre = new TextBox();
-            tb = new TextBox();
+            tbDireccion = new TextBox();
             cbSexo = new ComboBox();
             tbCedula = new TextBox();
             PbSiguiente = new PictureBox();
@@ -38,7 +38,7 @@
             TbAlch = new TextBox();
             TbFisica = new TextBox();
             TbTabaquis = new TextBox();
-            TxOcupa = new TextBox();
+            TbOcupa = new TextBox();
             TbOtros = new TextBox();
             CbTaba = new CheckBox();
             CbAlcho = new CheckBox();
@@ -64,6 +64,8 @@
             tbEdad = new TextBox();
             label3 = new Label();
             PanelContrato = new Panel();
+            PbBorrar = new PictureBox();
+            BbAtras = new PictureBox();
             label8 = new Label();
             PbAgregar = new PictureBox();
             label7 = new Label();
@@ -72,16 +74,18 @@
             CbTratamientos = new ComboBox();
             RtHistoTratamiento = new RichTextBox();
             label2 = new Label();
-            richTextBox1 = new RichTextBox();
+            RtExamenFisico = new RichTextBox();
             label1 = new Label();
-            BbAtras = new PictureBox();
             pictureBox2 = new PictureBox();
+            RbGuardar = new PictureBox();
             ((System.ComponentModel.ISupportInitialize)PbSiguiente).BeginInit();
             PanelFromulario.SuspendLayout();
             PanelContrato.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)PbAgregar).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)PbBorrar).BeginInit();
             ((System.ComponentModel.ISupportInitialize)BbAtras).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)PbAgregar).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)RbGuardar).BeginInit();
             SuspendLayout();
             // 
             // tbNombre
@@ -96,18 +100,18 @@
             tbNombre.Size = new Size(310, 26);
             tbNombre.TabIndex = 1;
             // 
-            // tb
+            // tbDireccion
             // 
-            tb.BackColor = SystemColors.ControlLight;
-            tb.Cursor = Cursors.IBeam;
-            tb.Font = new Font("Arial", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            tb.Location = new Point(22, 150);
-            tb.Margin = new Padding(5);
-            tb.Multiline = true;
-            tb.Name = "tb";
-            tb.PlaceholderText = "Dirección";
-            tb.Size = new Size(853, 46);
-            tb.TabIndex = 8;
+            tbDireccion.BackColor = SystemColors.ControlLight;
+            tbDireccion.Cursor = Cursors.IBeam;
+            tbDireccion.Font = new Font("Arial", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            tbDireccion.Location = new Point(22, 150);
+            tbDireccion.Margin = new Padding(5);
+            tbDireccion.Multiline = true;
+            tbDireccion.Name = "tbDireccion";
+            tbDireccion.PlaceholderText = "Dirección";
+            tbDireccion.Size = new Size(853, 46);
+            tbDireccion.TabIndex = 8;
             // 
             // cbSexo
             // 
@@ -151,7 +155,7 @@
             PanelFromulario.Controls.Add(TbAlch);
             PanelFromulario.Controls.Add(TbFisica);
             PanelFromulario.Controls.Add(TbTabaquis);
-            PanelFromulario.Controls.Add(TxOcupa);
+            PanelFromulario.Controls.Add(TbOcupa);
             PanelFromulario.Controls.Add(TbOtros);
             PanelFromulario.Controls.Add(CbTaba);
             PanelFromulario.Controls.Add(CbAlcho);
@@ -179,7 +183,7 @@
             PanelFromulario.Controls.Add(PbSiguiente);
             PanelFromulario.Controls.Add(tbCedula);
             PanelFromulario.Controls.Add(tbNombre);
-            PanelFromulario.Controls.Add(tb);
+            PanelFromulario.Controls.Add(tbDireccion);
             PanelFromulario.Controls.Add(cbSexo);
             PanelFromulario.Location = new Point(25, 193);
             PanelFromulario.Name = "PanelFromulario";
@@ -228,17 +232,17 @@
             TbTabaquis.TabIndex = 1031;
             TbTabaquis.Text = "Niega";
             // 
-            // TxOcupa
+            // TbOcupa
             // 
-            TxOcupa.BackColor = SystemColors.ControlLight;
-            TxOcupa.Cursor = Cursors.IBeam;
-            TxOcupa.Font = new Font("Arial", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            TxOcupa.Location = new Point(26, 696);
-            TxOcupa.Margin = new Padding(5);
-            TxOcupa.Name = "TxOcupa";
-            TxOcupa.PlaceholderText = "Ocupación";
-            TxOcupa.Size = new Size(720, 26);
-            TxOcupa.TabIndex = 1030;
+            TbOcupa.BackColor = SystemColors.ControlLight;
+            TbOcupa.Cursor = Cursors.IBeam;
+            TbOcupa.Font = new Font("Arial", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            TbOcupa.Location = new Point(26, 696);
+            TbOcupa.Margin = new Padding(5);
+            TbOcupa.Name = "TbOcupa";
+            TbOcupa.PlaceholderText = "Ocupación";
+            TbOcupa.Size = new Size(720, 26);
+            TbOcupa.TabIndex = 1030;
             // 
             // TbOtros
             // 
@@ -573,6 +577,9 @@
             // PanelContrato
             // 
             PanelContrato.BackColor = Color.Transparent;
+            PanelContrato.Controls.Add(RbGuardar);
+            PanelContrato.Controls.Add(PbBorrar);
+            PanelContrato.Controls.Add(BbAtras);
             PanelContrato.Controls.Add(label8);
             PanelContrato.Controls.Add(PbAgregar);
             PanelContrato.Controls.Add(label7);
@@ -581,13 +588,38 @@
             PanelContrato.Controls.Add(CbTratamientos);
             PanelContrato.Controls.Add(RtHistoTratamiento);
             PanelContrato.Controls.Add(label2);
-            PanelContrato.Controls.Add(richTextBox1);
+            PanelContrato.Controls.Add(RtExamenFisico);
             PanelContrato.Controls.Add(label1);
-            PanelContrato.Controls.Add(BbAtras);
             PanelContrato.Location = new Point(25, 193);
             PanelContrato.Name = "PanelContrato";
             PanelContrato.Size = new Size(895, 770);
             PanelContrato.TabIndex = 1011;
+            // 
+            // PbBorrar
+            // 
+            PbBorrar.Cursor = Cursors.Hand;
+            PbBorrar.ErrorImage = (Image)resources.GetObject("PbBorrar.ErrorImage");
+            PbBorrar.Image = (Image)resources.GetObject("PbBorrar.Image");
+            PbBorrar.Location = new Point(156, 285);
+            PbBorrar.Name = "PbBorrar";
+            PbBorrar.Size = new Size(102, 49);
+            PbBorrar.SizeMode = PictureBoxSizeMode.StretchImage;
+            PbBorrar.TabIndex = 1021;
+            PbBorrar.TabStop = false;
+            PbBorrar.Click += PbBorrar_Click;
+            // 
+            // BbAtras
+            // 
+            BbAtras.Cursor = Cursors.Hand;
+            BbAtras.ErrorImage = (Image)resources.GetObject("BbAtras.ErrorImage");
+            BbAtras.Image = (Image)resources.GetObject("BbAtras.Image");
+            BbAtras.Location = new Point(26, 638);
+            BbAtras.Name = "BbAtras";
+            BbAtras.Size = new Size(85, 80);
+            BbAtras.SizeMode = PictureBoxSizeMode.StretchImage;
+            BbAtras.TabIndex = 1010;
+            BbAtras.TabStop = false;
+            BbAtras.Click += BbAtras_Click;
             // 
             // label8
             // 
@@ -603,10 +635,11 @@
             // PbAgregar
             // 
             PbAgregar.Cursor = Cursors.Hand;
+            PbAgregar.ErrorImage = (Image)resources.GetObject("PbAgregar.ErrorImage");
             PbAgregar.Image = (Image)resources.GetObject("PbAgregar.Image");
-            PbAgregar.Location = new Point(75, 285);
+            PbAgregar.Location = new Point(48, 285);
             PbAgregar.Name = "PbAgregar";
-            PbAgregar.Size = new Size(114, 56);
+            PbAgregar.Size = new Size(102, 49);
             PbAgregar.SizeMode = PictureBoxSizeMode.StretchImage;
             PbAgregar.TabIndex = 1019;
             PbAgregar.TabStop = false;
@@ -653,7 +686,7 @@
             CbTratamientos.Items.AddRange(new object[] { "sdfg6454rty", "sd345e4tfgh", "fgsd23fsdfher5y23", "4asdfasdf", "4aer3sdfgghntyuj", "5erfhgdfhrtyfc", "tyrqwsdfgdfervc", "gdcvxbxgfhfgh" });
             CbTratamientos.Location = new Point(33, 256);
             CbTratamientos.Name = "CbTratamientos";
-            CbTratamientos.Size = new Size(209, 23);
+            CbTratamientos.Size = new Size(236, 23);
             CbTratamientos.TabIndex = 1015;
             // 
             // RtHistoTratamiento
@@ -678,15 +711,15 @@
             label2.TabIndex = 1013;
             label2.Text = "TRATAMIENTOS";
             // 
-            // richTextBox1
+            // RtExamenFisico
             // 
-            richTextBox1.BackColor = SystemColors.ControlLight;
-            richTextBox1.Font = new Font("Arial", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            richTextBox1.Location = new Point(33, 82);
-            richTextBox1.Name = "richTextBox1";
-            richTextBox1.Size = new Size(837, 52);
-            richTextBox1.TabIndex = 1012;
-            richTextBox1.Text = "";
+            RtExamenFisico.BackColor = SystemColors.ControlLight;
+            RtExamenFisico.Font = new Font("Arial", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            RtExamenFisico.Location = new Point(33, 82);
+            RtExamenFisico.Name = "RtExamenFisico";
+            RtExamenFisico.Size = new Size(837, 52);
+            RtExamenFisico.TabIndex = 1012;
+            RtExamenFisico.Text = "";
             // 
             // label1
             // 
@@ -699,18 +732,6 @@
             label1.TabIndex = 1011;
             label1.Text = "EXÁMEN FÍSICO";
             // 
-            // BbAtras
-            // 
-            BbAtras.Cursor = Cursors.Hand;
-            BbAtras.Image = (Image)resources.GetObject("BbAtras.Image");
-            BbAtras.Location = new Point(26, 638);
-            BbAtras.Name = "BbAtras";
-            BbAtras.Size = new Size(85, 80);
-            BbAtras.SizeMode = PictureBoxSizeMode.StretchImage;
-            BbAtras.TabIndex = 1010;
-            BbAtras.TabStop = false;
-            BbAtras.Click += BbAtras_Click;
-            // 
             // pictureBox2
             // 
             pictureBox2.Image = (Image)resources.GetObject("pictureBox2.Image");
@@ -720,6 +741,19 @@
             pictureBox2.SizeMode = PictureBoxSizeMode.StretchImage;
             pictureBox2.TabIndex = 1012;
             pictureBox2.TabStop = false;
+            // 
+            // RbGuardar
+            // 
+            RbGuardar.Cursor = Cursors.Hand;
+            RbGuardar.ErrorImage = (Image)resources.GetObject("RbGuardar.ErrorImage");
+            RbGuardar.Image = (Image)resources.GetObject("RbGuardar.Image");
+            RbGuardar.Location = new Point(721, 655);
+            RbGuardar.Name = "RbGuardar";
+            RbGuardar.Size = new Size(138, 63);
+            RbGuardar.SizeMode = PictureBoxSizeMode.StretchImage;
+            RbGuardar.TabIndex = 1022;
+            RbGuardar.TabStop = false;
+            RbGuardar.Click += RbGuardar_Click;
             // 
             // UcPacientes
             // 
@@ -740,15 +774,17 @@
             PanelFromulario.PerformLayout();
             PanelContrato.ResumeLayout(false);
             PanelContrato.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)PbAgregar).EndInit();
+            ((System.ComponentModel.ISupportInitialize)PbBorrar).EndInit();
             ((System.ComponentModel.ISupportInitialize)BbAtras).EndInit();
+            ((System.ComponentModel.ISupportInitialize)PbAgregar).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
+            ((System.ComponentModel.ISupportInitialize)RbGuardar).EndInit();
             ResumeLayout(false);
         }
 
         #endregion
         private TextBox tbNombre;
-        private TextBox tb;
+        private TextBox tbDireccion;
         private ComboBox cbSexo;
         private TextBox tbCedula;
         private PictureBox PbSiguiente;
@@ -779,14 +815,13 @@
         private CheckBox CbOtro;
         private Label label5;
         private TextBox TbOtros;
-        private TextBox TxOcupa;
+        private TextBox TbOcupa;
         private TextBox TbAlch;
         private TextBox TbFisica;
         private TextBox TbTabaquis;
         private PictureBox BbAtras;
         private Label label1;
-        private RichTextBox richTextBox1;
-        private RichTextBox RtHistoTratamiento;
+        private RichTextBox RtExamenFisico;
         private Label label2;
         private ComboBox CbTratamientos;
         private Label label7;
@@ -794,5 +829,8 @@
         private Label label6;
         private PictureBox PbAgregar;
         private Label label8;
+        private PictureBox PbBorrar;
+        private RichTextBox RtHistoTratamiento;
+        private PictureBox RbGuardar;
     }
 }

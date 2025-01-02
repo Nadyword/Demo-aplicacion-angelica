@@ -1,4 +1,5 @@
 ﻿using HitoriaClinica.Pantallas.Formulario.Logic;
+using HitoriaClinica.DataBase;
 using System.Globalization;
 using System.Text.RegularExpressions;
 
@@ -6,11 +7,13 @@ namespace HitoriaClinica;
 
 public partial class UcPacientes : UserControl
 {
+    private readonly List<string[,]> tratamientos = [];
+
     public UcPacientes()
     {
         InitializeComponent();
-        ShowPanels(1); 
-        RtHistoTratamiento.Text += RtHistoTratamiento.Text == "" ? "Fecha de tratamiento: " + DateTime.Now.ToString("D", new CultureInfo("es-ES")) : "\nFecha de tratamiento: " + DateTime.Now.ToString("D", new CultureInfo("es-ES"));
+        ShowPanels(1);
+        RtHistoTratamiento.Text += RtHistoTratamiento.Text == "" ? "*---Fecha de tratamiento: " + DateTime.Now.ToString("D", new CultureInfo("es-ES")) + "---*" : "\n*---Fecha de tratamiento: " + DateTime.Now.ToString("D", new CultureInfo("es-ES")) + "---*";
         cbSexo.SelectedIndex = 0;
         CbTratamientos.DataSource = AgregarTratamiento.TraerTratamientos();
         CbTratamientos.DisplayMember = "Descripcion";
@@ -118,15 +121,69 @@ public partial class UcPacientes : UserControl
 
     private void PbAgregar_Click(object sender, EventArgs e)
     {
-        if(CbTratamientos.SelectedIndex == 0)
+        if (CbTratamientos.SelectedIndex == 0)
         {
-            MessageBox.Show("Debe seleccionar un tratamiento", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            MessageBox.Show("Debe seleccionar un tratamiento", "No existe tratamiento", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             return;
         }
- 
-        RtHistoTratamiento.Text += "\n------->" + CbTratamientos.Text + "\n" + (RtDescriTrata.Text.Trim() == "" ? "Ninguna" : RtDescriTrata.Text.Trim());
 
-        CbTratamientos.SelectedIndex = 0;
-        RtDescriTrata.Text = "";
+        RtHistoTratamiento.Text += "\n------->" + CbTratamientos.Text + "\n" + (RtDescriTrata.Text.Trim() == "" ? "Ninguna\n" : RtDescriTrata.Text.Trim() + "\n");
+
+        tratamientos.Add(new string[,] { { CbTratamientos?.SelectedValue?.ToString() ?? "0", RtDescriTrata.Text.Trim() } });
+
+        if (CbTratamientos != null)
+        {
+            CbTratamientos.SelectedIndex = 0;
+            RtDescriTrata.Text = "";
+        }
+    }
+
+    private void PbBorrar_Click(object sender, EventArgs e)
+    {
+        int IndexFecha = RtHistoTratamiento.Text.LastIndexOf("---*");
+        int IndexTratamiento = RtHistoTratamiento.Text.LastIndexOf("------->") - 1;
+
+        if (IndexFecha < IndexTratamiento)
+        {
+            RtHistoTratamiento.Text = RtHistoTratamiento.Text[..IndexTratamiento];
+        }
+
+        if (tratamientos.Count > 0)
+        {
+            tratamientos.RemoveAt(tratamientos.Count - 1);
+        }
+    }
+
+    private void RbGuardar_Click(object sender, EventArgs e)
+    {
+
+        if (tbCedula.Text.Trim() == "")
+        {
+            MessageBox.Show("El capo cedula es obligatorio", "Cedula obligatorio", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            return;
+        }
+
+        if (Consult.ExistClient(tbCedula.Text).HasRows)
+        {
+            MessageBox.Show("Ya existe esta cedula", "Cedula existente", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            return;
+        }
+        else
+        {
+            Insert.InsertClient(tbNombre.Text.Trim(), TbApellido.Text.Trim(), tbCedula.Text.Trim(), TbTele.Text.Trim(), cbSexo.SelectedIndex, tbDireccion.Text.Trim(), TbOcupa.Text.Trim());
+            int id = Consult.IdClient(tbCedula.Text.Trim());
+            Insert.InsertAntecedente(id, tbExpliEnfer.Text.Trim(), TbExplAlergiaMed.Text.Trim(), TbExpliAlergAli.Text.Trim(), TbExpliCiru.Text.Trim(), TbExpliTrata.Text.Trim(), tbExpliBio.Text.Trim());
+            Insert.InsertHabitoPsicobio(id, TbTabaquis.Text.Trim(), TbFisica.Text.Trim(), TbAlch.Text.Trim(), TbOtros.Text.Trim());
+            Insert.InsertExamenFisico(id, RtExamenFisico.Text.Trim());
+            Insert.InsertHistorialTratamiento(id, RtHistoTratamiento.Text.Trim());
+
+            for (int i = 0; i < tratamientos.Count; i++)
+            {
+                Insert.InsertTratamiento(id, tratamientos[i][0, 0], tratamientos[i][0, 1]);
+            }
+
+            MessageBox.Show("¡Guardado!", "Registro creado", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            return;
+        }
     }
 }

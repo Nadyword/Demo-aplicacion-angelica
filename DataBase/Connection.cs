@@ -11,7 +11,7 @@ namespace HitoriaClinica.DataBase
             return connection;
         }
 
-        public static void ExecuteNonQuery(string sql)
+        protected static void ExecuteNonQuery(string sql)
         {
             using var connection = GetConnection();
             using var command = new SqliteCommand(sql, connection);
@@ -19,7 +19,7 @@ namespace HitoriaClinica.DataBase
             connection.Close();
         }
 
-        public static SqliteDataReader ExecuteQuery(string sql)
+        protected static SqliteDataReader ExecuteQuery(string sql)
         {
             var connection = GetConnection();
             var command = new SqliteCommand(sql, connection);
