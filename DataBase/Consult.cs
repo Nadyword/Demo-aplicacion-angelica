@@ -17,6 +17,5 @@ namespace HitoriaClinica.DataBase
             reader.Close();
             return id;
         }
-
     }
 }

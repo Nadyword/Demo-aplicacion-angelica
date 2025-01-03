@@ -8,32 +8,53 @@ namespace HitoriaClinica;
 public partial class UcPacientes : UserControl
 {
     private readonly List<string[,]> tratamientos = [];
+    private int Estado = 1;
 
     public UcPacientes()
     {
         InitializeComponent();
+        PreloadData();
         ShowPanels(1);
         RtHistoTratamiento.Text += RtHistoTratamiento.Text == "" ? "*---Fecha de tratamiento: " + DateTime.Now.ToString("D", new CultureInfo("es-ES")) + "---*" : "\n*---Fecha de tratamiento: " + DateTime.Now.ToString("D", new CultureInfo("es-ES")) + "---*";
         cbSexo.SelectedIndex = 0;
+    }
+
+    private void PreloadData()
+    {
+        PanelFromulario1.Visible = false;
+        PanelFromulario2.Visible = false;
+        PanelFromulario3.Visible = false;
         CbTratamientos.DataSource = AgregarTratamiento.TraerTratamientos();
         CbTratamientos.DisplayMember = "Descripcion";
         CbTratamientos.ValueMember = "Id";
         CbTratamientos.SelectedIndex = 0;
+        GvConsulta.DataSource = TraerClientes.TraerAllClientes();
+        GvConsulta.Columns[0].Visible = false;
     }
 
     private void ShowPanels(int Panel)
     {
+        SuspendLayout();
         switch (Panel)
         {
             case 1:
-                PanelFromulario.Visible = true;
-                PanelContrato.Visible = false;
+                PanelFromulario1.Visible = true;
+                PanelFromulario2.Visible = false;
+                PanelFromulario3.Visible = false;
                 break;
             case 2:
-                PanelFromulario.Visible = false;
-                PanelContrato.Visible = true;
+                PanelFromulario1.Visible = false;
+                PanelFromulario2.Visible = true;
+                PanelFromulario3.Visible = false;
+                break;
+            case 3:
+                PanelFromulario1.Visible = false;
+                PanelFromulario2.Visible = false;
+                PanelFromulario3.Visible = true;
                 break;
         }
+
+        ResumeLayout();
     }
 
     private void DtNacimiendo_ValueChanged(object? sender, EventArgs e)
@@ -156,34 +177,76 @@ public partial class UcPacientes : UserControl
 
     private void RbGuardar_Click(object sender, EventArgs e)
     {
-
-        if (tbCedula.Text.Trim() == "")
+        if (Estado == 1)
         {
-            MessageBox.Show("El capo cedula es obligatorio", "Cedula obligatorio", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            return;
-        }
-
-        if (Consult.ExistClient(tbCedula.Text).HasRows)
-        {
-            MessageBox.Show("Ya existe esta cedula", "Cedula existente", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            return;
-        }
-        else
-        {
-            Insert.InsertClient(tbNombre.Text.Trim(), TbApellido.Text.Trim(), tbCedula.Text.Trim(), TbTele.Text.Trim(), cbSexo.SelectedIndex, tbDireccion.Text.Trim(), TbOcupa.Text.Trim());
-            int id = Consult.IdClient(tbCedula.Text.Trim());
-            Insert.InsertAntecedente(id, tbExpliEnfer.Text.Trim(), TbExplAlergiaMed.Text.Trim(), TbExpliAlergAli.Text.Trim(), TbExpliCiru.Text.Trim(), TbExpliTrata.Text.Trim(), tbExpliBio.Text.Trim());
-            Insert.InsertHabitoPsicobio(id, TbTabaquis.Text.Trim(), TbFisica.Text.Trim(), TbAlch.Text.Trim(), TbOtros.Text.Trim());
-            Insert.InsertExamenFisico(id, RtExamenFisico.Text.Trim());
-            Insert.InsertHistorialTratamiento(id, RtHistoTratamiento.Text.Trim());
-
-            for (int i = 0; i < tratamientos.Count; i++)
+            if (tbCedula.Text.Trim() == "")
             {
-                Insert.InsertTratamiento(id, tratamientos[i][0, 0], tratamientos[i][0, 1]);
+                MessageBox.Show("El capo cedula es obligatorio", "Cedula obligatorio", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
             }
 
-            MessageBox.Show("¡Guardado!", "Registro creado", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            return;
+            if (Consult.ExistClient(tbCedula.Text).HasRows)
+            {
+                MessageBox.Show("Ya existe esta cedula", "Cedula existente", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+            else
+            {
+                Insert.InsertClient(tbNombre.Text.Trim(), TbApellido.Text.Trim(), tbCedula.Text.Trim(), TbTele.Text.Trim(), cbSexo.SelectedIndex, tbDireccion.Text.Trim(), TbOcupa.Text.Trim());
+                int id = Consult.IdClient(tbCedula.Text.Trim());
+                Insert.InsertAntecedente(id, tbExpliEnfer.Text.Trim(), TbExplAlergiaMed.Text.Trim(), TbExpliAlergAli.Text.Trim(), TbExpliCiru.Text.Trim(), TbExpliTrata.Text.Trim(), tbExpliBio.Text.Trim());
+                Insert.InsertHabitoPsicobio(id, TbTabaquis.Text.Trim(), TbFisica.Text.Trim(), TbAlch.Text.Trim(), TbOtros.Text.Trim());
+                Insert.InsertExamenFisico(id, RtExamenFisico.Text.Trim());
+                Insert.InsertHistorialTratamiento(id, RtHistoTratamiento.Text.Trim());
+
+                for (int i = 0; i < tratamientos.Count; i++)
+                {
+                    Insert.InsertTratamiento(id, tratamientos[i][0, 0], tratamientos[i][0, 1]);
+                }
+
+                MessageBox.Show("¡Guardado!", "Registro creado", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+        }
+    }
+
+    private void ToolStripMenuItemAgregar_Click(object sender, EventArgs e)
+    {
+        ShowPanels(1);
+        Estado = 1;
+        Limpiar();
+    }
+
+    private void Limpiar()
+    {
+        cbSexo.SelectedIndex = 0;
+        DtNacimiendo.Text = DateTime.Now.ToString("D", new CultureInfo("es-ES"));
+        CbEnfermedad.Checked = CbAlegiaMedi.Checked = CbAlergiAli.Checked = CbCiru.Checked = CbTrata.Checked =
+        CbBiopoli.Checked = CbOtro.Checked = CbAlcho.Checked = CbFisica.Checked = CbTaba.Checked = false;
+
+        tbNombre.Text = tbCedula.Text = TbApellido.Text = TbTele.Text = tbDireccion.Text = TbOcupa.Text = tbEdad.Text =
+        tbExpliEnfer.Text = TbExplAlergiaMed.Text = TbExpliAlergAli.Text = TbExpliCiru.Text = TbExpliTrata.Text = tbExpliBio.Text =
+        TbTabaquis.Text = TbFisica.Text = TbAlch.Text = TbOtros.Text = RtExamenFisico.Text = RtHistoTratamiento.Text = RtDescriTrata.Text = ""; tbNombre.Text = tbCedula.Text = TbApellido.Text = TbTele.Text = tbDireccion.Text = TbOcupa.Text = tbEdad.Text =
+        tbExpliEnfer.Text = TbExplAlergiaMed.Text = TbExpliAlergAli.Text = TbExpliCiru.Text = TbExpliTrata.Text = tbExpliBio.Text =
+        TbTabaquis.Text = TbFisica.Text = TbAlch.Text = TbOtros.Text = RtExamenFisico.Text = RtHistoTratamiento.Text = RtDescriTrata.Text = "";
+    }
+
+    private void ToolStripMenuItemConsultar_Click(object sender, EventArgs e)
+    {
+        Estado = 2;
+        ShowPanels(3);
+    }
+
+    private void GvConsulta_CellContentClick(object sender, DataGridViewCellEventArgs e)
+    {
+        
+    }
+
+    private void TbBuscar_KeyDown(object sender, KeyEventArgs e)
+    {
+        if (e.KeyCode == Keys.Enter)
+        {
+            GvConsulta.DataSource = TraerClientes.TraerCliente(TbBuscar.Text.Trim());
         }
     }
 }

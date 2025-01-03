@@ -34,7 +34,7 @@
             cbSexo = new ComboBox();
             tbCedula = new TextBox();
             PbSiguiente = new PictureBox();
-            PanelFromulario = new Panel();
+            PanelFromulario1 = new Panel();
             TbAlch = new TextBox();
             TbFisica = new TextBox();
             TbTabaquis = new TextBox();
@@ -63,7 +63,8 @@
             DtNacimiendo = new DateTimePicker();
             tbEdad = new TextBox();
             label3 = new Label();
-            PanelContrato = new Panel();
+            PanelFromulario2 = new Panel();
+            RbGuardar = new PictureBox();
             PbBorrar = new PictureBox();
             BbAtras = new PictureBox();
             label8 = new Label();
@@ -77,15 +78,24 @@
             RtExamenFisico = new RichTextBox();
             label1 = new Label();
             pictureBox2 = new PictureBox();
-            RbGuardar = new PictureBox();
+            menuStrip1 = new MenuStrip();
+            TsMPacientes = new ToolStripMenuItem();
+            toolStripMenuItemAgregar = new ToolStripMenuItem();
+            toolStripMenuItemBuscar = new ToolStripMenuItem();
+            PanelFromulario3 = new Panel();
+            GvConsulta = new DataGridView();
+            TbBuscar = new TextBox();
             ((System.ComponentModel.ISupportInitialize)PbSiguiente).BeginInit();
-            PanelFromulario.SuspendLayout();
-            PanelContrato.SuspendLayout();
+            PanelFromulario1.SuspendLayout();
+            PanelFromulario2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)RbGuardar).BeginInit();
             ((System.ComponentModel.ISupportInitialize)PbBorrar).BeginInit();
             ((System.ComponentModel.ISupportInitialize)BbAtras).BeginInit();
             ((System.ComponentModel.ISupportInitialize)PbAgregar).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)RbGuardar).BeginInit();
+            menuStrip1.SuspendLayout();
+            PanelFromulario3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)GvConsulta).BeginInit();
             SuspendLayout();
             // 
             // tbNombre
@@ -93,7 +103,7 @@
             tbNombre.BackColor = SystemColors.ControlLight;
             tbNombre.Cursor = Cursors.IBeam;
             tbNombre.Font = new Font("Arial", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            tbNombre.Location = new Point(22, 82);
+            tbNombre.Location = new Point(22, 45);
             tbNombre.Margin = new Padding(5);
             tbNombre.Name = "tbNombre";
             tbNombre.PlaceholderText = "Nombres";
@@ -105,7 +115,7 @@
             tbDireccion.BackColor = SystemColors.ControlLight;
             tbDireccion.Cursor = Cursors.IBeam;
             tbDireccion.Font = new Font("Arial", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            tbDireccion.Location = new Point(22, 150);
+            tbDireccion.Location = new Point(22, 113);
             tbDireccion.Margin = new Padding(5);
             tbDireccion.Multiline = true;
             tbDireccion.Name = "tbDireccion";
@@ -120,7 +130,7 @@
             cbSexo.Font = new Font("Arial", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             cbSexo.FormattingEnabled = true;
             cbSexo.Items.AddRange(new object[] { "< Sexo >", "Masculino", "Femenino" });
-            cbSexo.Location = new Point(669, 116);
+            cbSexo.Location = new Point(669, 79);
             cbSexo.Name = "cbSexo";
             cbSexo.Size = new Size(206, 26);
             cbSexo.TabIndex = 7;
@@ -130,7 +140,7 @@
             tbCedula.BackColor = SystemColors.ControlLight;
             tbCedula.Cursor = Cursors.IBeam;
             tbCedula.Font = new Font("Arial", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            tbCedula.Location = new Point(669, 82);
+            tbCedula.Location = new Point(669, 45);
             tbCedula.Margin = new Padding(5);
             tbCedula.Name = "tbCedula";
             tbCedula.PlaceholderText = "Cédula";
@@ -141,7 +151,7 @@
             // 
             PbSiguiente.Cursor = Cursors.Hand;
             PbSiguiente.Image = (Image)resources.GetObject("PbSiguiente.Image");
-            PbSiguiente.Location = new Point(785, 669);
+            PbSiguiente.Location = new Point(786, 629);
             PbSiguiente.Name = "PbSiguiente";
             PbSiguiente.Size = new Size(85, 80);
             PbSiguiente.SizeMode = PictureBoxSizeMode.StretchImage;
@@ -149,46 +159,46 @@
             PbSiguiente.TabStop = false;
             PbSiguiente.Click += PbSiguiente_Click;
             // 
-            // PanelFromulario
+            // PanelFromulario1
             // 
-            PanelFromulario.BackColor = Color.Transparent;
-            PanelFromulario.Controls.Add(TbAlch);
-            PanelFromulario.Controls.Add(TbFisica);
-            PanelFromulario.Controls.Add(TbTabaquis);
-            PanelFromulario.Controls.Add(TbOcupa);
-            PanelFromulario.Controls.Add(TbOtros);
-            PanelFromulario.Controls.Add(CbTaba);
-            PanelFromulario.Controls.Add(CbAlcho);
-            PanelFromulario.Controls.Add(CbFisica);
-            PanelFromulario.Controls.Add(CbOtro);
-            PanelFromulario.Controls.Add(label5);
-            PanelFromulario.Controls.Add(tbExpliBio);
-            PanelFromulario.Controls.Add(CbBiopoli);
-            PanelFromulario.Controls.Add(TbExpliTrata);
-            PanelFromulario.Controls.Add(CbTrata);
-            PanelFromulario.Controls.Add(TbExpliCiru);
-            PanelFromulario.Controls.Add(CbCiru);
-            PanelFromulario.Controls.Add(TbExpliAlergAli);
-            PanelFromulario.Controls.Add(CbAlergiAli);
-            PanelFromulario.Controls.Add(TbExplAlergiaMed);
-            PanelFromulario.Controls.Add(CbAlegiaMedi);
-            PanelFromulario.Controls.Add(tbExpliEnfer);
-            PanelFromulario.Controls.Add(CbEnfermedad);
-            PanelFromulario.Controls.Add(label4);
-            PanelFromulario.Controls.Add(TbApellido);
-            PanelFromulario.Controls.Add(TbTele);
-            PanelFromulario.Controls.Add(DtNacimiendo);
-            PanelFromulario.Controls.Add(tbEdad);
-            PanelFromulario.Controls.Add(label3);
-            PanelFromulario.Controls.Add(PbSiguiente);
-            PanelFromulario.Controls.Add(tbCedula);
-            PanelFromulario.Controls.Add(tbNombre);
-            PanelFromulario.Controls.Add(tbDireccion);
-            PanelFromulario.Controls.Add(cbSexo);
-            PanelFromulario.Location = new Point(25, 193);
-            PanelFromulario.Name = "PanelFromulario";
-            PanelFromulario.Size = new Size(895, 770);
-            PanelFromulario.TabIndex = 1010;
+            PanelFromulario1.BackColor = Color.Transparent;
+            PanelFromulario1.Controls.Add(TbAlch);
+            PanelFromulario1.Controls.Add(TbFisica);
+            PanelFromulario1.Controls.Add(TbTabaquis);
+            PanelFromulario1.Controls.Add(TbOcupa);
+            PanelFromulario1.Controls.Add(TbOtros);
+            PanelFromulario1.Controls.Add(CbTaba);
+            PanelFromulario1.Controls.Add(CbAlcho);
+            PanelFromulario1.Controls.Add(CbFisica);
+            PanelFromulario1.Controls.Add(CbOtro);
+            PanelFromulario1.Controls.Add(label5);
+            PanelFromulario1.Controls.Add(tbExpliBio);
+            PanelFromulario1.Controls.Add(CbBiopoli);
+            PanelFromulario1.Controls.Add(TbExpliTrata);
+            PanelFromulario1.Controls.Add(CbTrata);
+            PanelFromulario1.Controls.Add(TbExpliCiru);
+            PanelFromulario1.Controls.Add(CbCiru);
+            PanelFromulario1.Controls.Add(TbExpliAlergAli);
+            PanelFromulario1.Controls.Add(CbAlergiAli);
+            PanelFromulario1.Controls.Add(TbExplAlergiaMed);
+            PanelFromulario1.Controls.Add(CbAlegiaMedi);
+            PanelFromulario1.Controls.Add(tbExpliEnfer);
+            PanelFromulario1.Controls.Add(CbEnfermedad);
+            PanelFromulario1.Controls.Add(label4);
+            PanelFromulario1.Controls.Add(TbApellido);
+            PanelFromulario1.Controls.Add(TbTele);
+            PanelFromulario1.Controls.Add(DtNacimiendo);
+            PanelFromulario1.Controls.Add(tbEdad);
+            PanelFromulario1.Controls.Add(label3);
+            PanelFromulario1.Controls.Add(PbSiguiente);
+            PanelFromulario1.Controls.Add(tbCedula);
+            PanelFromulario1.Controls.Add(tbNombre);
+            PanelFromulario1.Controls.Add(tbDireccion);
+            PanelFromulario1.Controls.Add(cbSexo);
+            PanelFromulario1.Location = new Point(22, 246);
+            PanelFromulario1.Name = "PanelFromulario1";
+            PanelFromulario1.Size = new Size(898, 708);
+            PanelFromulario1.TabIndex = 1010;
             // 
             // TbAlch
             // 
@@ -196,7 +206,7 @@
             TbAlch.Cursor = Cursors.IBeam;
             TbAlch.Enabled = false;
             TbAlch.Font = new Font("Arial", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            TbAlch.Location = new Point(189, 608);
+            TbAlch.Location = new Point(190, 568);
             TbAlch.Margin = new Padding(5);
             TbAlch.Name = "TbAlch";
             TbAlch.PlaceholderText = "Explique";
@@ -210,7 +220,7 @@
             TbFisica.Cursor = Cursors.IBeam;
             TbFisica.Enabled = false;
             TbFisica.Font = new Font("Arial", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            TbFisica.Location = new Point(189, 579);
+            TbFisica.Location = new Point(190, 539);
             TbFisica.Margin = new Padding(5);
             TbFisica.Name = "TbFisica";
             TbFisica.PlaceholderText = "Explique";
@@ -224,7 +234,7 @@
             TbTabaquis.Cursor = Cursors.IBeam;
             TbTabaquis.Enabled = false;
             TbTabaquis.Font = new Font("Arial", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            TbTabaquis.Location = new Point(189, 550);
+            TbTabaquis.Location = new Point(190, 510);
             TbTabaquis.Margin = new Padding(5);
             TbTabaquis.Name = "TbTabaquis";
             TbTabaquis.PlaceholderText = "Explique";
@@ -237,7 +247,7 @@
             TbOcupa.BackColor = SystemColors.ControlLight;
             TbOcupa.Cursor = Cursors.IBeam;
             TbOcupa.Font = new Font("Arial", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            TbOcupa.Location = new Point(26, 696);
+            TbOcupa.Location = new Point(27, 656);
             TbOcupa.Margin = new Padding(5);
             TbOcupa.Name = "TbOcupa";
             TbOcupa.PlaceholderText = "Ocupación";
@@ -250,7 +260,7 @@
             TbOtros.Cursor = Cursors.IBeam;
             TbOtros.Enabled = false;
             TbOtros.Font = new Font("Arial", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            TbOtros.Location = new Point(189, 638);
+            TbOtros.Location = new Point(190, 598);
             TbOtros.Margin = new Padding(5);
             TbOtros.Name = "TbOtros";
             TbOtros.PlaceholderText = "Explique";
@@ -264,7 +274,7 @@
             CbTaba.CheckAlign = ContentAlignment.MiddleRight;
             CbTaba.Font = new Font("Arial", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             CbTaba.ForeColor = SystemColors.ControlLightLight;
-            CbTaba.Location = new Point(22, 553);
+            CbTaba.Location = new Point(23, 513);
             CbTaba.Name = "CbTaba";
             CbTaba.Size = new Size(156, 23);
             CbTaba.TabIndex = 1028;
@@ -279,7 +289,7 @@
             CbAlcho.CheckAlign = ContentAlignment.MiddleRight;
             CbAlcho.Font = new Font("Arial", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             CbAlcho.ForeColor = SystemColors.ControlLightLight;
-            CbAlcho.Location = new Point(26, 611);
+            CbAlcho.Location = new Point(27, 571);
             CbAlcho.Name = "CbAlcho";
             CbAlcho.Size = new Size(152, 23);
             CbAlcho.TabIndex = 1027;
@@ -294,7 +304,7 @@
             CbFisica.CheckAlign = ContentAlignment.MiddleRight;
             CbFisica.Font = new Font("Arial", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             CbFisica.ForeColor = SystemColors.ControlLightLight;
-            CbFisica.Location = new Point(26, 582);
+            CbFisica.Location = new Point(27, 542);
             CbFisica.Name = "CbFisica";
             CbFisica.Size = new Size(154, 23);
             CbFisica.TabIndex = 1026;
@@ -309,7 +319,7 @@
             CbOtro.CheckAlign = ContentAlignment.MiddleRight;
             CbOtro.Font = new Font("Arial", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             CbOtro.ForeColor = SystemColors.ControlLightLight;
-            CbOtro.Location = new Point(26, 640);
+            CbOtro.Location = new Point(27, 600);
             CbOtro.Name = "CbOtro";
             CbOtro.Size = new Size(151, 23);
             CbOtro.TabIndex = 1025;
@@ -323,7 +333,7 @@
             label5.AutoSize = true;
             label5.Font = new Font("Arial", 25F, FontStyle.Bold);
             label5.ForeColor = SystemColors.Control;
-            label5.Location = new Point(216, 505);
+            label5.Location = new Point(217, 465);
             label5.Name = "label5";
             label5.Size = new Size(499, 40);
             label5.TabIndex = 1024;
@@ -335,7 +345,7 @@
             tbExpliBio.Cursor = Cursors.IBeam;
             tbExpliBio.Enabled = false;
             tbExpliBio.Font = new Font("Arial", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            tbExpliBio.Location = new Point(233, 452);
+            tbExpliBio.Location = new Point(233, 415);
             tbExpliBio.Margin = new Padding(5);
             tbExpliBio.Name = "tbExpliBio";
             tbExpliBio.PlaceholderText = "Explique";
@@ -349,7 +359,7 @@
             CbBiopoli.CheckAlign = ContentAlignment.MiddleRight;
             CbBiopoli.Font = new Font("Arial", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             CbBiopoli.ForeColor = SystemColors.ControlLightLight;
-            CbBiopoli.Location = new Point(17, 455);
+            CbBiopoli.Location = new Point(17, 418);
             CbBiopoli.Name = "CbBiopoli";
             CbBiopoli.Size = new Size(208, 23);
             CbBiopoli.TabIndex = 1022;
@@ -364,7 +374,7 @@
             TbExpliTrata.Cursor = Cursors.IBeam;
             TbExpliTrata.Enabled = false;
             TbExpliTrata.Font = new Font("Arial", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            TbExpliTrata.Location = new Point(233, 416);
+            TbExpliTrata.Location = new Point(233, 379);
             TbExpliTrata.Margin = new Padding(5);
             TbExpliTrata.Name = "TbExpliTrata";
             TbExpliTrata.PlaceholderText = "Explique";
@@ -378,7 +388,7 @@
             CbTrata.CheckAlign = ContentAlignment.MiddleRight;
             CbTrata.Font = new Font("Arial", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             CbTrata.ForeColor = SystemColors.ControlLightLight;
-            CbTrata.Location = new Point(17, 419);
+            CbTrata.Location = new Point(17, 382);
             CbTrata.Name = "CbTrata";
             CbTrata.Size = new Size(206, 23);
             CbTrata.TabIndex = 1020;
@@ -393,7 +403,7 @@
             TbExpliCiru.Cursor = Cursors.IBeam;
             TbExpliCiru.Enabled = false;
             TbExpliCiru.Font = new Font("Arial", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            TbExpliCiru.Location = new Point(233, 380);
+            TbExpliCiru.Location = new Point(233, 343);
             TbExpliCiru.Margin = new Padding(5);
             TbExpliCiru.Name = "TbExpliCiru";
             TbExpliCiru.PlaceholderText = "Explique";
@@ -407,7 +417,7 @@
             CbCiru.CheckAlign = ContentAlignment.MiddleRight;
             CbCiru.Font = new Font("Arial", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             CbCiru.ForeColor = SystemColors.ControlLightLight;
-            CbCiru.Location = new Point(17, 383);
+            CbCiru.Location = new Point(17, 346);
             CbCiru.Name = "CbCiru";
             CbCiru.Size = new Size(206, 23);
             CbCiru.TabIndex = 1018;
@@ -422,7 +432,7 @@
             TbExpliAlergAli.Cursor = Cursors.IBeam;
             TbExpliAlergAli.Enabled = false;
             TbExpliAlergAli.Font = new Font("Arial", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            TbExpliAlergAli.Location = new Point(233, 344);
+            TbExpliAlergAli.Location = new Point(233, 307);
             TbExpliAlergAli.Margin = new Padding(5);
             TbExpliAlergAli.Name = "TbExpliAlergAli";
             TbExpliAlergAli.PlaceholderText = "Explique";
@@ -436,7 +446,7 @@
             CbAlergiAli.CheckAlign = ContentAlignment.MiddleRight;
             CbAlergiAli.Font = new Font("Arial", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             CbAlergiAli.ForeColor = SystemColors.ControlLightLight;
-            CbAlergiAli.Location = new Point(17, 347);
+            CbAlergiAli.Location = new Point(17, 310);
             CbAlergiAli.Name = "CbAlergiAli";
             CbAlergiAli.Size = new Size(206, 23);
             CbAlergiAli.TabIndex = 1016;
@@ -451,7 +461,7 @@
             TbExplAlergiaMed.Cursor = Cursors.IBeam;
             TbExplAlergiaMed.Enabled = false;
             TbExplAlergiaMed.Font = new Font("Arial", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            TbExplAlergiaMed.Location = new Point(233, 308);
+            TbExplAlergiaMed.Location = new Point(233, 271);
             TbExplAlergiaMed.Margin = new Padding(5);
             TbExplAlergiaMed.Name = "TbExplAlergiaMed";
             TbExplAlergiaMed.PlaceholderText = "Explique";
@@ -465,7 +475,7 @@
             CbAlegiaMedi.CheckAlign = ContentAlignment.MiddleRight;
             CbAlegiaMedi.Font = new Font("Arial", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             CbAlegiaMedi.ForeColor = SystemColors.ControlLightLight;
-            CbAlegiaMedi.Location = new Point(17, 311);
+            CbAlegiaMedi.Location = new Point(17, 274);
             CbAlegiaMedi.Name = "CbAlegiaMedi";
             CbAlegiaMedi.Size = new Size(206, 23);
             CbAlegiaMedi.TabIndex = 1014;
@@ -480,7 +490,7 @@
             tbExpliEnfer.Cursor = Cursors.IBeam;
             tbExpliEnfer.Enabled = false;
             tbExpliEnfer.Font = new Font("Arial", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            tbExpliEnfer.Location = new Point(233, 272);
+            tbExpliEnfer.Location = new Point(233, 235);
             tbExpliEnfer.Margin = new Padding(5);
             tbExpliEnfer.Name = "tbExpliEnfer";
             tbExpliEnfer.PlaceholderText = "Explique";
@@ -494,7 +504,7 @@
             CbEnfermedad.CheckAlign = ContentAlignment.MiddleRight;
             CbEnfermedad.Font = new Font("Arial", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             CbEnfermedad.ForeColor = SystemColors.ControlLightLight;
-            CbEnfermedad.Location = new Point(17, 275);
+            CbEnfermedad.Location = new Point(17, 238);
             CbEnfermedad.Name = "CbEnfermedad";
             CbEnfermedad.Size = new Size(208, 23);
             CbEnfermedad.TabIndex = 1012;
@@ -508,7 +518,7 @@
             label4.AutoSize = true;
             label4.Font = new Font("Arial", 25F, FontStyle.Bold);
             label4.ForeColor = SystemColors.Control;
-            label4.Location = new Point(189, 213);
+            label4.Location = new Point(189, 176);
             label4.Name = "label4";
             label4.Size = new Size(541, 40);
             label4.TabIndex = 1011;
@@ -519,7 +529,7 @@
             TbApellido.BackColor = SystemColors.ControlLight;
             TbApellido.Cursor = Cursors.IBeam;
             TbApellido.Font = new Font("Arial", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            TbApellido.Location = new Point(342, 82);
+            TbApellido.Location = new Point(342, 45);
             TbApellido.Margin = new Padding(5);
             TbApellido.Name = "TbApellido";
             TbApellido.PlaceholderText = "Apellidos";
@@ -531,7 +541,7 @@
             TbTele.BackColor = SystemColors.ControlLight;
             TbTele.Cursor = Cursors.IBeam;
             TbTele.Font = new Font("Arial", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            TbTele.Location = new Point(454, 116);
+            TbTele.Location = new Point(454, 79);
             TbTele.Margin = new Padding(5);
             TbTele.Name = "TbTele";
             TbTele.PlaceholderText = "Teléfono";
@@ -545,7 +555,7 @@
             DtNacimiendo.Cursor = Cursors.IBeam;
             DtNacimiendo.Font = new Font("Arial", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             DtNacimiendo.Format = DateTimePickerFormat.Short;
-            DtNacimiendo.Location = new Point(22, 116);
+            DtNacimiendo.Location = new Point(22, 79);
             DtNacimiendo.Name = "DtNacimiendo";
             DtNacimiendo.RightToLeft = RightToLeft.Yes;
             DtNacimiendo.Size = new Size(206, 26);
@@ -557,7 +567,7 @@
             tbEdad.BackColor = SystemColors.ControlLight;
             tbEdad.Enabled = false;
             tbEdad.Font = new Font("Arial", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            tbEdad.Location = new Point(238, 116);
+            tbEdad.Location = new Point(238, 79);
             tbEdad.Name = "tbEdad";
             tbEdad.PlaceholderText = "Edad";
             tbEdad.Size = new Size(206, 26);
@@ -568,39 +578,52 @@
             label3.AutoSize = true;
             label3.Font = new Font("Arial", 25F, FontStyle.Bold);
             label3.ForeColor = SystemColors.Control;
-            label3.Location = new Point(275, 14);
+            label3.Location = new Point(275, 0);
             label3.Name = "label3";
             label3.Size = new Size(375, 40);
             label3.TabIndex = 1010;
             label3.Text = "DATOS PERSONALES";
             // 
-            // PanelContrato
+            // PanelFromulario2
             // 
-            PanelContrato.BackColor = Color.Transparent;
-            PanelContrato.Controls.Add(RbGuardar);
-            PanelContrato.Controls.Add(PbBorrar);
-            PanelContrato.Controls.Add(BbAtras);
-            PanelContrato.Controls.Add(label8);
-            PanelContrato.Controls.Add(PbAgregar);
-            PanelContrato.Controls.Add(label7);
-            PanelContrato.Controls.Add(RtDescriTrata);
-            PanelContrato.Controls.Add(label6);
-            PanelContrato.Controls.Add(CbTratamientos);
-            PanelContrato.Controls.Add(RtHistoTratamiento);
-            PanelContrato.Controls.Add(label2);
-            PanelContrato.Controls.Add(RtExamenFisico);
-            PanelContrato.Controls.Add(label1);
-            PanelContrato.Location = new Point(25, 193);
-            PanelContrato.Name = "PanelContrato";
-            PanelContrato.Size = new Size(895, 770);
-            PanelContrato.TabIndex = 1011;
+            PanelFromulario2.BackColor = Color.Transparent;
+            PanelFromulario2.Controls.Add(RbGuardar);
+            PanelFromulario2.Controls.Add(PbBorrar);
+            PanelFromulario2.Controls.Add(BbAtras);
+            PanelFromulario2.Controls.Add(label8);
+            PanelFromulario2.Controls.Add(PbAgregar);
+            PanelFromulario2.Controls.Add(label7);
+            PanelFromulario2.Controls.Add(RtDescriTrata);
+            PanelFromulario2.Controls.Add(label6);
+            PanelFromulario2.Controls.Add(CbTratamientos);
+            PanelFromulario2.Controls.Add(RtHistoTratamiento);
+            PanelFromulario2.Controls.Add(label2);
+            PanelFromulario2.Controls.Add(RtExamenFisico);
+            PanelFromulario2.Controls.Add(label1);
+            PanelFromulario2.Location = new Point(22, 246);
+            PanelFromulario2.Name = "PanelFromulario2";
+            PanelFromulario2.Size = new Size(895, 718);
+            PanelFromulario2.TabIndex = 1011;
+            // 
+            // RbGuardar
+            // 
+            RbGuardar.Cursor = Cursors.Hand;
+            RbGuardar.ErrorImage = (Image)resources.GetObject("RbGuardar.ErrorImage");
+            RbGuardar.Image = (Image)resources.GetObject("RbGuardar.Image");
+            RbGuardar.Location = new Point(721, 634);
+            RbGuardar.Name = "RbGuardar";
+            RbGuardar.Size = new Size(138, 63);
+            RbGuardar.SizeMode = PictureBoxSizeMode.StretchImage;
+            RbGuardar.TabIndex = 1022;
+            RbGuardar.TabStop = false;
+            RbGuardar.Click += RbGuardar_Click;
             // 
             // PbBorrar
             // 
             PbBorrar.Cursor = Cursors.Hand;
             PbBorrar.ErrorImage = (Image)resources.GetObject("PbBorrar.ErrorImage");
             PbBorrar.Image = (Image)resources.GetObject("PbBorrar.Image");
-            PbBorrar.Location = new Point(156, 285);
+            PbBorrar.Location = new Point(156, 262);
             PbBorrar.Name = "PbBorrar";
             PbBorrar.Size = new Size(102, 49);
             PbBorrar.SizeMode = PictureBoxSizeMode.StretchImage;
@@ -613,7 +636,7 @@
             BbAtras.Cursor = Cursors.Hand;
             BbAtras.ErrorImage = (Image)resources.GetObject("BbAtras.ErrorImage");
             BbAtras.Image = (Image)resources.GetObject("BbAtras.Image");
-            BbAtras.Location = new Point(26, 638);
+            BbAtras.Location = new Point(26, 617);
             BbAtras.Name = "BbAtras";
             BbAtras.Size = new Size(85, 80);
             BbAtras.SizeMode = PictureBoxSizeMode.StretchImage;
@@ -626,7 +649,7 @@
             label8.AutoSize = true;
             label8.Font = new Font("Arial", 25F, FontStyle.Bold);
             label8.ForeColor = SystemColors.Control;
-            label8.Location = new Point(189, 376);
+            label8.Location = new Point(189, 353);
             label8.Name = "label8";
             label8.Size = new Size(511, 40);
             label8.TabIndex = 1020;
@@ -637,7 +660,7 @@
             PbAgregar.Cursor = Cursors.Hand;
             PbAgregar.ErrorImage = (Image)resources.GetObject("PbAgregar.ErrorImage");
             PbAgregar.Image = (Image)resources.GetObject("PbAgregar.Image");
-            PbAgregar.Location = new Point(48, 285);
+            PbAgregar.Location = new Point(48, 262);
             PbAgregar.Name = "PbAgregar";
             PbAgregar.Size = new Size(102, 49);
             PbAgregar.SizeMode = PictureBoxSizeMode.StretchImage;
@@ -650,7 +673,7 @@
             label7.AutoSize = true;
             label7.Font = new Font("Arial", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label7.ForeColor = SystemColors.Control;
-            label7.Location = new Point(275, 238);
+            label7.Location = new Point(275, 215);
             label7.Name = "label7";
             label7.Size = new Size(164, 15);
             label7.TabIndex = 1018;
@@ -660,9 +683,9 @@
             // 
             RtDescriTrata.BackColor = SystemColors.ControlLight;
             RtDescriTrata.Font = new Font("Arial", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            RtDescriTrata.Location = new Point(275, 256);
+            RtDescriTrata.Location = new Point(275, 233);
             RtDescriTrata.Name = "RtDescriTrata";
-            RtDescriTrata.Size = new Size(600, 52);
+            RtDescriTrata.Size = new Size(595, 52);
             RtDescriTrata.TabIndex = 1017;
             RtDescriTrata.Text = "";
             // 
@@ -671,7 +694,7 @@
             label6.AutoSize = true;
             label6.Font = new Font("Arial", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label6.ForeColor = SystemColors.Control;
-            label6.Location = new Point(33, 238);
+            label6.Location = new Point(33, 215);
             label6.Name = "label6";
             label6.Size = new Size(117, 15);
             label6.TabIndex = 1016;
@@ -684,7 +707,7 @@
             CbTratamientos.DropDownStyle = ComboBoxStyle.DropDownList;
             CbTratamientos.FormattingEnabled = true;
             CbTratamientos.Items.AddRange(new object[] { "sdfg6454rty", "sd345e4tfgh", "fgsd23fsdfher5y23", "4asdfasdf", "4aer3sdfgghntyuj", "5erfhgdfhrtyfc", "tyrqwsdfgdfervc", "gdcvxbxgfhfgh" });
-            CbTratamientos.Location = new Point(33, 256);
+            CbTratamientos.Location = new Point(33, 233);
             CbTratamientos.Name = "CbTratamientos";
             CbTratamientos.Size = new Size(236, 23);
             CbTratamientos.TabIndex = 1015;
@@ -694,9 +717,9 @@
             RtHistoTratamiento.BackColor = SystemColors.ControlLight;
             RtHistoTratamiento.Enabled = false;
             RtHistoTratamiento.Font = new Font("Arial", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            RtHistoTratamiento.Location = new Point(22, 429);
+            RtHistoTratamiento.Location = new Point(22, 406);
             RtHistoTratamiento.Name = "RtHistoTratamiento";
-            RtHistoTratamiento.Size = new Size(837, 201);
+            RtHistoTratamiento.Size = new Size(848, 201);
             RtHistoTratamiento.TabIndex = 1014;
             RtHistoTratamiento.Text = "";
             // 
@@ -705,7 +728,7 @@
             label2.AutoSize = true;
             label2.Font = new Font("Arial", 25F, FontStyle.Bold);
             label2.ForeColor = SystemColors.Control;
-            label2.Location = new Point(311, 173);
+            label2.Location = new Point(311, 150);
             label2.Name = "label2";
             label2.Size = new Size(279, 40);
             label2.TabIndex = 1013;
@@ -715,7 +738,7 @@
             // 
             RtExamenFisico.BackColor = SystemColors.ControlLight;
             RtExamenFisico.Font = new Font("Arial", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            RtExamenFisico.Location = new Point(33, 82);
+            RtExamenFisico.Location = new Point(33, 59);
             RtExamenFisico.Name = "RtExamenFisico";
             RtExamenFisico.Size = new Size(837, 52);
             RtExamenFisico.TabIndex = 1012;
@@ -726,7 +749,7 @@
             label1.AutoSize = true;
             label1.Font = new Font("Arial", 25F, FontStyle.Bold);
             label1.ForeColor = SystemColors.Control;
-            label1.Location = new Point(311, 23);
+            label1.Location = new Point(311, 0);
             label1.Name = "label1";
             label1.Size = new Size(287, 40);
             label1.TabIndex = 1011;
@@ -735,25 +758,84 @@
             // pictureBox2
             // 
             pictureBox2.Image = (Image)resources.GetObject("pictureBox2.Image");
-            pictureBox2.Location = new Point(0, 0);
+            pictureBox2.Location = new Point(0, 27);
             pictureBox2.Name = "pictureBox2";
             pictureBox2.Size = new Size(934, 213);
             pictureBox2.SizeMode = PictureBoxSizeMode.StretchImage;
             pictureBox2.TabIndex = 1012;
             pictureBox2.TabStop = false;
             // 
-            // RbGuardar
+            // menuStrip1
             // 
-            RbGuardar.Cursor = Cursors.Hand;
-            RbGuardar.ErrorImage = (Image)resources.GetObject("RbGuardar.ErrorImage");
-            RbGuardar.Image = (Image)resources.GetObject("RbGuardar.Image");
-            RbGuardar.Location = new Point(721, 655);
-            RbGuardar.Name = "RbGuardar";
-            RbGuardar.Size = new Size(138, 63);
-            RbGuardar.SizeMode = PictureBoxSizeMode.StretchImage;
-            RbGuardar.TabIndex = 1022;
-            RbGuardar.TabStop = false;
-            RbGuardar.Click += RbGuardar_Click;
+            menuStrip1.BackColor = SystemColors.ActiveCaption;
+            menuStrip1.Items.AddRange(new ToolStripItem[] { TsMPacientes });
+            menuStrip1.Location = new Point(0, 0);
+            menuStrip1.Name = "menuStrip1";
+            menuStrip1.Size = new Size(955, 24);
+            menuStrip1.TabIndex = 1013;
+            menuStrip1.Text = "menuStrip1";
+            // 
+            // TsMPacientes
+            // 
+            TsMPacientes.DropDownItems.AddRange(new ToolStripItem[] { toolStripMenuItemAgregar, toolStripMenuItemBuscar });
+            TsMPacientes.ForeColor = SystemColors.ActiveCaptionText;
+            TsMPacientes.Name = "TsMPacientes";
+            TsMPacientes.Size = new Size(69, 20);
+            TsMPacientes.Text = "Pacientes";
+            // 
+            // toolStripMenuItemAgregar
+            // 
+            toolStripMenuItemAgregar.Image = (Image)resources.GetObject("toolStripMenuItemAgregar.Image");
+            toolStripMenuItemAgregar.Name = "toolStripMenuItemAgregar";
+            toolStripMenuItemAgregar.Size = new Size(116, 22);
+            toolStripMenuItemAgregar.Text = "Agregar";
+            toolStripMenuItemAgregar.Click += ToolStripMenuItemAgregar_Click;
+            // 
+            // toolStripMenuItemBuscar
+            // 
+            toolStripMenuItemBuscar.Image = (Image)resources.GetObject("toolStripMenuItemBuscar.Image");
+            toolStripMenuItemBuscar.Name = "toolStripMenuItemBuscar";
+            toolStripMenuItemBuscar.Size = new Size(116, 22);
+            toolStripMenuItemBuscar.Text = "Buscar";
+            toolStripMenuItemBuscar.Click += ToolStripMenuItemConsultar_Click;
+            // 
+            // PanelFromulario3
+            // 
+            PanelFromulario3.BackColor = Color.Transparent;
+            PanelFromulario3.Controls.Add(TbBuscar);
+            PanelFromulario3.Controls.Add(GvConsulta);
+            PanelFromulario3.Location = new Point(22, 246);
+            PanelFromulario3.Name = "PanelFromulario3";
+            PanelFromulario3.Size = new Size(895, 718);
+            PanelFromulario3.TabIndex = 1014;
+            // 
+            // GvConsulta
+            // 
+            GvConsulta.AllowUserToOrderColumns = true;
+            GvConsulta.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            GvConsulta.BorderStyle = BorderStyle.Fixed3D;
+            GvConsulta.CellBorderStyle = DataGridViewCellBorderStyle.Raised;
+            GvConsulta.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            GvConsulta.Location = new Point(33, 176);
+            GvConsulta.Name = "GvConsulta";
+            GvConsulta.ReadOnly = true;
+            GvConsulta.SelectionMode = DataGridViewSelectionMode.CellSelect;
+            GvConsulta.Size = new Size(826, 418);
+            GvConsulta.TabIndex = 0;
+            GvConsulta.CellDoubleClick += GvConsulta_CellContentClick;
+            // 
+            // TbBuscar
+            // 
+            TbBuscar.BackColor = SystemColors.ControlLight;
+            TbBuscar.Cursor = Cursors.IBeam;
+            TbBuscar.Font = new Font("Arial", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            TbBuscar.Location = new Point(288, 115);
+            TbBuscar.Margin = new Padding(5);
+            TbBuscar.Name = "TbBuscar";
+            TbBuscar.PlaceholderText = "Buscar paciente";
+            TbBuscar.Size = new Size(310, 26);
+            TbBuscar.TabIndex = 2;
+            TbBuscar.KeyDown += TbBuscar_KeyDown;
             // 
             // UcPacientes
             // 
@@ -762,24 +844,32 @@
             AutoScroll = true;
             BackColor = Color.Transparent;
             BackgroundImage = (Image)resources.GetObject("$this.BackgroundImage");
+            Controls.Add(menuStrip1);
             Controls.Add(pictureBox2);
-            Controls.Add(PanelContrato);
-            Controls.Add(PanelFromulario);
+            Controls.Add(PanelFromulario3);
+            Controls.Add(PanelFromulario2);
+            Controls.Add(PanelFromulario1);
             MaximumSize = new Size(955, 1000);
             MinimumSize = new Size(955, 0);
             Name = "UcPacientes";
             Size = new Size(955, 965);
             ((System.ComponentModel.ISupportInitialize)PbSiguiente).EndInit();
-            PanelFromulario.ResumeLayout(false);
-            PanelFromulario.PerformLayout();
-            PanelContrato.ResumeLayout(false);
-            PanelContrato.PerformLayout();
+            PanelFromulario1.ResumeLayout(false);
+            PanelFromulario1.PerformLayout();
+            PanelFromulario2.ResumeLayout(false);
+            PanelFromulario2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)RbGuardar).EndInit();
             ((System.ComponentModel.ISupportInitialize)PbBorrar).EndInit();
             ((System.ComponentModel.ISupportInitialize)BbAtras).EndInit();
             ((System.ComponentModel.ISupportInitialize)PbAgregar).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
-            ((System.ComponentModel.ISupportInitialize)RbGuardar).EndInit();
+            menuStrip1.ResumeLayout(false);
+            menuStrip1.PerformLayout();
+            PanelFromulario3.ResumeLayout(false);
+            PanelFromulario3.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)GvConsulta).EndInit();
             ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
@@ -788,8 +878,8 @@
         private ComboBox cbSexo;
         private TextBox tbCedula;
         private PictureBox PbSiguiente;
-        private Panel PanelFromulario;
-        private Panel PanelContrato;
+        private Panel PanelFromulario1;
+        private Panel PanelFromulario2;
         private PictureBox pictureBox2;
         private Label label3;
         private DateTimePicker DtNacimiendo;
@@ -832,5 +922,12 @@
         private PictureBox PbBorrar;
         private RichTextBox RtHistoTratamiento;
         private PictureBox RbGuardar;
+        private MenuStrip menuStrip1;
+        private ToolStripMenuItem TsMPacientes;
+        private ToolStripMenuItem toolStripMenuItemAgregar;
+        private ToolStripMenuItem toolStripMenuItemBuscar;
+        private Panel PanelFromulario3;
+        private DataGridView GvConsulta;
+        private TextBox TbBuscar;
     }
 }
