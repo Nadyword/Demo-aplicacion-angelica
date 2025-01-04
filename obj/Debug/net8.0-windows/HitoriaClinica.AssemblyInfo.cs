@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("HitoriaClinica")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+9f2fe4f7f5a59da6c40628c5ee81d0d73efdd661")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+846b9c884e5aa889136fdf0b174503d7a8109646")]
 [assembly: System.Reflection.AssemblyProductAttribute("HitoriaClinica")]
 [assembly: System.Reflection.AssemblyTitleAttribute("HitoriaClinica")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

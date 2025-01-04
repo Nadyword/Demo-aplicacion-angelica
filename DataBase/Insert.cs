@@ -1,39 +1,38 @@
-﻿using System.Collections.Generic;
+﻿using HitoriaClinica.Modelos;
 
 namespace HitoriaClinica.DataBase
 {
     internal class Insert : Connection
     {
-        public static void InsertClient(string NOMBRE, string APELLIDO, string CEDULA, string TELEFONO, int SEXO, string DIRECCION, string OCUPACION)
+        public static void InsertClient(Cliente cliente)
         {
-            ExecuteNonQuery($"INSERT INTO clientes (nombre, apellido, cedula, telefono, sexo, direccion, ocupacion) VALUES ('{NOMBRE}', '{APELLIDO}', '{CEDULA}', '{TELEFONO}', {SEXO}, '{DIRECCION}', '{OCUPACION}');");
+            ExecuteNonQuery($"INSERT INTO clientes (nombre, apellido, cedula, telefono, sexo, direccion, ocupacion, Nacimiento) VALUES ('{cliente.Nombre}', '{cliente.Apellido}', '{cliente.Cedula}', '{cliente.Telefono}', {cliente.Sexo}, '{cliente.Direccion}', '{cliente.Ocupacion}', '{cliente.Nacimiento}');");
         }
 
-        public static void InsertAntecedente(int CLIENTE_ID, string ENFERMEDAD_CRONICA, string ALERGIA_MEDICAMENTOS, string ALERGIA_ALIMENTOS, string CIRUGIAS, string TRATAMIENTOS_ESTETICOS, string BIOPOLIMEROS)
+        public static void InsertAntecedente(Antecedente antecedente)
         {
-            ExecuteNonQuery($"INSERT INTO antecedentes_personales (cliente_id, enfermedad_cronica, alergia_medicamentos, alergia_alimentos, cirugias, tratamientos_esteticos, biopolimeros) VALUES ({CLIENTE_ID}, '{ENFERMEDAD_CRONICA}', '{ALERGIA_MEDICAMENTOS}', '{ALERGIA_ALIMENTOS}', '{CIRUGIAS}', '{TRATAMIENTOS_ESTETICOS}', '{BIOPOLIMEROS}');");
+            ExecuteNonQuery($"INSERT INTO antecedentes_personales (cliente_id, enfermedad_cronica, alergia_medicamentos, alergia_alimentos, cirugias, tratamientos_esteticos, biopolimeros) VALUES ({antecedente.ClienteId}, '{antecedente.Enfermedad}', '{antecedente.AlergiaMedicamentos}', '{antecedente.AlergiaAlimentos}', '{antecedente.Cirugias}', '{antecedente.Tratamientos}', '{antecedente.Biopsias}');");
         }
 
-        public static void InsertHabitoPsicobio(int CLIENTE_ID, string TABAQUISMO, string ACTIVIDAD_FISICA, string ALCOHOL, string ESTRES)
+        public static void InsertHabitoPsicobio(HabitoPsicobio habitoPsicobio)
         {
-            ExecuteNonQuery($"INSERT INTO habitos_psicobio (cliente_id, tabaquismo, actividad_fisica, alcohol, estres) VALUES ({CLIENTE_ID}, '{TABAQUISMO}', '{ACTIVIDAD_FISICA}', '{ALCOHOL}', '{ESTRES}');");
+            ExecuteNonQuery($"INSERT INTO habitos_psicobio (cliente_id, tabaquismo, actividad_fisica, alcohol, estres) VALUES ({habitoPsicobio.ClienteId}, '{habitoPsicobio.Tabaquismo}', '{habitoPsicobio.ActividadFisica}', '{habitoPsicobio.Alcoholismo}', '{habitoPsicobio.Otros}');");
         }
 
-        public static void InsertExamenFisico(int CLIENTE_ID, string DESCRIPCION)
+        public static void InsertExamenFisico(ExamenFisico examenFisico)
         {
-            ExecuteNonQuery($"INSERT INTO examen_fisico (cliente_id, descripcion) VALUES ({CLIENTE_ID}, '{DESCRIPCION}');");
+            ExecuteNonQuery($"INSERT INTO examen_fisico (cliente_id, descripcion) VALUES ({examenFisico.ClienteId}, '{examenFisico.Descripcion}');");
         }
 
-        public static void InsertHistorialTratamiento(int CLIENTE_ID, string DESCRIPCION)
+        public static void InsertHistorialTratamiento(HistorialTratamiento historialTratamiento)
         {
-            ExecuteNonQuery($"INSERT INTO historial_tratamiento (cliente_id, descripcion) VALUES ({CLIENTE_ID}, '{DESCRIPCION}');");
+            ExecuteNonQuery($"INSERT INTO historial_tratamiento (cliente_id, descripcion) VALUES ({historialTratamiento.ClienteId}, '{historialTratamiento.Descripcion}');");
         }
 
-        public static void InsertTratamiento(int CLIENTE_ID, string ID_TRATA, string DESCRIPCION)
+        public static void InsertTratamiento(Tratamiento tratamiento)
         {
             string fecha = DateTime.Now.ToString("yyyy-MM-dd HH:mm");
-            ExecuteNonQuery($"INSERT INTO tratamientos (cliente_id, descripcion, fecha, id_trata) VALUES ({CLIENTE_ID}, '{DESCRIPCION}', '{fecha}','{ID_TRATA}');");
+            ExecuteNonQuery($"INSERT INTO tratamientos (cliente_id, descripcion, fecha, id_trata) VALUES ({tratamiento.Id}, '{tratamiento.Descripcion}', '{fecha}', '{tratamiento.Id_trata}');");
         }
-
     }
 }

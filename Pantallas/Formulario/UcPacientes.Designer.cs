@@ -83,8 +83,8 @@
             toolStripMenuItemAgregar = new ToolStripMenuItem();
             toolStripMenuItemBuscar = new ToolStripMenuItem();
             PanelFromulario3 = new Panel();
-            GvConsulta = new DataGridView();
             TbBuscar = new TextBox();
+            GvConsulta = new DataGridView();
             ((System.ComponentModel.ISupportInitialize)PbSiguiente).BeginInit();
             PanelFromulario1.SuspendLayout();
             PanelFromulario2.SuspendLayout();
@@ -787,7 +787,7 @@
             // 
             toolStripMenuItemAgregar.Image = (Image)resources.GetObject("toolStripMenuItemAgregar.Image");
             toolStripMenuItemAgregar.Name = "toolStripMenuItemAgregar";
-            toolStripMenuItemAgregar.Size = new Size(116, 22);
+            toolStripMenuItemAgregar.Size = new Size(180, 22);
             toolStripMenuItemAgregar.Text = "Agregar";
             toolStripMenuItemAgregar.Click += ToolStripMenuItemAgregar_Click;
             // 
@@ -795,7 +795,7 @@
             // 
             toolStripMenuItemBuscar.Image = (Image)resources.GetObject("toolStripMenuItemBuscar.Image");
             toolStripMenuItemBuscar.Name = "toolStripMenuItemBuscar";
-            toolStripMenuItemBuscar.Size = new Size(116, 22);
+            toolStripMenuItemBuscar.Size = new Size(180, 22);
             toolStripMenuItemBuscar.Text = "Buscar";
             toolStripMenuItemBuscar.Click += ToolStripMenuItemConsultar_Click;
             // 
@@ -808,6 +808,19 @@
             PanelFromulario3.Name = "PanelFromulario3";
             PanelFromulario3.Size = new Size(895, 718);
             PanelFromulario3.TabIndex = 1014;
+            // 
+            // TbBuscar
+            // 
+            TbBuscar.BackColor = SystemColors.ControlLight;
+            TbBuscar.Cursor = Cursors.IBeam;
+            TbBuscar.Font = new Font("Arial", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            TbBuscar.Location = new Point(288, 115);
+            TbBuscar.Margin = new Padding(5);
+            TbBuscar.Name = "TbBuscar";
+            TbBuscar.PlaceholderText = "Buscar paciente";
+            TbBuscar.Size = new Size(310, 26);
+            TbBuscar.TabIndex = 2;
+            TbBuscar.KeyDown += TbBuscar_KeyDown;
             // 
             // GvConsulta
             // 
@@ -824,19 +837,6 @@
             GvConsulta.TabIndex = 0;
             GvConsulta.CellDoubleClick += GvConsulta_CellContentClick;
             // 
-            // TbBuscar
-            // 
-            TbBuscar.BackColor = SystemColors.ControlLight;
-            TbBuscar.Cursor = Cursors.IBeam;
-            TbBuscar.Font = new Font("Arial", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            TbBuscar.Location = new Point(288, 115);
-            TbBuscar.Margin = new Padding(5);
-            TbBuscar.Name = "TbBuscar";
-            TbBuscar.PlaceholderText = "Buscar paciente";
-            TbBuscar.Size = new Size(310, 26);
-            TbBuscar.TabIndex = 2;
-            TbBuscar.KeyDown += TbBuscar_KeyDown;
-            // 
             // UcPacientes
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -846,9 +846,9 @@
             BackgroundImage = (Image)resources.GetObject("$this.BackgroundImage");
             Controls.Add(menuStrip1);
             Controls.Add(pictureBox2);
-            Controls.Add(PanelFromulario3);
             Controls.Add(PanelFromulario2);
             Controls.Add(PanelFromulario1);
+            Controls.Add(PanelFromulario3);
             MaximumSize = new Size(955, 1000);
             MinimumSize = new Size(955, 0);
             Name = "UcPacientes";

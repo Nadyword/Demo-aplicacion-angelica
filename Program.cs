@@ -15,7 +15,7 @@ namespace HitoriaClinica
             }
             catch (Exception ex)
             {
-                MessageBox.Show( "¡Algo salio mal! dandale un print a Samuel" + ex.Message,"Se produjo un error");
+                MessageBox.Show( "¡Algo salio mal! mandale un print a Samuel de este error " + ex.Message,"Se produjo un error");
             }
         }
     }

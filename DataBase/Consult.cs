@@ -6,7 +6,7 @@ namespace HitoriaClinica.DataBase
     {
         public static SqliteDataReader ExistClient(string cedula) 
         {
-            return ExecuteQuery($"SELECT * FROM clientes WHERE cedula = '{cedula}'");
+            return ExecuteQuery($"SELECT id FROM clientes WHERE cedula = '{cedula}'");
         }
 
         public static int IdClient(string cedula)

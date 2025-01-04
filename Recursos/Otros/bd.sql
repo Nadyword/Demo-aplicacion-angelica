@@ -1,13 +1,15 @@
 -- Crear tabla de clientes
-CREATE TABLE clientes (
-  id INTEGER PRIMARY KEY AUTOINCREMENT,
-  nombre TEXT NOT NULL,
-  apellido TEXT NOT NULL,
-  cedula TEXT NOT NULL UNIQUE,
-  telefono TEXT,
-  sexo INTEGER,
-  direccion TEXT,
-  ocupacion TEXT
+CREATE TABLE "clientes" (
+ "id"	INTEGER,
+ "nombre"	TEXT NOT NULL,
+ "apellido"	TEXT NOT NULL,
+ "cedula"	TEXT NOT NULL UNIQUE,
+ "telefono"	TEXT,
+ "sexo"	INTEGER,
+ "direccion"	TEXT,
+ "ocupacion"	TEXT,
+ "Nacimiento"	TEXT,
+ PRIMARY KEY("id" AUTOINCREMENT)
 );
 
 -- Crear tabla de antecedentes personales
