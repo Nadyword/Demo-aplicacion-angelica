@@ -4,6 +4,8 @@ namespace HitoriaClinica.DataBase
 {
     internal class Connection
     {
+        #region Simple
+
         private static SqliteConnection GetConnection()
         {
             var connection = new SqliteConnection("Data Source=HitoriaClinica.db");
@@ -25,5 +27,32 @@ namespace HitoriaClinica.DataBase
             var command = new SqliteCommand(sql, connection);
             return command.ExecuteReader(System.Data.CommandBehavior.CloseConnection);
         }
+        #endregion
+
+        #region Async
+
+        private static async Task<SqliteConnection> AsyncGetConnection()
+        {
+            var connection = new SqliteConnection("Data Source=HitoriaClinica.db");
+            await connection.OpenAsync();
+            return connection;
+        }
+
+        protected static async Task AsyncExecuteNonQuery(string sql)
+        {
+            using var connection = await AsyncGetConnection();
+            using var command = new SqliteCommand(sql, connection);
+            await command.ExecuteNonQueryAsync();
+            connection.Close();
+        }
+
+        protected static async Task<SqliteDataReader> AsyncExecuteQuery(string sql)
+        {
+            var connection = await AsyncGetConnection();
+            var command = new SqliteCommand(sql, connection);
+            return await command.ExecuteReaderAsync(System.Data.CommandBehavior.CloseConnection);
+        }
+
+        #endregion
     }
 }

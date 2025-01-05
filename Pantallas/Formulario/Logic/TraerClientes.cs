@@ -5,10 +5,10 @@ namespace HitoriaClinica.Pantallas.Formulario.Logic;
 
 internal class TraerClientes : Connection
 {
-    public static List<Cliente> TraerAllClientes()
+    public static async Task<List<Cliente>> TraerAllClientes()
     {
         var clientes = new List<Cliente>();
-        using (SqliteDataReader reader = Connection.ExecuteQuery("SELECT * FROM clientes"))
+        using (SqliteDataReader reader = await Connection.AsyncExecuteQuery("SELECT * FROM clientes"))
         {
             while (reader.Read())
             {

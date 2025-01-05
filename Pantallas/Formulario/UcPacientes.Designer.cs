@@ -64,6 +64,7 @@
             tbEdad = new TextBox();
             label3 = new Label();
             PanelFromulario2 = new Panel();
+            LbPaciente = new Label();
             RbGuardar = new PictureBox();
             PbBorrar = new PictureBox();
             BbAtras = new PictureBox();
@@ -85,6 +86,8 @@
             PanelFromulario3 = new Panel();
             TbBuscar = new TextBox();
             GvConsulta = new DataGridView();
+            sqliteCommand1 = new Microsoft.Data.Sqlite.SqliteCommand();
+            BtnImprimir = new DataGridViewImageColumn();
             ((System.ComponentModel.ISupportInitialize)PbSiguiente).BeginInit();
             PanelFromulario1.SuspendLayout();
             PanelFromulario2.SuspendLayout();
@@ -587,6 +590,7 @@
             // PanelFromulario2
             // 
             PanelFromulario2.BackColor = Color.Transparent;
+            PanelFromulario2.Controls.Add(LbPaciente);
             PanelFromulario2.Controls.Add(RbGuardar);
             PanelFromulario2.Controls.Add(PbBorrar);
             PanelFromulario2.Controls.Add(BbAtras);
@@ -604,6 +608,17 @@
             PanelFromulario2.Name = "PanelFromulario2";
             PanelFromulario2.Size = new Size(895, 718);
             PanelFromulario2.TabIndex = 1011;
+            // 
+            // LbPaciente
+            // 
+            LbPaciente.AutoSize = true;
+            LbPaciente.Font = new Font("Arial", 25F, FontStyle.Bold);
+            LbPaciente.ForeColor = SystemColors.Control;
+            LbPaciente.Location = new Point(156, 643);
+            LbPaciente.Name = "LbPaciente";
+            LbPaciente.Size = new Size(0, 40);
+            LbPaciente.TabIndex = 1021;
+            LbPaciente.TextAlign = ContentAlignment.MiddleCenter;
             // 
             // RbGuardar
             // 
@@ -715,10 +730,10 @@
             // RtHistoTratamiento
             // 
             RtHistoTratamiento.BackColor = SystemColors.ControlLight;
-            RtHistoTratamiento.Enabled = false;
             RtHistoTratamiento.Font = new Font("Arial", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             RtHistoTratamiento.Location = new Point(22, 406);
             RtHistoTratamiento.Name = "RtHistoTratamiento";
+            RtHistoTratamiento.ReadOnly = true;
             RtHistoTratamiento.Size = new Size(848, 201);
             RtHistoTratamiento.TabIndex = 1014;
             RtHistoTratamiento.Text = "";
@@ -787,7 +802,7 @@
             // 
             toolStripMenuItemAgregar.Image = (Image)resources.GetObject("toolStripMenuItemAgregar.Image");
             toolStripMenuItemAgregar.Name = "toolStripMenuItemAgregar";
-            toolStripMenuItemAgregar.Size = new Size(180, 22);
+            toolStripMenuItemAgregar.Size = new Size(116, 22);
             toolStripMenuItemAgregar.Text = "Agregar";
             toolStripMenuItemAgregar.Click += ToolStripMenuItemAgregar_Click;
             // 
@@ -795,7 +810,7 @@
             // 
             toolStripMenuItemBuscar.Image = (Image)resources.GetObject("toolStripMenuItemBuscar.Image");
             toolStripMenuItemBuscar.Name = "toolStripMenuItemBuscar";
-            toolStripMenuItemBuscar.Size = new Size(180, 22);
+            toolStripMenuItemBuscar.Size = new Size(116, 22);
             toolStripMenuItemBuscar.Text = "Buscar";
             toolStripMenuItemBuscar.Click += ToolStripMenuItemConsultar_Click;
             // 
@@ -829,6 +844,7 @@
             GvConsulta.BorderStyle = BorderStyle.Fixed3D;
             GvConsulta.CellBorderStyle = DataGridViewCellBorderStyle.Raised;
             GvConsulta.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            GvConsulta.Columns.AddRange(new DataGridViewColumn[] { BtnImprimir });
             GvConsulta.Location = new Point(33, 176);
             GvConsulta.Name = "GvConsulta";
             GvConsulta.ReadOnly = true;
@@ -836,6 +852,26 @@
             GvConsulta.Size = new Size(826, 418);
             GvConsulta.TabIndex = 0;
             GvConsulta.CellDoubleClick += GvConsulta_CellContentClick;
+            // 
+            // sqliteCommand1
+            // 
+            sqliteCommand1.CommandTimeout = 30;
+            sqliteCommand1.Connection = null;
+            sqliteCommand1.Transaction = null;
+            sqliteCommand1.UpdatedRowSource = System.Data.UpdateRowSource.None;
+            // 
+            // BtnImprimir
+            // 
+            BtnImprimir.AutoSizeMode = DataGridViewAutoSizeColumnMode.None;
+            BtnImprimir.HeaderText = "Imprimir";
+            BtnImprimir.Image = (Image)resources.GetObject("BtnImprimir.Image");
+            BtnImprimir.ImageLayout = DataGridViewImageCellLayout.Zoom;
+            BtnImprimir.MinimumWidth = 7;
+            BtnImprimir.Name = "BtnImprimir";
+            BtnImprimir.ReadOnly = true;
+            BtnImprimir.Resizable = DataGridViewTriState.True;
+            BtnImprimir.ToolTipText = "Ver registro";
+            BtnImprimir.Width = 60;
             // 
             // UcPacientes
             // 
@@ -846,9 +882,9 @@
             BackgroundImage = (Image)resources.GetObject("$this.BackgroundImage");
             Controls.Add(menuStrip1);
             Controls.Add(pictureBox2);
+            Controls.Add(PanelFromulario3);
             Controls.Add(PanelFromulario2);
             Controls.Add(PanelFromulario1);
-            Controls.Add(PanelFromulario3);
             MaximumSize = new Size(955, 1000);
             MinimumSize = new Size(955, 0);
             Name = "UcPacientes";
@@ -873,61 +909,64 @@
         }
 
         #endregion
-        private TextBox tbNombre;
-        private TextBox tbDireccion;
-        private ComboBox cbSexo;
-        private TextBox tbCedula;
-        private PictureBox PbSiguiente;
-        private Panel PanelFromulario1;
-        private Panel PanelFromulario2;
-        private PictureBox pictureBox2;
-        private Label label3;
-        private DateTimePicker DtNacimiendo;
-        private TextBox tbEdad;
-        private TextBox TbTele;
-        private TextBox TbApellido;
-        private Label label4;
-        private CheckBox CbEnfermedad;
-        private TextBox tbExpliEnfer;
-        private TextBox TbExplAlergiaMed;
-        private CheckBox CbAlegiaMedi;
-        private TextBox TbExpliAlergAli;
-        private CheckBox CbAlergiAli;
-        private TextBox TbExpliCiru;
-        private CheckBox CbCiru;
-        private TextBox tbExpliBio;
-        private CheckBox CbBiopoli;
-        private TextBox TbExpliTrata;
-        private CheckBox CbTrata;
-        private CheckBox CbTaba;
-        private CheckBox CbAlcho;
-        private CheckBox CbFisica;
-        private CheckBox CbOtro;
-        private Label label5;
-        private TextBox TbOtros;
-        private TextBox TbOcupa;
-        private TextBox TbAlch;
-        private TextBox TbFisica;
-        private TextBox TbTabaquis;
-        private PictureBox BbAtras;
-        private Label label1;
-        private RichTextBox RtExamenFisico;
-        private Label label2;
-        private ComboBox CbTratamientos;
-        private Label label7;
-        private RichTextBox RtDescriTrata;
-        private Label label6;
-        private PictureBox PbAgregar;
-        private Label label8;
-        private PictureBox PbBorrar;
-        private RichTextBox RtHistoTratamiento;
-        private PictureBox RbGuardar;
-        private MenuStrip menuStrip1;
-        private ToolStripMenuItem TsMPacientes;
-        private ToolStripMenuItem toolStripMenuItemAgregar;
-        private ToolStripMenuItem toolStripMenuItemBuscar;
-        private Panel PanelFromulario3;
-        private DataGridView GvConsulta;
-        private TextBox TbBuscar;
+        public TextBox tbNombre;
+        public TextBox tbDireccion;
+        public ComboBox cbSexo;
+        public TextBox tbCedula;
+        public PictureBox PbSiguiente;
+        public Panel PanelFromulario1;
+        public Panel PanelFromulario2;
+        public PictureBox pictureBox2;
+        public Label label3;
+        public DateTimePicker DtNacimiendo;
+        public TextBox tbEdad;
+        public TextBox TbTele;
+        public TextBox TbApellido;
+        public Label label4;
+        public CheckBox CbEnfermedad;
+        public TextBox tbExpliEnfer;
+        public TextBox TbExplAlergiaMed;
+        public CheckBox CbAlegiaMedi;
+        public TextBox TbExpliAlergAli;
+        public CheckBox CbAlergiAli;
+        public TextBox TbExpliCiru;
+        public CheckBox CbCiru;
+        public TextBox tbExpliBio;
+        public CheckBox CbBiopoli;
+        public TextBox TbExpliTrata;
+        public CheckBox CbTrata;
+        public CheckBox CbTaba;
+        public CheckBox CbAlcho;
+        public CheckBox CbFisica;
+        public CheckBox CbOtro;
+        public Label label5;
+        public TextBox TbOtros;
+        public TextBox TbOcupa;
+        public TextBox TbAlch;
+        public TextBox TbFisica;
+        public TextBox TbTabaquis;
+        public PictureBox BbAtras;
+        public Label label1;
+        public RichTextBox RtExamenFisico;
+        public Label label2;
+        public ComboBox CbTratamientos;
+        public Label label7;
+        public RichTextBox RtDescriTrata;
+        public Label label6;
+        public PictureBox PbAgregar;
+        public Label label8;
+        public PictureBox PbBorrar;
+        public RichTextBox RtHistoTratamiento;
+        public PictureBox RbGuardar;
+        public MenuStrip menuStrip1;
+        public ToolStripMenuItem TsMPacientes;
+        public ToolStripMenuItem toolStripMenuItemAgregar;
+        public ToolStripMenuItem toolStripMenuItemBuscar;
+        public Panel PanelFromulario3;
+        public DataGridView GvConsulta;
+        public TextBox TbBuscar;
+        public Label LbPaciente;
+        public Microsoft.Data.Sqlite.SqliteCommand sqliteCommand1;
+        private DataGridViewImageColumn BtnImprimir;
     }
 }

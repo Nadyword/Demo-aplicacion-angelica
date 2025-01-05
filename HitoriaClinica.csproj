@@ -10,6 +10,11 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Update="ConjuntosDatos.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>ConjuntosDatos.xsd</DependentUpon>
+    </Compile>
     <Compile Update="Properties\Resources.Designer.cs">
       <DesignTime>True</DesignTime>
       <AutoGen>True</AutoGen>
@@ -32,6 +37,13 @@
 
   <ItemGroup>
     <PackageReference Include="Microsoft.Data.Sqlite" Version="9.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="ConjuntosDatos.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>ConjuntosDatos.Designer.cs</LastGenOutput>
+    </None>
   </ItemGroup>
 
 </Project>

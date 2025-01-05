@@ -29,8 +29,8 @@ C:\Users\samue\Documents\Proyectos\Demo-aplicacion-angelica\bin\Debug\net8.0-win
 C:\Users\samue\Documents\Proyectos\Demo-aplicacion-angelica\bin\Debug\net8.0-windows\runtimes\win-x64\native\e_sqlite3.dll
 C:\Users\samue\Documents\Proyectos\Demo-aplicacion-angelica\bin\Debug\net8.0-windows\runtimes\win-x86\native\e_sqlite3.dll
 C:\Users\samue\Documents\Proyectos\Demo-aplicacion-angelica\obj\Debug\net8.0-windows\HitoriaClinica.csproj.AssemblyReference.cache
-C:\Users\samue\Documents\Proyectos\Demo-aplicacion-angelica\obj\Debug\net8.0-windows\HitoriaClinica.FromInicio.resources
 C:\Users\samue\Documents\Proyectos\Demo-aplicacion-angelica\obj\Debug\net8.0-windows\HitoriaClinica.UcPacientes.resources
+C:\Users\samue\Documents\Proyectos\Demo-aplicacion-angelica\obj\Debug\net8.0-windows\HitoriaClinica.FromInicio.resources
 C:\Users\samue\Documents\Proyectos\Demo-aplicacion-angelica\obj\Debug\net8.0-windows\HitoriaClinica.Properties.Resources.resources
 C:\Users\samue\Documents\Proyectos\Demo-aplicacion-angelica\obj\Debug\net8.0-windows\HitoriaClinica.csproj.GenerateResource.cache
 C:\Users\samue\Documents\Proyectos\Demo-aplicacion-angelica\obj\Debug\net8.0-windows\HitoriaClinica.GeneratedMSBuildEditorConfig.editorconfig
