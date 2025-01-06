@@ -2,6 +2,10 @@
 using HitoriaClinica.DataBase;
 using System.Text.RegularExpressions;
 using HitoriaClinica.Modelos;
+using HitoriaClinica.Reportes;
+using DinkToPdf.Contracts;
+using DinkToPdf;
+using System.Diagnostics;
 
 namespace HitoriaClinica;
 
@@ -24,10 +28,10 @@ public partial class UcPacientes : UserControl
         Utilidades.CargarFechaHistorialTratamiento(this);
         Utilidades.ShowPanels(1, this);
         cbSexo.SelectedIndex = 0;
+        PanelCache.PreloadPanels(this);
     }
 
     #endregion
-
 
     public void GvConsulta_CellContentClick(object sender, DataGridViewCellEventArgs e)
     {
@@ -111,24 +115,73 @@ public partial class UcPacientes : UserControl
 
     public void TbTele_TextChanged(object? sender, EventArgs e)
     {
-        int selectionStart = TbTele.SelectionStart - 1;
-        TbTele.Text = Regex.Replace(TbTele.Text, @"[^\d]", "");
-        TbTele.SelectionStart = Math.Max(0, selectionStart);
+        int selectionStart = TbTele.SelectionStart;
+        int selectionLength = TbTele.SelectionLength;
+        string newText = Regex.Replace(TbTele.Text, @"[^\d]", "");
+        if (TbTele.Text != newText)
+        {
+            TbTele.Text = newText;
+            TbTele.SelectionStart = Math.Min(selectionStart, TbTele.Text.Length);
+            TbTele.SelectionLength = selectionLength;
+        }
     }
 
-    #endregion
-
-    #region Botones
-
-    public void ToolStripMenuItemAgregar_Click(object sender, EventArgs e)
+    public async void GvConsulta_BtnImprimir_Click(object sender, DataGridViewCellEventArgs e)
     {
-        Utilidades.ShowPanels(1, this);
+        if (e.ColumnIndex == GvConsulta.Columns["BtnImprimir"].Index && e.RowIndex >= 0)
+        {
+            try
+            {
+                string basePath = AppDomain.CurrentDomain.BaseDirectory;
+                string htmlTemplatePath = Path.Combine(basePath, "Reportes", "Modelos", "Ficha.html");
+                string outputPdfPath = Path.Combine(basePath, "Reportes", "Modelos", "Ficha.pdf");
+                int idClient = Convert.ToInt32(GvConsulta.Rows[e.RowIndex].Cells["id"].Value);
+                Cliente clientInfo = await Consult.AsyncTraerInfoClientById(idClient);
+                string modelo = File.ReadAllText(htmlTemplatePath);
+                modelo = modelo.Replace("#Nombre#", clientInfo.Nombre + " " + clientInfo.Apellido)
+                               .Replace("#FechaNaci#", clientInfo.Nacimiento)
+                               .Replace("#Genero#", clientInfo.Sexo == 0 ? "Masculino" : "Femenino")
+                               .Replace("#Direccion#", clientInfo.Direccion);
+                File.WriteAllText(htmlTemplatePath, modelo);
+                IConverter converter = new SynchronizedConverter(new PdfTools());
+                PdfGenerator pdfGenerator = new(converter);
+                pdfGenerator.GeneratePdfFromHtmlFile(htmlTemplatePath, outputPdfPath);
+
+                if (File.Exists(outputPdfPath))
+                {
+                    ProcessStartInfo psi = new()
+                    {
+                        FileName = outputPdfPath,
+                        UseShellExecute = true
+                    };
+
+                    Process process = new()
+                    {
+                        StartInfo = psi
+                    };
+
+                    process.Start();
+                }
+                else
+                {
+                    MessageBox.Show("El archivo PDF no se pudo generar.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Ocurrió un error: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+    }
+
+    public void BtnAgregar()
+    {
         Estado = 1;
         Utilidades.Limpiar(this);
         MostrarNombrePaciente(false);
     }
 
-    public void ToolStripMenuItemConsultar_Click(object sender, EventArgs e)
+    public void BtnBuscar()
     {
         Estado = 2;
         Utilidades.ShowPanels(3, this);
@@ -182,11 +235,21 @@ public partial class UcPacientes : UserControl
     public void RbGuardar_Click(object sender, EventArgs e)
     {
 
-        Utilidades.ValidarCampos(this);
+        if (tbCedula.Text.Trim() == "")
+        {
+            MessageBox.Show("El capo cedula es obligatorio", "Cedula obligatorio", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            return;
+        }
 
         if (Estado == 1)
         {
             #region Guarda
+
+            if (Consult.ExistClient(tbCedula.Text).HasRows)
+            {
+                MessageBox.Show("Ya existe esta cedula", "Cedula existente", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
 
             Insert.InsertClient(new Cliente
             {
@@ -321,9 +384,6 @@ public partial class UcPacientes : UserControl
 
     public void PreloadData()
     {
-        PanelFromulario1.Visible = false;
-        PanelFromulario2.Visible = false;
-        PanelFromulario3.Visible = false;
         Utilidades.CargarComboTratamientos(this);
         _ = Utilidades.CargarGrila(this);
         GvConsulta.Columns[1].Visible = false;

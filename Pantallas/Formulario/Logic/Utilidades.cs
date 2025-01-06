@@ -1,5 +1,4 @@
-﻿using HitoriaClinica.DataBase;
-using System.Globalization;
+﻿using System.Globalization;
 
 
 namespace HitoriaClinica.Pantallas.Formulario.Logic;
@@ -64,24 +63,6 @@ internal class Utilidades
     public static async Task CargarGrila(UcPacientes ucPacientes)
     {
         ucPacientes.GvConsulta.DataSource = await TraerClientes.TraerAllClientes();
-    }
-
-    public static void ValidarCampos(UcPacientes ucPacientes)
-    {
-        if (ucPacientes.tbCedula.Text.Trim() == "")
-        {
-            MessageBox.Show("El capo cedula es obligatorio", "Cedula obligatorio", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            return;
-        }
-
-        if (ucPacientes.Estado == 1)
-        {
-            if (Consult.ExistClient(ucPacientes.tbCedula.Text).HasRows)
-            {
-                MessageBox.Show("Ya existe esta cedula", "Cedula existente", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return;
-            }
-        }
     }
 
     public static void CargarFechaHistorialTratamiento(UcPacientes ucPacientes)

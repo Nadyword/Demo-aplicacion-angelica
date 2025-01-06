@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UcPacientes));
+            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
             tbNombre = new TextBox();
             tbDireccion = new TextBox();
             cbSexo = new ComboBox();
@@ -79,15 +80,11 @@
             RtExamenFisico = new RichTextBox();
             label1 = new Label();
             pictureBox2 = new PictureBox();
-            menuStrip1 = new MenuStrip();
-            TsMPacientes = new ToolStripMenuItem();
-            toolStripMenuItemAgregar = new ToolStripMenuItem();
-            toolStripMenuItemBuscar = new ToolStripMenuItem();
             PanelFromulario3 = new Panel();
             TbBuscar = new TextBox();
             GvConsulta = new DataGridView();
+            BtnImprimir = new DataGridViewButtonColumn();
             sqliteCommand1 = new Microsoft.Data.Sqlite.SqliteCommand();
-            BtnImprimir = new DataGridViewImageColumn();
             ((System.ComponentModel.ISupportInitialize)PbSiguiente).BeginInit();
             PanelFromulario1.SuspendLayout();
             PanelFromulario2.SuspendLayout();
@@ -96,7 +93,6 @@
             ((System.ComponentModel.ISupportInitialize)BbAtras).BeginInit();
             ((System.ComponentModel.ISupportInitialize)PbAgregar).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
-            menuStrip1.SuspendLayout();
             PanelFromulario3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)GvConsulta).BeginInit();
             SuspendLayout();
@@ -200,7 +196,7 @@
             PanelFromulario1.Controls.Add(cbSexo);
             PanelFromulario1.Location = new Point(22, 246);
             PanelFromulario1.Name = "PanelFromulario1";
-            PanelFromulario1.Size = new Size(898, 708);
+            PanelFromulario1.Size = new Size(895, 708);
             PanelFromulario1.TabIndex = 1010;
             // 
             // TbAlch
@@ -606,7 +602,7 @@
             PanelFromulario2.Controls.Add(label1);
             PanelFromulario2.Location = new Point(22, 246);
             PanelFromulario2.Name = "PanelFromulario2";
-            PanelFromulario2.Size = new Size(895, 718);
+            PanelFromulario2.Size = new Size(895, 709);
             PanelFromulario2.TabIndex = 1011;
             // 
             // LbPaciente
@@ -624,7 +620,7 @@
             // 
             RbGuardar.Cursor = Cursors.Hand;
             RbGuardar.ErrorImage = (Image)resources.GetObject("RbGuardar.ErrorImage");
-            RbGuardar.Image = (Image)resources.GetObject("RbGuardar.Image");
+            RbGuardar.Image = Properties.Resources.Guardar;
             RbGuardar.Location = new Point(721, 634);
             RbGuardar.Name = "RbGuardar";
             RbGuardar.Size = new Size(138, 63);
@@ -637,7 +633,7 @@
             // 
             PbBorrar.Cursor = Cursors.Hand;
             PbBorrar.ErrorImage = (Image)resources.GetObject("PbBorrar.ErrorImage");
-            PbBorrar.Image = (Image)resources.GetObject("PbBorrar.Image");
+            PbBorrar.Image = Properties.Resources.borrar;
             PbBorrar.Location = new Point(156, 262);
             PbBorrar.Name = "PbBorrar";
             PbBorrar.Size = new Size(102, 49);
@@ -650,7 +646,7 @@
             // 
             BbAtras.Cursor = Cursors.Hand;
             BbAtras.ErrorImage = (Image)resources.GetObject("BbAtras.ErrorImage");
-            BbAtras.Image = (Image)resources.GetObject("BbAtras.Image");
+            BbAtras.Image = Properties.Resources.flachaIsquierda;
             BbAtras.Location = new Point(26, 617);
             BbAtras.Name = "BbAtras";
             BbAtras.Size = new Size(85, 80);
@@ -674,7 +670,7 @@
             // 
             PbAgregar.Cursor = Cursors.Hand;
             PbAgregar.ErrorImage = (Image)resources.GetObject("PbAgregar.ErrorImage");
-            PbAgregar.Image = (Image)resources.GetObject("PbAgregar.Image");
+            PbAgregar.Image = Properties.Resources.agregar;
             PbAgregar.Location = new Point(48, 262);
             PbAgregar.Name = "PbAgregar";
             PbAgregar.Size = new Size(102, 49);
@@ -772,47 +768,13 @@
             // 
             // pictureBox2
             // 
-            pictureBox2.Image = (Image)resources.GetObject("pictureBox2.Image");
+            pictureBox2.Image = Properties.Resources.Membrete;
             pictureBox2.Location = new Point(0, 27);
             pictureBox2.Name = "pictureBox2";
             pictureBox2.Size = new Size(934, 213);
             pictureBox2.SizeMode = PictureBoxSizeMode.StretchImage;
             pictureBox2.TabIndex = 1012;
             pictureBox2.TabStop = false;
-            // 
-            // menuStrip1
-            // 
-            menuStrip1.BackColor = SystemColors.ActiveCaption;
-            menuStrip1.Items.AddRange(new ToolStripItem[] { TsMPacientes });
-            menuStrip1.Location = new Point(0, 0);
-            menuStrip1.Name = "menuStrip1";
-            menuStrip1.Size = new Size(955, 24);
-            menuStrip1.TabIndex = 1013;
-            menuStrip1.Text = "menuStrip1";
-            // 
-            // TsMPacientes
-            // 
-            TsMPacientes.DropDownItems.AddRange(new ToolStripItem[] { toolStripMenuItemAgregar, toolStripMenuItemBuscar });
-            TsMPacientes.ForeColor = SystemColors.ActiveCaptionText;
-            TsMPacientes.Name = "TsMPacientes";
-            TsMPacientes.Size = new Size(69, 20);
-            TsMPacientes.Text = "Pacientes";
-            // 
-            // toolStripMenuItemAgregar
-            // 
-            toolStripMenuItemAgregar.Image = (Image)resources.GetObject("toolStripMenuItemAgregar.Image");
-            toolStripMenuItemAgregar.Name = "toolStripMenuItemAgregar";
-            toolStripMenuItemAgregar.Size = new Size(116, 22);
-            toolStripMenuItemAgregar.Text = "Agregar";
-            toolStripMenuItemAgregar.Click += ToolStripMenuItemAgregar_Click;
-            // 
-            // toolStripMenuItemBuscar
-            // 
-            toolStripMenuItemBuscar.Image = (Image)resources.GetObject("toolStripMenuItemBuscar.Image");
-            toolStripMenuItemBuscar.Name = "toolStripMenuItemBuscar";
-            toolStripMenuItemBuscar.Size = new Size(116, 22);
-            toolStripMenuItemBuscar.Text = "Buscar";
-            toolStripMenuItemBuscar.Click += ToolStripMenuItemConsultar_Click;
             // 
             // PanelFromulario3
             // 
@@ -821,7 +783,7 @@
             PanelFromulario3.Controls.Add(GvConsulta);
             PanelFromulario3.Location = new Point(22, 246);
             PanelFromulario3.Name = "PanelFromulario3";
-            PanelFromulario3.Size = new Size(895, 718);
+            PanelFromulario3.Size = new Size(895, 709);
             PanelFromulario3.TabIndex = 1014;
             // 
             // TbBuscar
@@ -851,7 +813,26 @@
             GvConsulta.SelectionMode = DataGridViewSelectionMode.CellSelect;
             GvConsulta.Size = new Size(826, 418);
             GvConsulta.TabIndex = 0;
+            GvConsulta.CellContentClick += GvConsulta_BtnImprimir_Click;
             GvConsulta.CellDoubleClick += GvConsulta_CellContentClick;
+            // 
+            // BtnImprimir
+            // 
+            BtnImprimir.AutoSizeMode = DataGridViewAutoSizeColumnMode.None;
+            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle2.BackColor = SystemColors.ActiveCaption;
+            dataGridViewCellStyle2.Font = new Font("Arial", 8.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            dataGridViewCellStyle2.ForeColor = Color.White;
+            BtnImprimir.DefaultCellStyle = dataGridViewCellStyle2;
+            BtnImprimir.HeaderText = "Imprimir";
+            BtnImprimir.MinimumWidth = 7;
+            BtnImprimir.Name = "BtnImprimir";
+            BtnImprimir.ReadOnly = true;
+            BtnImprimir.Resizable = DataGridViewTriState.True;
+            BtnImprimir.Text = "Ver registro";
+            BtnImprimir.ToolTipText = "Ver registro";
+            BtnImprimir.UseColumnTextForButtonValue = true;
+            BtnImprimir.Width = 75;
             // 
             // sqliteCommand1
             // 
@@ -860,31 +841,16 @@
             sqliteCommand1.Transaction = null;
             sqliteCommand1.UpdatedRowSource = System.Data.UpdateRowSource.None;
             // 
-            // BtnImprimir
-            // 
-            BtnImprimir.AutoSizeMode = DataGridViewAutoSizeColumnMode.None;
-            BtnImprimir.HeaderText = "Imprimir";
-            BtnImprimir.Image = (Image)resources.GetObject("BtnImprimir.Image");
-            BtnImprimir.ImageLayout = DataGridViewImageCellLayout.Zoom;
-            BtnImprimir.MinimumWidth = 7;
-            BtnImprimir.Name = "BtnImprimir";
-            BtnImprimir.ReadOnly = true;
-            BtnImprimir.Resizable = DataGridViewTriState.True;
-            BtnImprimir.ToolTipText = "Ver registro";
-            BtnImprimir.Width = 60;
-            // 
             // UcPacientes
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             AutoScroll = true;
-            BackColor = Color.Transparent;
-            BackgroundImage = (Image)resources.GetObject("$this.BackgroundImage");
-            Controls.Add(menuStrip1);
+            BackgroundImage = Properties.Resources.fondo;
             Controls.Add(pictureBox2);
+            Controls.Add(PanelFromulario1);
             Controls.Add(PanelFromulario3);
             Controls.Add(PanelFromulario2);
-            Controls.Add(PanelFromulario1);
             MaximumSize = new Size(955, 1000);
             MinimumSize = new Size(955, 0);
             Name = "UcPacientes";
@@ -899,8 +865,6 @@
             ((System.ComponentModel.ISupportInitialize)BbAtras).EndInit();
             ((System.ComponentModel.ISupportInitialize)PbAgregar).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
-            menuStrip1.ResumeLayout(false);
-            menuStrip1.PerformLayout();
             PanelFromulario3.ResumeLayout(false);
             PanelFromulario3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)GvConsulta).EndInit();
@@ -958,15 +922,11 @@
         public PictureBox PbBorrar;
         public RichTextBox RtHistoTratamiento;
         public PictureBox RbGuardar;
-        public MenuStrip menuStrip1;
-        public ToolStripMenuItem TsMPacientes;
-        public ToolStripMenuItem toolStripMenuItemAgregar;
-        public ToolStripMenuItem toolStripMenuItemBuscar;
         public Panel PanelFromulario3;
         public DataGridView GvConsulta;
         public TextBox TbBuscar;
         public Label LbPaciente;
         public Microsoft.Data.Sqlite.SqliteCommand sqliteCommand1;
-        private DataGridViewImageColumn BtnImprimir;
+        private DataGridViewButtonColumn BtnImprimir;
     }
 }

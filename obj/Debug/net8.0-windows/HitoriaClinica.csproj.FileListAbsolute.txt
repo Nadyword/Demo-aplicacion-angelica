@@ -3,6 +3,7 @@ C:\Users\samue\Documents\Proyectos\Demo-aplicacion-angelica\bin\Debug\net8.0-win
 C:\Users\samue\Documents\Proyectos\Demo-aplicacion-angelica\bin\Debug\net8.0-windows\HitoriaClinica.runtimeconfig.json
 C:\Users\samue\Documents\Proyectos\Demo-aplicacion-angelica\bin\Debug\net8.0-windows\HitoriaClinica.dll
 C:\Users\samue\Documents\Proyectos\Demo-aplicacion-angelica\bin\Debug\net8.0-windows\HitoriaClinica.pdb
+C:\Users\samue\Documents\Proyectos\Demo-aplicacion-angelica\bin\Debug\net8.0-windows\DinkToPdf.dll
 C:\Users\samue\Documents\Proyectos\Demo-aplicacion-angelica\bin\Debug\net8.0-windows\Microsoft.Data.Sqlite.dll
 C:\Users\samue\Documents\Proyectos\Demo-aplicacion-angelica\bin\Debug\net8.0-windows\SQLitePCLRaw.batteries_v2.dll
 C:\Users\samue\Documents\Proyectos\Demo-aplicacion-angelica\bin\Debug\net8.0-windows\SQLitePCLRaw.core.dll
@@ -44,3 +45,11 @@ C:\Users\samue\Documents\Proyectos\Demo-aplicacion-angelica\obj\Debug\net8.0-win
 C:\Users\samue\Documents\Proyectos\Demo-aplicacion-angelica\obj\Debug\net8.0-windows\HitoriaClinica.pdb
 C:\Users\samue\Documents\Proyectos\Demo-aplicacion-angelica\obj\Debug\net8.0-windows\HitoriaClinica.genruntimeconfig.cache
 C:\Users\samue\Documents\Proyectos\Demo-aplicacion-angelica\obj\Debug\net8.0-windows\ref\HitoriaClinica.dll
+C:\Users\samue\Documents\Proyectos\Demo-aplicacion-angelica\bin\Debug\net8.0-windows\HitoriaClinica.db
+C:\Users\samue\Documents\Proyectos\Demo-aplicacion-angelica\bin\Debug\net8.0-windows\Reportes\Modelos\Ficha.html
+C:\Users\samue\Documents\Proyectos\Demo-aplicacion-angelica\bin\Debug\net8.0-windows\Reportes\Modelos\Ficha.pdf
+C:\Users\samue\Documents\Proyectos\Demo-aplicacion-angelica\bin\Debug\net8.0-windows\Reportes\PdfGenerator.cs
+C:\Users\samue\Documents\Proyectos\Demo-aplicacion-angelica\bin\Debug\net8.0-windows\libwkhtmltox.dll
+C:\Users\samue\Documents\Proyectos\Demo-aplicacion-angelica\bin\Debug\net8.0-windows\libwkhtmltox.dylib
+C:\Users\samue\Documents\Proyectos\Demo-aplicacion-angelica\bin\Debug\net8.0-windows\libwkhtmltox.so
+C:\Users\samue\Documents\Proyectos\Demo-aplicacion-angelica\obj\Debug\net8.0-windows\HitoriaClinica.Pantallas.UcTratamientos.resources

@@ -1,8 +1,10 @@
 C:\Users\samue\Documents\Proyectos\Demo-aplicacion-angelica\bin\Release\net8.0-windows\app.publish\HitoriaClinica.exe
+C:\Users\samue\Documents\Proyectos\Demo-aplicacion-angelica\bin\Release\net8.0-windows\app.publish\HitoriaClinica.db
 C:\Users\samue\Documents\Proyectos\Demo-aplicacion-angelica\bin\Release\net8.0-windows\app.publish\HitoriaClinica.dll
 C:\Users\samue\Documents\Proyectos\Demo-aplicacion-angelica\bin\Release\net8.0-windows\app.publish\HitoriaClinica.deps.json
 C:\Users\samue\Documents\Proyectos\Demo-aplicacion-angelica\bin\Release\net8.0-windows\app.publish\HitoriaClinica.runtimeconfig.json
 C:\Users\samue\Documents\Proyectos\Demo-aplicacion-angelica\bin\Release\net8.0-windows\app.publish\HitoriaClinica.pdb
+C:\Users\samue\Documents\Proyectos\Demo-aplicacion-angelica\bin\Release\net8.0-windows\app.publish\DinkToPdf.dll
 C:\Users\samue\Documents\Proyectos\Demo-aplicacion-angelica\bin\Release\net8.0-windows\app.publish\Microsoft.Data.Sqlite.dll
 C:\Users\samue\Documents\Proyectos\Demo-aplicacion-angelica\bin\Release\net8.0-windows\app.publish\SQLitePCLRaw.batteries_v2.dll
 C:\Users\samue\Documents\Proyectos\Demo-aplicacion-angelica\bin\Release\net8.0-windows\app.publish\SQLitePCLRaw.core.dll

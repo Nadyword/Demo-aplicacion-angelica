@@ -1,13 +1,16 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="Current" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
-    <_LastSelectedProfileId>C:\Users\samue\Documents\Proyectos\Demo-aplicacion-angelica\Properties\PublishProfiles\FolderProfile.pubxml</_LastSelectedProfileId>
+    <_LastSelectedProfileId>C:\Users\samue\Documents\Proyectos\Demo-aplicacion-angelica\Properties\PublishProfiles\FolderProfile5.pubxml</_LastSelectedProfileId>
   </PropertyGroup>
   <ItemGroup>
     <Compile Update="Pantallas\PantallaInit\Programita.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="Pantallas\Formulario\UcPacientes.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="Pantallas\Tratamientos\UcTratamientos.cs">
       <SubType>UserControl</SubType>
     </Compile>
   </ItemGroup>
@@ -18,10 +21,5 @@
     <EmbeddedResource Update="Properties\Resources.resx">
       <SubType>Designer</SubType>
     </EmbeddedResource>
-  </ItemGroup>
-  <ItemGroup>
-    <None Update="ConjuntosDatos.xsd">
-      <SubType>Designer</SubType>
-    </None>
   </ItemGroup>
 </Project>
