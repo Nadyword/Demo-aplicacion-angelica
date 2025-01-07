@@ -3,7 +3,6 @@ using HitoriaClinica.DataBase;
 using System.Text.RegularExpressions;
 using HitoriaClinica.Modelos;
 using HitoriaClinica.Reportes;
-using DinkToPdf.Contracts;
 using DinkToPdf;
 using System.Diagnostics;
 
@@ -16,6 +15,7 @@ public partial class UcPacientes : UserControl
     public readonly List<string[,]> tratamientos = [];
     public int Estado = 1;
     public int Id_cliente = 0;
+    private readonly PdfGenerator pdfGenerator = new(new SynchronizedConverter(new PdfTools()));
 
     #endregion
 
@@ -25,10 +25,8 @@ public partial class UcPacientes : UserControl
     {
         InitializeComponent();
         PreloadData();
-        Utilidades.CargarFechaHistorialTratamiento(this);
         Utilidades.ShowPanels(1, this);
         cbSexo.SelectedIndex = 0;
-        PanelCache.PreloadPanels(this);
     }
 
     #endregion
@@ -143,24 +141,31 @@ public partial class UcPacientes : UserControl
                                .Replace("#Genero#", clientInfo.Sexo == 0 ? "Masculino" : "Femenino")
                                .Replace("#Direccion#", clientInfo.Direccion);
                 File.WriteAllText(htmlTemplatePath, modelo);
-                IConverter converter = new SynchronizedConverter(new PdfTools());
-                PdfGenerator pdfGenerator = new(converter);
                 pdfGenerator.GeneratePdfFromHtmlFile(htmlTemplatePath, outputPdfPath);
 
                 if (File.Exists(outputPdfPath))
                 {
-                    ProcessStartInfo psi = new()
+                    try
                     {
-                        FileName = outputPdfPath,
-                        UseShellExecute = true
-                    };
+                        ProcessStartInfo psi = new()
+                        {
+                            FileName = "cmd",
+                            Arguments = $"/c start {outputPdfPath}",
+                            WindowStyle = ProcessWindowStyle.Hidden
+                        };
 
-                    Process process = new()
+                        Process process = new()
+                        {
+                            StartInfo = psi
+                        };
+
+                        process.Start();
+                        process.Close();
+                    }
+                    catch (Exception ex)
                     {
-                        StartInfo = psi
-                    };
-
-                    process.Start();
+                        MessageBox.Show($"Ocurrió un error al abrir el archivo PDF: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
                 }
                 else
                 {
@@ -178,6 +183,8 @@ public partial class UcPacientes : UserControl
     {
         Estado = 1;
         Utilidades.Limpiar(this);
+        Utilidades.CargarFechaHistorialTratamiento(this);
+        Utilidades.ShowPanels(1, this);
         MostrarNombrePaciente(false);
     }
 
@@ -384,7 +391,6 @@ public partial class UcPacientes : UserControl
 
     public void PreloadData()
     {
-        Utilidades.CargarComboTratamientos(this);
         _ = Utilidades.CargarGrila(this);
         GvConsulta.Columns[1].Visible = false;
         Utilidades.Limpiar(this);

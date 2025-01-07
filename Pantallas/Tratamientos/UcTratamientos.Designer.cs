@@ -41,9 +41,14 @@ namespace HitoriaClinica.Pantallas
             renombrarToolStripMenuItem = new ToolStripMenuItem();
             GvTratamientos = new DataGridView();
             CbActivo = new DataGridViewCheckBoxColumn();
+            TbAgreTrata = new TextBox();
+            PbAgregar = new PictureBox();
+            PbRecargar = new PictureBox();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)GvTratamientos).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)PbAgregar).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)PbRecargar).BeginInit();
             SuspendLayout();
             // 
             // pictureBox1
@@ -122,12 +127,55 @@ namespace HitoriaClinica.Pantallas
             CbActivo.HeaderText = "Mostrar";
             CbActivo.Name = "CbActivo";
             // 
+            // TbAgreTrata
+            // 
+            TbAgreTrata.BackColor = SystemColors.ControlLight;
+            TbAgreTrata.Cursor = Cursors.IBeam;
+            TbAgreTrata.Font = new Font("Arial", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            TbAgreTrata.Location = new Point(300, 318);
+            TbAgreTrata.Margin = new Padding(5);
+            TbAgreTrata.Name = "TbAgreTrata";
+            TbAgreTrata.PlaceholderText = "Nuevo tratamiento";
+            TbAgreTrata.Size = new Size(310, 26);
+            TbAgreTrata.TabIndex = 1016;
+            // 
+            // PbAgregar
+            // 
+            PbAgregar.BackColor = Color.Transparent;
+            PbAgregar.Cursor = Cursors.Hand;
+            PbAgregar.ErrorImage = (Image)resources.GetObject("PbAgregar.ErrorImage");
+            PbAgregar.Image = Properties.Resources.agregar;
+            PbAgregar.Location = new Point(618, 305);
+            PbAgregar.Name = "PbAgregar";
+            PbAgregar.Size = new Size(102, 49);
+            PbAgregar.SizeMode = PictureBoxSizeMode.StretchImage;
+            PbAgregar.TabIndex = 1020;
+            PbAgregar.TabStop = false;
+            PbAgregar.Click += PbAgregar_Click;
+            // 
+            // PbRecargar
+            // 
+            PbRecargar.BackColor = Color.Transparent;
+            PbRecargar.Cursor = Cursors.Hand;
+            PbRecargar.ErrorImage = Properties.Resources.recargar;
+            PbRecargar.Image = Properties.Resources.recargar;
+            PbRecargar.Location = new Point(772, 827);
+            PbRecargar.Name = "PbRecargar";
+            PbRecargar.Size = new Size(104, 98);
+            PbRecargar.SizeMode = PictureBoxSizeMode.StretchImage;
+            PbRecargar.TabIndex = 1021;
+            PbRecargar.TabStop = false;
+            PbRecargar.Click += PbRecargar_Click;
+            // 
             // UcTratamientos
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             AutoScroll = true;
             BackgroundImage = Properties.Resources.fondo;
+            Controls.Add(PbRecargar);
+            Controls.Add(PbAgregar);
+            Controls.Add(TbAgreTrata);
             Controls.Add(GvTratamientos);
             Controls.Add(menuStrip1);
             Controls.Add(pictureBox1);
@@ -139,6 +187,8 @@ namespace HitoriaClinica.Pantallas
             menuStrip1.ResumeLayout(false);
             menuStrip1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)GvTratamientos).EndInit();
+            ((System.ComponentModel.ISupportInitialize)PbAgregar).EndInit();
+            ((System.ComponentModel.ISupportInitialize)PbRecargar).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -155,5 +205,8 @@ namespace HitoriaClinica.Pantallas
         private ToolStripMenuItem renombrarToolStripMenuItem;
         public DataGridView GvTratamientos;
         private DataGridViewCheckBoxColumn CbActivo;
+        public TextBox TbAgreTrata;
+        public PictureBox PbAgregar;
+        public PictureBox PbRecargar;
     }
 }

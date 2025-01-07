@@ -34,4 +34,9 @@ internal class Updates : Connection
         string fecha = DateTime.Now.ToString("yyyy-MM-dd HH:mm");
         ExecuteNonQuery($"UPDATE tratamientos SET descripcion = '{tratamiento.Descripcion}', fecha = '{fecha}', id_trata = '{tratamiento.Id_trata}' WHERE cliente_id = {tratamiento.Id};");
     }
+
+    public static void UpdateTratamientoCombo(string? orden, string? activo, string? id)
+    {
+        ExecuteNonQuery($"UPDATE tratamientos_combo SET  orden = {orden}, activo = {activo} WHERE id = {id};");
+    }
 }

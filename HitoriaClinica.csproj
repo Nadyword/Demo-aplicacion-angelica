@@ -29,8 +29,6 @@
     </EmbeddedResource>
 
     <Folder Include="Modelos\" />
-
-    <Folder Include="Cache\" />
     <Folder Include="Pantallas\PantallaInit\Logic\" />
     <Folder Include="Recursos\Images\" />
 

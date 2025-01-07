@@ -1,4 +1,11 @@
 C:\Users\samue\Documents\Proyectos\Publicaciones\Angelica\HitoriaClinica.exe
+C:\Users\samue\Documents\Proyectos\Publicaciones\Angelica\HitoriaClinica.db
+C:\Users\samue\Documents\Proyectos\Publicaciones\Angelica\Reportes\Modelos\Ficha.html
+C:\Users\samue\Documents\Proyectos\Publicaciones\Angelica\Reportes\Modelos\Ficha.pdf
+C:\Users\samue\Documents\Proyectos\Publicaciones\Angelica\Reportes\PdfGenerator.cs
+C:\Users\samue\Documents\Proyectos\Publicaciones\Angelica\libwkhtmltox.dll
+C:\Users\samue\Documents\Proyectos\Publicaciones\Angelica\libwkhtmltox.dylib
+C:\Users\samue\Documents\Proyectos\Publicaciones\Angelica\libwkhtmltox.so
 C:\Users\samue\Documents\Proyectos\Publicaciones\Angelica\HitoriaClinica.dll
 C:\Users\samue\Documents\Proyectos\Publicaciones\Angelica\HitoriaClinica.deps.json
 C:\Users\samue\Documents\Proyectos\Publicaciones\Angelica\HitoriaClinica.runtimeconfig.json

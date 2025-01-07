@@ -52,3 +52,8 @@ C:\Users\samue\Documents\Proyectos\Demo-aplicacion-angelica\bin\Release\net8.0-w
 C:\Users\samue\Documents\Proyectos\Demo-aplicacion-angelica\bin\Release\net8.0-windows\libwkhtmltox.dll
 C:\Users\samue\Documents\Proyectos\Demo-aplicacion-angelica\bin\Release\net8.0-windows\libwkhtmltox.dylib
 C:\Users\samue\Documents\Proyectos\Demo-aplicacion-angelica\bin\Release\net8.0-windows\libwkhtmltox.so
+C:\Users\samue\Documents\Proyectos\Demo-aplicacion-angelica\obj\Release\net8.0-windows\HitoriaClinica.Pantallas.UcTratamientos.resources
+C:\Users\samue\Documents\Proyectos\Demo-aplicacion-angelica\bin\Release\net8.0-windows\HitoriaClinica.dll.manifest
+C:\Users\samue\Documents\Proyectos\Demo-aplicacion-angelica\bin\Release\net8.0-windows\HitoriaClinica.application
+C:\Users\samue\Documents\Proyectos\Demo-aplicacion-angelica\obj\Release\net8.0-windows\HitoriaClinica.dll.manifest
+C:\Users\samue\Documents\Proyectos\Demo-aplicacion-angelica\obj\Release\net8.0-windows\HitoriaClinica.application

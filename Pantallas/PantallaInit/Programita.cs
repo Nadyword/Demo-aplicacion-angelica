@@ -29,6 +29,7 @@ namespace HitoriaClinica
         private void SmiAgregar_Click(object? sender, EventArgs? e)
         {
             ucPacientes.BtnAgregar();
+            ucPacientes.Visible = true;
             ucTratamientos.Visible = false;
         }
 
@@ -41,6 +42,8 @@ namespace HitoriaClinica
         private void SmiBuscar_Click(object sender, EventArgs e)
         {
             ucPacientes.BtnBuscar();
+            ucPacientes.Visible = true;
+            ucTratamientos.Visible = false;
         }
     }
 }

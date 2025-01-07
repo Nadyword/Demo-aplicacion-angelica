@@ -34,5 +34,10 @@ namespace HitoriaClinica.DataBase
             string fecha = DateTime.Now.ToString("yyyy-MM-dd HH:mm");
             ExecuteNonQuery($"INSERT INTO tratamientos (cliente_id, descripcion, fecha, id_trata) VALUES ({tratamiento.Id}, '{tratamiento.Descripcion}', '{fecha}', '{tratamiento.Id_trata}');");
         }
+
+        public static void InsertTratamientoCombo(string descrip)
+        {
+            ExecuteNonQuery($"INSERT INTO tratamientos_combo (descripcion, orden, activo) VALUES ('{descrip}', 999, true);");
+        }
     }
 }

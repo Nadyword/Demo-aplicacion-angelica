@@ -28,7 +28,9 @@ internal class TraerClientes : Connection
     public static List<Cliente> TraerCliente(string buscar)
     {
         var clientes = new List<Cliente>();
-        using (SqliteDataReader reader = Connection.ExecuteQuery($"SELECT * FROM clientes WHERE cedula = '%{buscar}%' OR nombre = '%{buscar}%' OR apellido = '%{buscar}%'"))
+        string sql = buscar.Trim() == "" ? "SELECT * FROM clientes" : $"SELECT * FROM clientes WHERE cedula like '%{buscar}%' OR nombre like '%{buscar}%' OR apellido like '%{buscar}%'";
+
+        using (SqliteDataReader reader = Connection.ExecuteQuery(sql))
         {
             while (reader.Read())
             {

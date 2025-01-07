@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UcPacientes));
-            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
             tbNombre = new TextBox();
             tbDireccion = new TextBox();
             cbSexo = new ComboBox();
@@ -819,11 +819,11 @@
             // BtnImprimir
             // 
             BtnImprimir.AutoSizeMode = DataGridViewAutoSizeColumnMode.None;
-            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle2.BackColor = SystemColors.ActiveCaption;
-            dataGridViewCellStyle2.Font = new Font("Arial", 8.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            dataGridViewCellStyle2.ForeColor = Color.White;
-            BtnImprimir.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.BackColor = SystemColors.ActiveCaption;
+            dataGridViewCellStyle1.Font = new Font("Arial", 8.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            dataGridViewCellStyle1.ForeColor = Color.White;
+            BtnImprimir.DefaultCellStyle = dataGridViewCellStyle1;
             BtnImprimir.HeaderText = "Imprimir";
             BtnImprimir.MinimumWidth = 7;
             BtnImprimir.Name = "BtnImprimir";
@@ -848,9 +848,9 @@
             AutoScroll = true;
             BackgroundImage = Properties.Resources.fondo;
             Controls.Add(pictureBox2);
+            Controls.Add(PanelFromulario2);
             Controls.Add(PanelFromulario1);
             Controls.Add(PanelFromulario3);
-            Controls.Add(PanelFromulario2);
             MaximumSize = new Size(955, 1000);
             MinimumSize = new Size(955, 0);
             Name = "UcPacientes";
@@ -869,7 +869,6 @@
             PanelFromulario3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)GvConsulta).EndInit();
             ResumeLayout(false);
-            PerformLayout();
         }
 
         #endregion
