@@ -21,7 +21,7 @@ public partial class UcPacientes : UserControl
     private readonly string basePath = AppDomain.CurrentDomain.BaseDirectory;
     private readonly string rutaFichaF = "Recursos\\Archivos\\FichaF.pdf";
     private readonly string rutaFichaM = "Recursos\\Archivos\\FichaM.pdf";
-    private readonly string carpetaHistoriaClinica = "C:\\HistoriaClinica";
+    private readonly string carpetaHistoriaClinica = "C:\\HistoriaClinica\\";
 
     #endregion
 

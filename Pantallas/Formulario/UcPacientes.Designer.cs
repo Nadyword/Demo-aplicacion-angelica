@@ -110,7 +110,7 @@
             // IlGaleria
             // 
             IlGaleria.ColorDepth = ColorDepth.Depth32Bit;
-            IlGaleria.ImageSize = new Size(160, 220);
+            IlGaleria.ImageSize = new Size(170, 220);
             IlGaleria.TransparentColor = Color.RosyBrown;
             // 
             // tbNombre
@@ -885,9 +885,9 @@
             // 
             // LvGaleria
             // 
-            LvGaleria.Location = new Point(33, 92);
+            LvGaleria.Location = new Point(65, 92);
             LvGaleria.Name = "LvGaleria";
-            LvGaleria.Size = new Size(826, 576);
+            LvGaleria.Size = new Size(772, 576);
             LvGaleria.TabIndex = 1012;
             LvGaleria.UseCompatibleStateImageBehavior = false;
             // 
