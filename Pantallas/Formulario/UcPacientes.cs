@@ -15,7 +15,13 @@ public partial class UcPacientes : UserControl
     public readonly List<string[,]> tratamientos = [];
     public int Estado = 1;
     public int Id_cliente = 0;
+    public string ci_cliente = "";
     private readonly PdfGenerator pdfGenerator = new(new SynchronizedConverter(new PdfTools()));
+
+    private readonly string basePath = AppDomain.CurrentDomain.BaseDirectory;
+    private readonly string rutaFichaF = "Recursos\\Archivos\\FichaF.pdf";
+    private readonly string rutaFichaM = "Recursos\\Archivos\\FichaM.pdf";
+    private readonly string carpetaHistoriaClinica = "C:\\HistoriaClinica";
 
     #endregion
 
@@ -27,6 +33,7 @@ public partial class UcPacientes : UserControl
         PreloadData();
         Utilidades.ShowPanels(1, this);
         cbSexo.SelectedIndex = 0;
+        PbGaleria.Visible = PbRostro.Visible = false;
     }
 
     #endregion
@@ -34,6 +41,7 @@ public partial class UcPacientes : UserControl
     public void GvConsulta_CellContentClick(object sender, DataGridViewCellEventArgs e)
     {
         Estado = 2;
+        PbGaleria.Visible = PbRostro.Visible = true;
         Id_cliente = Convert.ToInt32(Convert.ToInt32(GvConsulta.Rows[e.RowIndex].Cells[1].Value.ToString()));
         Utilidades.ShowPanels(1, this);
         _ = CargarDatosCliente();
@@ -92,7 +100,7 @@ public partial class UcPacientes : UserControl
         Cliente cliente = await Consult.AsyncTraerInfoClientById(Id_cliente);
         tbNombre.Text = cliente.Nombre;
         TbApellido.Text = cliente.Apellido;
-        tbCedula.Text = cliente.Cedula;
+        ci_cliente = tbCedula.Text = cliente.Cedula ?? "";
         TbTele.Text = cliente.Telefono.ToString();
         cbSexo.SelectedIndex = cliente.Sexo ?? 0;
         tbDireccion.Text = cliente.Direccion;
@@ -184,7 +192,9 @@ public partial class UcPacientes : UserControl
         Estado = 1;
         Utilidades.Limpiar(this);
         Utilidades.CargarFechaHistorialTratamiento(this);
+        Utilidades.CargarComboTratamientos(this);
         Utilidades.ShowPanels(1, this);
+        PbGaleria.Visible = PbRostro.Visible = false;
         MostrarNombrePaciente(false);
     }
 
@@ -245,6 +255,12 @@ public partial class UcPacientes : UserControl
         if (tbCedula.Text.Trim() == "")
         {
             MessageBox.Show("El capo cedula es obligatorio", "Cedula obligatorio", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            return;
+        }
+
+        if (cbSexo.SelectedIndex == 0)
+        {
+            MessageBox.Show("El capo sexo es obligatorio", "Sexo obligatorio", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             return;
         }
 
@@ -312,6 +328,19 @@ public partial class UcPacientes : UserControl
                     Descripcion = tratamientos[i][0, 1],
                     Id_trata = tratamientos[i][0, 0]
                 });
+            }
+
+            if (!Directory.Exists(carpetaHistoriaClinica + tbCedula.Text))
+            {
+                string rutaCarpeta = carpetaHistoriaClinica + tbCedula.Text;
+                Directory.CreateDirectory(rutaCarpeta);
+
+                string sourceFilePath = Path.Combine(basePath, cbSexo.SelectedIndex == 1 ? rutaFichaM : rutaFichaF);
+
+                if (File.Exists(sourceFilePath))
+                {
+                    File.Copy(sourceFilePath, rutaCarpeta + "\\Ficha.pdf", true);
+                }
             }
 
             _ = Utilidades.CargarGrila(this);
@@ -394,6 +423,7 @@ public partial class UcPacientes : UserControl
         _ = Utilidades.CargarGrila(this);
         GvConsulta.Columns[1].Visible = false;
         Utilidades.Limpiar(this);
+        Utilidades.CargarComboTratamientos(this);
     }
 
     #endregion
@@ -461,4 +491,76 @@ public partial class UcPacientes : UserControl
     }
 
     #endregion
+
+    private void PbGaleria_Click(object sender, EventArgs e)
+    {
+        Utilidades.ShowPanels(4, this);
+        if (Estado == 2 && Directory.Exists("C:\\HistoriaClinica\\" + ci_cliente))
+        {
+            string carpeta = "C:\\HistoriaClinica\\" + ci_cliente;
+            List<string> archivos = Directory.GetFiles(carpeta)
+                .Where(a => a.EndsWith(".png", StringComparison.OrdinalIgnoreCase) ||
+                            a.EndsWith(".jpg", StringComparison.OrdinalIgnoreCase) ||
+                            a.EndsWith(".jpeg", StringComparison.OrdinalIgnoreCase))
+                .ToList();
+
+            LvGaleria.Items.Clear();
+            IlGaleria.Images.Clear();
+
+            if (archivos.Count > 0)
+            {
+                LvGaleria.LargeImageList = IlGaleria;
+
+                foreach (string archivo in archivos)
+                {
+                    try
+                    {
+                        Image img = Image.FromFile(archivo);
+                        IlGaleria.Images.Add(img);
+                        ListViewItem item = new()
+                        {
+                            ImageIndex = IlGaleria.Images.Count - 1,
+                        };
+                        LvGaleria.Items.Add(item);
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show($"Error al cargar la imagen: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
+            }
+        }
+    }
+
+    private void PbRostro_Click(object sender, EventArgs e)
+    {
+        if (File.Exists(carpetaHistoriaClinica + tbCedula.Text + "\\Ficha.pdf"))
+        {
+            try
+            {
+                ProcessStartInfo psi = new()
+                {
+                    FileName = "cmd",
+                    Arguments = $"/c start {carpetaHistoriaClinica + tbCedula.Text + "\\Ficha.pdf"}",
+                    WindowStyle = ProcessWindowStyle.Hidden
+                };
+
+                Process process = new()
+                {
+                    StartInfo = psi
+                };
+
+                process.Start();
+                process.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Ocurrió un error al abrir el archivo PDF: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+        else
+        {
+            MessageBox.Show("El archivo PDF no se pudo generar.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+        }
+    }
 }

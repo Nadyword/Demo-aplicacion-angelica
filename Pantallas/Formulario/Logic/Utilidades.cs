@@ -37,16 +37,26 @@ internal class Utilidades
                 ucPacientes.PanelFromulario1.Visible = true;
                 ucPacientes.PanelFromulario2.Visible = false;
                 ucPacientes.PanelFromulario3.Visible = false;
+                ucPacientes.PanelFromulario3.Visible = false;
                 break;
             case 2:
                 ucPacientes.PanelFromulario1.Visible = false;
                 ucPacientes.PanelFromulario2.Visible = true;
+                ucPacientes.PanelFromulario3.Visible = false;
                 ucPacientes.PanelFromulario3.Visible = false;
                 break;
             case 3:
                 ucPacientes.PanelFromulario1.Visible = false;
                 ucPacientes.PanelFromulario2.Visible = false;
                 ucPacientes.PanelFromulario3.Visible = true;
+                ucPacientes.PanelFromulario4.Visible = false;
+                ucPacientes.PbRostro.Visible = ucPacientes.PbGaleria.Visible = false;
+                break;
+            case 4:
+                ucPacientes.PanelFromulario1.Visible = false;
+                ucPacientes.PanelFromulario2.Visible = false;
+                ucPacientes.PanelFromulario3.Visible = false;
+                ucPacientes.PanelFromulario4.Visible = true;
                 break;
         }
         ucPacientes.ResumeLayout();

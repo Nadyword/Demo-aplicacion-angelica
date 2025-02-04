@@ -28,8 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
+            components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UcPacientes));
             DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
+            IlGaleria = new ImageList(components);
             tbNombre = new TextBox();
             tbDireccion = new TextBox();
             cbSexo = new ComboBox();
@@ -85,6 +87,11 @@
             GvConsulta = new DataGridView();
             BtnImprimir = new DataGridViewButtonColumn();
             sqliteCommand1 = new Microsoft.Data.Sqlite.SqliteCommand();
+            PbGaleria = new PictureBox();
+            PanelFromulario4 = new Panel();
+            LvGaleria = new ListView();
+            label14 = new Label();
+            PbRostro = new PictureBox();
             ((System.ComponentModel.ISupportInitialize)PbSiguiente).BeginInit();
             PanelFromulario1.SuspendLayout();
             PanelFromulario2.SuspendLayout();
@@ -95,7 +102,16 @@
             ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
             PanelFromulario3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)GvConsulta).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)PbGaleria).BeginInit();
+            PanelFromulario4.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)PbRostro).BeginInit();
             SuspendLayout();
+            // 
+            // IlGaleria
+            // 
+            IlGaleria.ColorDepth = ColorDepth.Depth32Bit;
+            IlGaleria.ImageSize = new Size(160, 220);
+            IlGaleria.TransparentColor = Color.RosyBrown;
             // 
             // tbNombre
             // 
@@ -841,13 +857,76 @@
             sqliteCommand1.Transaction = null;
             sqliteCommand1.UpdatedRowSource = System.Data.UpdateRowSource.None;
             // 
+            // PbGaleria
+            // 
+            PbGaleria.BackColor = Color.Transparent;
+            PbGaleria.Cursor = Cursors.Hand;
+            PbGaleria.ErrorImage = (Image)resources.GetObject("PbGaleria.ErrorImage");
+            PbGaleria.Image = Properties.Resources.galeria;
+            PbGaleria.Location = new Point(845, 55);
+            PbGaleria.Name = "PbGaleria";
+            PbGaleria.Size = new Size(72, 60);
+            PbGaleria.SizeMode = PictureBoxSizeMode.StretchImage;
+            PbGaleria.TabIndex = 1023;
+            PbGaleria.TabStop = false;
+            PbGaleria.Visible = false;
+            PbGaleria.Click += PbGaleria_Click;
+            // 
+            // PanelFromulario4
+            // 
+            PanelFromulario4.BackColor = Color.Transparent;
+            PanelFromulario4.Controls.Add(LvGaleria);
+            PanelFromulario4.Controls.Add(label14);
+            PanelFromulario4.Location = new Point(22, 246);
+            PanelFromulario4.Name = "PanelFromulario4";
+            PanelFromulario4.Size = new Size(895, 709);
+            PanelFromulario4.TabIndex = 1024;
+            PanelFromulario4.Visible = false;
+            // 
+            // LvGaleria
+            // 
+            LvGaleria.Location = new Point(33, 92);
+            LvGaleria.Name = "LvGaleria";
+            LvGaleria.Size = new Size(826, 576);
+            LvGaleria.TabIndex = 1012;
+            LvGaleria.UseCompatibleStateImageBehavior = false;
+            // 
+            // label14
+            // 
+            label14.AutoSize = true;
+            label14.Font = new Font("Arial", 25F, FontStyle.Bold);
+            label14.ForeColor = SystemColors.Control;
+            label14.Location = new Point(377, 0);
+            label14.Name = "label14";
+            label14.Size = new Size(167, 40);
+            label14.TabIndex = 1011;
+            label14.Text = "GELERIA";
+            // 
+            // PbRostro
+            // 
+            PbRostro.BackColor = Color.Transparent;
+            PbRostro.Cursor = Cursors.Hand;
+            PbRostro.ErrorImage = Properties.Resources.Rostro;
+            PbRostro.Image = Properties.Resources.Rostro;
+            PbRostro.Location = new Point(3, 39);
+            PbRostro.Name = "PbRostro";
+            PbRostro.Size = new Size(145, 183);
+            PbRostro.SizeMode = PictureBoxSizeMode.StretchImage;
+            PbRostro.TabIndex = 1025;
+            PbRostro.TabStop = false;
+            PbRostro.Visible = false;
+            PbRostro.Click += PbRostro_Click;
+            // 
             // UcPacientes
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             AutoScroll = true;
             BackgroundImage = Properties.Resources.fondo;
+            Controls.Add(PbRostro);
+            Controls.Add(PbGaleria);
             Controls.Add(pictureBox2);
+            Controls.Add(PanelFromulario4);
             Controls.Add(PanelFromulario2);
             Controls.Add(PanelFromulario1);
             Controls.Add(PanelFromulario3);
@@ -868,6 +947,10 @@
             PanelFromulario3.ResumeLayout(false);
             PanelFromulario3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)GvConsulta).EndInit();
+            ((System.ComponentModel.ISupportInitialize)PbGaleria).EndInit();
+            PanelFromulario4.ResumeLayout(false);
+            PanelFromulario4.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)PbRostro).EndInit();
             ResumeLayout(false);
         }
 
@@ -927,5 +1010,11 @@
         public Label LbPaciente;
         public Microsoft.Data.Sqlite.SqliteCommand sqliteCommand1;
         private DataGridViewButtonColumn BtnImprimir;
+        public PictureBox PbGaleria;
+        public Panel PanelFromulario4;
+        public Label label14;
+        private ListView LvGaleria;
+        private ImageList IlGaleria;
+        public PictureBox PbRostro;
     }
 }

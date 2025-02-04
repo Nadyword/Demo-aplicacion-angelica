@@ -32,11 +32,11 @@ public partial class UcTratamientos : UserControl
 
     private void PbRecargar_Click(object sender, EventArgs e)
     {
-        foreach(DataGridViewRow row in GvTratamientos.Rows)
+        foreach (DataGridViewRow row in GvTratamientos.Rows)
         {
             Updates.UpdateTratamientoCombo(row.Cells[2].FormattedValue.ToString(), row.Cells[3].FormattedValue.ToString(), row.Cells[0].FormattedValue.ToString());
         }
-
+        Utilidades.CargarComboTratamientos(this);
         MessageBox.Show("¡Actualizado!", "Tratamientos actualizados", MessageBoxButtons.OK, MessageBoxIcon.Information);
     }
 }

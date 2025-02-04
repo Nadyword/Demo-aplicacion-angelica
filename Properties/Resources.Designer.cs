@@ -103,6 +103,16 @@ namespace HitoriaClinica.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap galeria {
+            get {
+                object obj = ResourceManager.GetObject("galeria", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Guardar {
             get {
                 object obj = ResourceManager.GetObject("Guardar", resourceCulture);
@@ -126,6 +136,16 @@ namespace HitoriaClinica.Properties {
         internal static System.Drawing.Bitmap recargar {
             get {
                 object obj = ResourceManager.GetObject("recargar", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Rostro {
+            get {
+                object obj = ResourceManager.GetObject("Rostro", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

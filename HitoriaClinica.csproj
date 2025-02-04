@@ -41,6 +41,12 @@
       <IncludeInPublish>true</IncludeInPublish>
     </None>
 
+    <None Include="Recursos\**\*">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <IncludeInPublish>true</IncludeInPublish>
+    </None>
+
     <None Include="Reportes\**\*">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
