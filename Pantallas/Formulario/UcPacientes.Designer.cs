@@ -624,11 +624,11 @@
             // LbPaciente
             // 
             LbPaciente.AutoSize = true;
-            LbPaciente.Font = new Font("Arial", 25F, FontStyle.Bold);
+            LbPaciente.Font = new Font("Arial", 15F, FontStyle.Bold);
             LbPaciente.ForeColor = SystemColors.Control;
-            LbPaciente.Location = new Point(156, 643);
+            LbPaciente.Location = new Point(126, 642);
             LbPaciente.Name = "LbPaciente";
-            LbPaciente.Size = new Size(0, 40);
+            LbPaciente.Size = new Size(0, 24);
             LbPaciente.TabIndex = 1021;
             LbPaciente.TextAlign = ContentAlignment.MiddleCenter;
             // 
@@ -926,10 +926,10 @@
             Controls.Add(PbRostro);
             Controls.Add(PbGaleria);
             Controls.Add(pictureBox2);
-            Controls.Add(PanelFromulario4);
             Controls.Add(PanelFromulario2);
             Controls.Add(PanelFromulario1);
             Controls.Add(PanelFromulario3);
+            Controls.Add(PanelFromulario4);
             MaximumSize = new Size(955, 1000);
             MinimumSize = new Size(955, 0);
             Name = "UcPacientes";

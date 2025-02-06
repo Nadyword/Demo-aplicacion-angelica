@@ -30,16 +30,11 @@
 
     <Folder Include="Modelos\" />
     <Folder Include="Pantallas\PantallaInit\Logic\" />
-    <Folder Include="Recursos\Images\" />
 
     <PackageReference Include="DinkToPdf" Version="1.0.8" />
-    <PackageReference Include="Microsoft.Data.Sqlite" Version="9.0.0" />
 
-    <None Update="HitoriaClinica.db">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
-      <IncludeInPublish>true</IncludeInPublish>
-    </None>
+    <PackageReference Include="Google.Apis" Version="1.69.0" />
+    <PackageReference Include="Microsoft.Data.Sqlite" Version="9.0.1" />
 
     <None Include="Recursos\**\*">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>

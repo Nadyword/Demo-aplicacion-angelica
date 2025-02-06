@@ -5,6 +5,7 @@ using HitoriaClinica.Modelos;
 using HitoriaClinica.Reportes;
 using DinkToPdf;
 using System.Diagnostics;
+using System.Globalization;
 
 namespace HitoriaClinica;
 
@@ -19,8 +20,10 @@ public partial class UcPacientes : UserControl
     private readonly PdfGenerator pdfGenerator = new(new SynchronizedConverter(new PdfTools()));
 
     private readonly string basePath = AppDomain.CurrentDomain.BaseDirectory;
-    private readonly string rutaFichaF = "Recursos\\Archivos\\FichaF.pdf";
-    private readonly string rutaFichaM = "Recursos\\Archivos\\FichaM.pdf";
+    private readonly string rutaRostroF = "Recursos\\Archivos\\RostroF.pdf";
+    private readonly string rutaRostroM = "Recursos\\Archivos\\RostroM.pdf";
+    private readonly string rutaCuerpoF = "Recursos\\Archivos\\CuerpoF.pdf";
+    private readonly string rutaCuerpoM = "Recursos\\Archivos\\CuerpoM.pdf";
     private readonly string carpetaHistoriaClinica = "C:\\HistoriaClinica\\";
 
     #endregion
@@ -138,18 +141,22 @@ public partial class UcPacientes : UserControl
         {
             try
             {
+                
                 string basePath = AppDomain.CurrentDomain.BaseDirectory;
-                string htmlTemplatePath = Path.Combine(basePath, "Reportes", "Modelos", "Ficha.html");
+                string htmlTemplatePath = Path.Combine(basePath, "Reportes", "Modelos", "CosentimientoModelo.html");
+                string htmlCosentimientoPath = Path.Combine(basePath, "Reportes", "Modelos", "Cosentimiento.html");
                 string outputPdfPath = Path.Combine(basePath, "Reportes", "Modelos", "Ficha.pdf");
+                if(File.Exists(outputPdfPath)) File.Delete(outputPdfPath);
+                if(File.Exists(htmlCosentimientoPath)) File.Delete(htmlCosentimientoPath);  
                 int idClient = Convert.ToInt32(GvConsulta.Rows[e.RowIndex].Cells["id"].Value);
                 Cliente clientInfo = await Consult.AsyncTraerInfoClientById(idClient);
                 string modelo = File.ReadAllText(htmlTemplatePath);
-                modelo = modelo.Replace("#Nombre#", clientInfo.Nombre + " " + clientInfo.Apellido)
-                               .Replace("#FechaNaci#", clientInfo.Nacimiento)
-                               .Replace("#Genero#", clientInfo.Sexo == 0 ? "Masculino" : "Femenino")
-                               .Replace("#Direccion#", clientInfo.Direccion);
-                File.WriteAllText(htmlTemplatePath, modelo);
-                pdfGenerator.GeneratePdfFromHtmlFile(htmlTemplatePath, outputPdfPath);
+                modelo = modelo.Replace("#NombrePaciente#", clientInfo.Nombre + " " + clientInfo.Apellido)
+                               .Replace("#DocumentoIdentidad#", clientInfo.Cedula)
+                               .Replace("#FechaProcedimiento#", DateTime.Now.ToString("D", new CultureInfo("es-ES")))
+                               .Replace("#RutaCarpeta#", basePath + "Reportes\\Modelos\\");
+                File.WriteAllText(htmlCosentimientoPath, modelo);
+                pdfGenerator.GeneratePdfFromHtmlFile(htmlCosentimientoPath, outputPdfPath);
 
                 if (File.Exists(outputPdfPath))
                 {
@@ -330,16 +337,22 @@ public partial class UcPacientes : UserControl
                 });
             }
 
-            if (!Directory.Exists(carpetaHistoriaClinica + tbCedula.Text))
+            if (!Directory.Exists(carpetaHistoriaClinica + tbCedula.Text + " " + tbNombre.Text + " " + TbApellido.Text))
             {
-                string rutaCarpeta = carpetaHistoriaClinica + tbCedula.Text;
+                string rutaCarpeta = carpetaHistoriaClinica + tbCedula.Text + " " + tbNombre.Text + " " + TbApellido.Text;
                 Directory.CreateDirectory(rutaCarpeta);
 
-                string sourceFilePath = Path.Combine(basePath, cbSexo.SelectedIndex == 1 ? rutaFichaM : rutaFichaF);
+                string sourceFilePathCuerpo = Path.Combine(basePath, cbSexo.SelectedIndex == 1 ? rutaCuerpoM : rutaCuerpoF);
+                string sourceFilePathRostro = Path.Combine(basePath, cbSexo.SelectedIndex == 1 ? rutaRostroM : rutaRostroF);
 
-                if (File.Exists(sourceFilePath))
+                if (File.Exists(sourceFilePathRostro))
                 {
-                    File.Copy(sourceFilePath, rutaCarpeta + "\\Ficha.pdf", true);
+                    File.Copy(sourceFilePathRostro, rutaCarpeta + "\\Rostro.pdf", true);
+                }
+
+                if (File.Exists(sourceFilePathCuerpo))
+                {
+                    File.Copy(sourceFilePathCuerpo, rutaCarpeta + "\\Cuerpo.pdf", true);
                 }
             }
 
@@ -534,33 +547,44 @@ public partial class UcPacientes : UserControl
 
     private void PbRostro_Click(object sender, EventArgs e)
     {
-        if (File.Exists(carpetaHistoriaClinica + tbCedula.Text + "\\Ficha.pdf"))
+        string rostroPath = Path.Combine(carpetaHistoriaClinica, tbCedula.Text, "Rostro.pdf");
+        string cuerpoPath = Path.Combine(carpetaHistoriaClinica, tbCedula.Text, "Cuerpo.pdf");
+
+        if (File.Exists(rostroPath) && File.Exists(cuerpoPath))
         {
             try
             {
-                ProcessStartInfo psi = new()
+                ProcessStartInfo psiRostro = new()
                 {
                     FileName = "cmd",
-                    Arguments = $"/c start {carpetaHistoriaClinica + tbCedula.Text + "\\Ficha.pdf"}",
+                    Arguments = $"/c start {rostroPath}",
                     WindowStyle = ProcessWindowStyle.Hidden
                 };
 
-                Process process = new()
+                ProcessStartInfo psiCuerpo = new()
                 {
-                    StartInfo = psi
+                    FileName = "cmd",
+                    Arguments = $"/c start {cuerpoPath}",
+                    WindowStyle = ProcessWindowStyle.Hidden
                 };
 
-                process.Start();
-                process.Close();
+                Process processRostro = new() { StartInfo = psiRostro };
+                Process processCuerpo = new() { StartInfo = psiCuerpo };
+
+                processRostro.Start();
+                processCuerpo.Start();
+
+                processRostro.Close();
+                processCuerpo.Close();
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"Ocurrió un error al abrir el archivo PDF: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show($"Ocurrió un error al abrir los archivos PDF: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
         else
         {
-            MessageBox.Show("El archivo PDF no se pudo generar.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            MessageBox.Show("Uno o ambos archivos PDF no se pudieron generar.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
     }
 }

@@ -55,9 +55,13 @@
               "target": "Package",
               "version": "[1.0.8, )"
             },
+            "Google.Apis": {
+              "target": "Package",
+              "version": "[1.69.0, )"
+            },
             "Microsoft.Data.Sqlite": {
               "target": "Package",
-              "version": "[9.0.0, )"
+              "version": "[9.0.1, )"
             }
           },
           "imports": [
@@ -79,7 +83,7 @@
               "privateAssets": "none"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.101/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.102/PortableRuntimeIdentifierGraph.json"
         }
       }
     }
