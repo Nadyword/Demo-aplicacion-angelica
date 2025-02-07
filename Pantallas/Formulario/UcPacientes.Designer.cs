@@ -92,6 +92,7 @@
             LvGaleria = new ListView();
             label14 = new Label();
             PbRostro = new PictureBox();
+            pictureBox1 = new PictureBox();
             ((System.ComponentModel.ISupportInitialize)PbSiguiente).BeginInit();
             PanelFromulario1.SuspendLayout();
             PanelFromulario2.SuspendLayout();
@@ -105,6 +106,7 @@
             ((System.ComponentModel.ISupportInitialize)PbGaleria).BeginInit();
             PanelFromulario4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)PbRostro).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
             // 
             // IlGaleria
@@ -917,12 +919,26 @@
             PbRostro.Visible = false;
             PbRostro.Click += PbRostro_Click;
             // 
+            // pictureBox1
+            // 
+            pictureBox1.Cursor = Cursors.Hand;
+            pictureBox1.ErrorImage = (Image)resources.GetObject("pictureBox1.ErrorImage");
+            pictureBox1.Image = Properties.Resources.Guardar;
+            pictureBox1.Location = new Point(212, 108);
+            pictureBox1.Name = "pictureBox1";
+            pictureBox1.Size = new Size(138, 63);
+            pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
+            pictureBox1.TabIndex = 1023;
+            pictureBox1.TabStop = false;
+            pictureBox1.Click += pictureBox1_Click;
+            // 
             // UcPacientes
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             AutoScroll = true;
             BackgroundImage = Properties.Resources.fondo;
+            Controls.Add(pictureBox1);
             Controls.Add(PbRostro);
             Controls.Add(PbGaleria);
             Controls.Add(pictureBox2);
@@ -951,6 +967,7 @@
             PanelFromulario4.ResumeLayout(false);
             PanelFromulario4.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)PbRostro).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ResumeLayout(false);
         }
 
@@ -1016,5 +1033,6 @@
         private ListView LvGaleria;
         private ImageList IlGaleria;
         public PictureBox PbRostro;
+        public PictureBox pictureBox1;
     }
 }

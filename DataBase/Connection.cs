@@ -4,13 +4,24 @@ namespace HitoriaClinica.DataBase
 {
     internal class Connection
     {
+
+        private readonly static string dbPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "HitoriaClinica.db") ?? "HitoriaClinica.db";
+        public static string NewBD { get; set; } = "";
+
         #region Simple
 
         private static SqliteConnection GetConnection()
         {
-            string dbPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "HitoriaClinica.db");
+            var connection = new SqliteConnection($"Data Source={dbPath};Pooling=False");
+            connection.Open();
+            return connection;
+        }
+
+        public static SqliteConnection GetConnection(string dbPath)
+        {
             var connection = new SqliteConnection($"Data Source={dbPath}");
             connection.Open();
+            connection.Close();
             return connection;
         }
 
@@ -34,8 +45,7 @@ namespace HitoriaClinica.DataBase
 
         private static async Task<SqliteConnection> AsyncGetConnection()
         {
-            string dbPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "HitoriaClinica.db");
-            var connection = new SqliteConnection($"Data Source={dbPath}");
+            var connection = new SqliteConnection($"Data Source={dbPath};Pooling=False");
             await connection.OpenAsync();
             return connection;
         }
@@ -56,5 +66,64 @@ namespace HitoriaClinica.DataBase
         }
 
         #endregion
+
+
+        public static void CopyDatabaseContent()
+        {
+            using var connection = new SqliteConnection($"Data Source={NewBD};Pooling=False");
+            connection.Open();
+
+            using var command = connection.CreateCommand();
+
+            try
+            {
+                command.CommandText = "PRAGMA foreign_keys = OFF;";
+                command.ExecuteNonQuery();
+
+                command.CommandText = @"
+                    ATTACH DATABASE '" + dbPath + @"' AS OrigenDB;
+                    SELECT 'DELETE FROM ' || name || ';' FROM sqlite_master WHERE type='table';
+                ";
+
+                using (var reader = command.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        string deleteQuery = reader.GetString(0);
+                        new SqliteCommand(deleteQuery, connection).ExecuteNonQuery();
+                    }
+                }
+
+                command.CommandText = @"
+                    ATTACH DATABASE '" + dbPath + @"' AS OrigenDB;
+                    SELECT 'INSERT INTO ' || name || ' SELECT * FROM OrigenDB.' || name || ';' 
+                    FROM sqlite_master WHERE type='table';
+                ";
+
+                using (var reader = command.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        string insertQuery = reader.GetString(0);
+                        new SqliteCommand(insertQuery, connection).ExecuteNonQuery();
+                    }
+                }
+
+                // 🔹 Restaurar claves foráneas
+                command.CommandText = "PRAGMA foreign_keys = ON;";
+                command.ExecuteNonQuery();
+
+                Console.WriteLine("✅ Datos copiados con éxito de Origen.db a Destino.db");
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"❌ Error: {ex.Message}");
+            }
+            finally
+            {
+                connection.Close();
+            }
+        }
     }
+
 }

@@ -83,14 +83,14 @@ namespace HitoriaClinica.Pantallas
             // 
             toolStripMenuItemAgregar.Image = (Image)resources.GetObject("toolStripMenuItemAgregar.Image");
             toolStripMenuItemAgregar.Name = "toolStripMenuItemAgregar";
-            toolStripMenuItemAgregar.Size = new Size(180, 22);
+            toolStripMenuItemAgregar.Size = new Size(116, 22);
             toolStripMenuItemAgregar.Text = "Agregar";
             // 
             // toolStripMenuItemBuscar
             // 
             toolStripMenuItemBuscar.Image = (Image)resources.GetObject("toolStripMenuItemBuscar.Image");
             toolStripMenuItemBuscar.Name = "toolStripMenuItemBuscar";
-            toolStripMenuItemBuscar.Size = new Size(180, 22);
+            toolStripMenuItemBuscar.Size = new Size(116, 22);
             toolStripMenuItemBuscar.Text = "Buscar";
             // 
             // tratamientosToolStripMenuItem

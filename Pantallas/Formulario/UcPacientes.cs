@@ -6,6 +6,8 @@ using HitoriaClinica.Reportes;
 using DinkToPdf;
 using System.Diagnostics;
 using System.Globalization;
+using HitoriaClinica.GoogleDriver;
+
 
 namespace HitoriaClinica;
 
@@ -141,13 +143,13 @@ public partial class UcPacientes : UserControl
         {
             try
             {
-                
+
                 string basePath = AppDomain.CurrentDomain.BaseDirectory;
                 string htmlTemplatePath = Path.Combine(basePath, "Reportes", "Modelos", "CosentimientoModelo.html");
                 string htmlCosentimientoPath = Path.Combine(basePath, "Reportes", "Modelos", "Cosentimiento.html");
                 string outputPdfPath = Path.Combine(basePath, "Reportes", "Modelos", "Ficha.pdf");
-                if(File.Exists(outputPdfPath)) File.Delete(outputPdfPath);
-                if(File.Exists(htmlCosentimientoPath)) File.Delete(htmlCosentimientoPath);  
+                if (File.Exists(outputPdfPath)) File.Delete(outputPdfPath);
+                if (File.Exists(htmlCosentimientoPath)) File.Delete(htmlCosentimientoPath);
                 int idClient = Convert.ToInt32(GvConsulta.Rows[e.RowIndex].Cells["id"].Value);
                 Cliente clientInfo = await Consult.AsyncTraerInfoClientById(idClient);
                 string modelo = File.ReadAllText(htmlTemplatePath);
@@ -422,7 +424,7 @@ public partial class UcPacientes : UserControl
             });
 
             _ = Utilidades.CargarGrila(this);
-            MessageBox.Show("¡Guardado!", "Registro actualizado", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            MessageBox.Show("¡Actualizado!", "Registro actualizado", MessageBoxButtons.OK, MessageBoxIcon.Information);
             #endregion
         }
     }
@@ -505,6 +507,8 @@ public partial class UcPacientes : UserControl
 
     #endregion
 
+    #region Galeria y rostro
+
     private void PbGaleria_Click(object sender, EventArgs e)
     {
         Utilidades.ShowPanels(4, this);
@@ -586,5 +590,12 @@ public partial class UcPacientes : UserControl
         {
             MessageBox.Show("Uno o ambos archivos PDF no se pudieron generar.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
+    }
+
+    #endregion
+
+    private void pictureBox1_Click(object sender, EventArgs e)
+    {
+        GoogleDriveService.ActualizarBD();
     }
 }

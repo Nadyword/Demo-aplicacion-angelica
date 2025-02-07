@@ -34,6 +34,8 @@
     <PackageReference Include="DinkToPdf" Version="1.0.8" />
 
     <PackageReference Include="Google.Apis" Version="1.69.0" />
+
+    <PackageReference Include="Google.Apis.Drive.v3" Version="1.69.0.3674" />
     <PackageReference Include="Microsoft.Data.Sqlite" Version="9.0.1" />
 
     <None Include="Recursos\**\*">
@@ -54,6 +56,7 @@
       <IncludeInPublish>true</IncludeInPublish>
       <Link>%(Filename)%(Extension)</Link>
     </None>
+    
   </ItemGroup>
 
 </Project>

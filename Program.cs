@@ -2,14 +2,18 @@ namespace HitoriaClinica
 {
     internal static class Program
     {
-        /// <summary>
-        ///  The main entry point for the application.
-        /// </summary>
         [STAThread]
         static void Main()
         {
             try
             {
+                if (Directory.Exists("C:\\HistoriaClinica"))
+                {
+                    Directory.Delete("C:\\HistoriaClinica",true);
+                }
+
+                Directory.CreateDirectory("C:\\HistoriaClinica");
+
                 ApplicationConfiguration.Initialize();
                 Application.Run(new FromInicio());
             }

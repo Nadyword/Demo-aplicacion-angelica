@@ -34,6 +34,19 @@
           }
         }
       },
+      "Google.Apis.Auth/1.69.0": {
+        "dependencies": {
+          "Google.Apis": "1.69.0",
+          "Google.Apis.Core": "1.69.0",
+          "System.Management": "7.0.2"
+        },
+        "runtime": {
+          "lib/net6.0/Google.Apis.Auth.dll": {
+            "assemblyVersion": "1.69.0.0",
+            "fileVersion": "1.69.0.0"
+          }
+        }
+      },
       "Google.Apis.Core/1.69.0": {
         "dependencies": {
           "Newtonsoft.Json": "13.0.3"
@@ -42,6 +55,18 @@
           "lib/net6.0/Google.Apis.Core.dll": {
             "assemblyVersion": "1.69.0.0",
             "fileVersion": "1.69.0.0"
+          }
+        }
+      },
+      "Google.Apis.Drive.v3/1.69.0.3674": {
+        "dependencies": {
+          "Google.Apis": "1.69.0",
+          "Google.Apis.Auth": "1.69.0"
+        },
+        "runtime": {
+          "lib/net6.0/Google.Apis.Drive.v3.dll": {
+            "assemblyVersion": "1.69.0.3674",
+            "fileVersion": "1.69.0.3674"
           }
         }
       },
@@ -321,6 +346,14 @@
           }
         }
       },
+      "System.CodeDom/7.0.0": {
+        "runtime": {
+          "lib/net7.0/System.CodeDom.dll": {
+            "assemblyVersion": "7.0.0.0",
+            "fileVersion": "7.0.22.51805"
+          }
+        }
+      },
       "System.Collections/4.3.0": {
         "dependencies": {
           "Microsoft.NETCore.Platforms": "1.1.0",
@@ -554,6 +587,25 @@
           "lib/netstandard1.6/System.Linq.Expressions.dll": {
             "assemblyVersion": "4.1.0.0",
             "fileVersion": "1.0.24212.1"
+          }
+        }
+      },
+      "System.Management/7.0.2": {
+        "dependencies": {
+          "System.CodeDom": "7.0.0"
+        },
+        "runtime": {
+          "lib/net7.0/System.Management.dll": {
+            "assemblyVersion": "7.0.0.2",
+            "fileVersion": "7.0.723.27404"
+          }
+        },
+        "runtimeTargets": {
+          "runtimes/win/lib/net7.0/System.Management.dll": {
+            "rid": "win",
+            "assetType": "runtime",
+            "assemblyVersion": "7.0.0.2",
+            "fileVersion": "7.0.723.27404"
           }
         }
       },
@@ -1148,12 +1200,26 @@
       "path": "google.apis/1.69.0",
       "hashPath": "google.apis.1.69.0.nupkg.sha512"
     },
+    "Google.Apis.Auth/1.69.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-ar07yxn/s41jdqQ3sMh8EAehiSvXQ9yE1MS4McmZINeSWvolnLHmIZ9Yxj4tHVIYYz0c7H/lpToVqm7C2aYx9g==",
+      "path": "google.apis.auth/1.69.0",
+      "hashPath": "google.apis.auth.1.69.0.nupkg.sha512"
+    },
     "Google.Apis.Core/1.69.0": {
       "type": "package",
       "serviceable": true,
       "sha512": "sha512-SXUcurNUPxYMtOnawvB2Av18VrPBC9W7So9q9ikmXIXLGiv4RX7Zbu4kc+8PbwTdd8wLt54r0PBGOT5RaKoTjQ==",
       "path": "google.apis.core/1.69.0",
       "hashPath": "google.apis.core.1.69.0.nupkg.sha512"
+    },
+    "Google.Apis.Drive.v3/1.69.0.3674": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-ildYbnAklYXBUIOhuEnpuI9kgc9xV6HldiQLguQsdVsHQ4bbxm1iCANYpKzbgiygO9jlTaQ0RCJuvNAHJGdlEA==",
+      "path": "google.apis.drive.v3/1.69.0.3674",
+      "hashPath": "google.apis.drive.v3.1.69.0.3674.nupkg.sha512"
     },
     "Microsoft.Data.Sqlite/9.0.1": {
       "type": "package",
@@ -1274,6 +1340,13 @@
       "path": "system.buffers/4.0.0",
       "hashPath": "system.buffers.4.0.0.nupkg.sha512"
     },
+    "System.CodeDom/7.0.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-GLltyqEsE5/3IE+zYRP5sNa1l44qKl9v+bfdMcwg+M9qnQf47wK3H0SUR/T+3N4JEQXF3vV4CSuuo0rsg+nq2A==",
+      "path": "system.codedom/7.0.0",
+      "hashPath": "system.codedom.7.0.0.nupkg.sha512"
+    },
     "System.Collections/4.3.0": {
       "type": "package",
       "serviceable": true,
@@ -1392,6 +1465,13 @@
       "sha512": "sha512-I+y02iqkgmCAyfbqOmSDOgqdZQ5tTj80Akm5BPSS8EeB0VGWdy6X1KCoYe8Pk6pwDoAKZUOdLVxnTJcExiv5zw==",
       "path": "system.linq.expressions/4.1.0",
       "hashPath": "system.linq.expressions.4.1.0.nupkg.sha512"
+    },
+    "System.Management/7.0.2": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-/qEUN91mP/MUQmJnM5y5BdT7ZoPuVrtxnFlbJ8a3kBJGhe2wCzBfnPFtK2wTtEEcf3DMGR9J00GZZfg6HRI6yA==",
+      "path": "system.management/7.0.2",
+      "hashPath": "system.management.7.0.2.nupkg.sha512"
     },
     "System.Memory/4.5.3": {
       "type": "package",
