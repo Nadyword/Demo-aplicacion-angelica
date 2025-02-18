@@ -20,13 +20,10 @@ public partial class UcPacientes : UserControl
     public int Id_cliente = 0;
     public string ci_cliente = "";
     private readonly PdfGenerator pdfGenerator = new(new SynchronizedConverter(new PdfTools()));
-
-    private readonly string basePath = AppDomain.CurrentDomain.BaseDirectory;
-    private readonly string rutaRostroF = "Recursos\\Archivos\\RostroF.pdf";
-    private readonly string rutaRostroM = "Recursos\\Archivos\\RostroM.pdf";
-    private readonly string rutaCuerpoF = "Recursos\\Archivos\\CuerpoF.pdf";
-    private readonly string rutaCuerpoM = "Recursos\\Archivos\\CuerpoM.pdf";
     private readonly string carpetaHistoriaClinica = "C:\\HistoriaClinica\\";
+    private readonly string basePath = AppDomain.CurrentDomain.BaseDirectory;
+    private readonly string routerFileRostro = "Recursos\\Archivos\\Rostro";
+    private readonly string routerFileCuerpo = "Recursos\\Archivos\\Cuerpo";
 
     #endregion
 
@@ -67,6 +64,14 @@ public partial class UcPacientes : UserControl
     }
 
     #region Utilidades
+
+    private void PbRecargarBD_Click(object sender, EventArgs e)
+    {
+        Utilidades.IniciarCarga(this);
+        Connection.SincronizarDB();
+        _ = Utilidades.CargarGrila(this);
+        Utilidades.DetenerCarga(this);
+    }
 
     public async Task CargarHistorialTrata()
     {
@@ -273,6 +278,9 @@ public partial class UcPacientes : UserControl
             return;
         }
 
+        Utilidades.IniciarCarga(this);
+        Connection.SincronizarDB();
+
         if (Estado == 1)
         {
             #region Guarda
@@ -339,28 +347,13 @@ public partial class UcPacientes : UserControl
                 });
             }
 
-            if (!Directory.Exists(carpetaHistoriaClinica + tbCedula.Text + " " + tbNombre.Text + " " + TbApellido.Text))
-            {
-                string rutaCarpeta = carpetaHistoriaClinica + tbCedula.Text + " " + tbNombre.Text + " " + TbApellido.Text;
-                Directory.CreateDirectory(rutaCarpeta);
-
-                string sourceFilePathCuerpo = Path.Combine(basePath, cbSexo.SelectedIndex == 1 ? rutaCuerpoM : rutaCuerpoF);
-                string sourceFilePathRostro = Path.Combine(basePath, cbSexo.SelectedIndex == 1 ? rutaRostroM : rutaRostroF);
-
-                if (File.Exists(sourceFilePathRostro))
-                {
-                    File.Copy(sourceFilePathRostro, rutaCarpeta + "\\Rostro.pdf", true);
-                }
-
-                if (File.Exists(sourceFilePathCuerpo))
-                {
-                    File.Copy(sourceFilePathCuerpo, rutaCarpeta + "\\Cuerpo.pdf", true);
-                }
-            }
+            string IdCarpeta = GoogleDriveService.CreateFolder(tbCedula.Text + " " + tbNombre.Text + " " + TbApellido.Text);
+            string pathFolderFace = Path.Combine(basePath, cbSexo.SelectedIndex == 1 ? routerFileRostro + "M.pdf" : "F.pdf");
+            string pathFolderBody = Path.Combine(basePath, cbSexo.SelectedIndex == 1 ? routerFileCuerpo + "M.pdf" : "F.pdf");
+            GoogleDriveService.UploadFileToFolder(pathFolderFace, IdCarpeta, "Rostro.pdf");
+            GoogleDriveService.UploadFileToFolder(pathFolderBody, IdCarpeta, "Cuerpo.pdf");
 
             _ = Utilidades.CargarGrila(this);
-            MessageBox.Show("¡Guardado!", "Registro creado", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            return;
 
             #endregion
         }
@@ -424,9 +417,21 @@ public partial class UcPacientes : UserControl
             });
 
             _ = Utilidades.CargarGrila(this);
-            MessageBox.Show("¡Actualizado!", "Registro actualizado", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
             #endregion
         }
+
+        if (Estado == 2)
+        { 
+            MessageBox.Show("¡Actualizado!", "Registro actualizado", MessageBoxButtons.OK, MessageBoxIcon.Information); 
+        }
+        else 
+        {
+            MessageBox.Show("¡Guardado!", "Registro creado", MessageBoxButtons.OK, MessageBoxIcon.Information); 
+        }
+
+        GoogleDriveService.UploadNewBD();
+        Utilidades.DetenerCarga(this);
     }
 
     #endregion
@@ -593,9 +598,4 @@ public partial class UcPacientes : UserControl
     }
 
     #endregion
-
-    private void pictureBox1_Click(object sender, EventArgs e)
-    {
-        GoogleDriveService.ActualizarBD();
-    }
 }

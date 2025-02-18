@@ -44,6 +44,7 @@ namespace HitoriaClinica.Pantallas
             TbAgreTrata = new TextBox();
             PbAgregar = new PictureBox();
             PbRecargar = new PictureBox();
+            BarraCarga = new ProgressBar();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)GvTratamientos).BeginInit();
@@ -167,12 +168,22 @@ namespace HitoriaClinica.Pantallas
             PbRecargar.TabStop = false;
             PbRecargar.Click += PbRecargar_Click;
             // 
+            // BarraCarga
+            // 
+            BarraCarga.Location = new Point(0, 228);
+            BarraCarga.Name = "BarraCarga";
+            BarraCarga.Size = new Size(934, 12);
+            BarraCarga.TabIndex = 1027;
+            BarraCarga.Visible = false;
+            BarraCarga.Click += BarraCarga_Click;
+            // 
             // UcTratamientos
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             AutoScroll = true;
             BackgroundImage = Properties.Resources.fondo;
+            Controls.Add(BarraCarga);
             Controls.Add(PbRecargar);
             Controls.Add(PbAgregar);
             Controls.Add(TbAgreTrata);
@@ -208,5 +219,6 @@ namespace HitoriaClinica.Pantallas
         public TextBox TbAgreTrata;
         public PictureBox PbAgregar;
         public PictureBox PbRecargar;
+        public ProgressBar BarraCarga;
     }
 }

@@ -79,4 +79,18 @@ internal class Utilidades
     {
         ucPacientes.RtHistoTratamiento.Text += ucPacientes.RtHistoTratamiento.Text == "" ? "*---Fecha de tratamiento: " + DateTime.Now.ToString("D", new CultureInfo("es-ES")) + "---*" : "\n*---Fecha de tratamiento: " + DateTime.Now.ToString("D", new CultureInfo("es-ES")) + "---*";
     }
+
+    public static void IniciarCarga(UcPacientes ucPacientes)
+    {
+        ucPacientes.BarraCarga.Style = ProgressBarStyle.Marquee;
+        ucPacientes.BarraCarga.MarqueeAnimationSpeed = 20; 
+        ucPacientes.BarraCarga.Visible = true;
+    }
+
+    public static void DetenerCarga(UcPacientes ucPacientes)
+    {
+        ucPacientes.BarraCarga.Style = ProgressBarStyle.Blocks;
+        ucPacientes.BarraCarga.MarqueeAnimationSpeed = 0;
+        ucPacientes.BarraCarga.Visible = false;
+    }
 }

@@ -25,9 +25,12 @@ public partial class UcTratamientos : UserControl
 
     private void PbAgregar_Click(object sender, EventArgs e)
     {
+        Utilidades.IniciarCarga(this);
+        Connection.SincronizarDB();
         Insert.InsertTratamientoCombo(TbAgreTrata.Text);
         TbAgreTrata.Text = "";
         Utilidades.CargarComboTratamientos(this);
+        Utilidades.DetenerCarga(this);
     }
 
     private void PbRecargar_Click(object sender, EventArgs e)
@@ -38,5 +41,10 @@ public partial class UcTratamientos : UserControl
         }
         Utilidades.CargarComboTratamientos(this);
         MessageBox.Show("¡Actualizado!", "Tratamientos actualizados", MessageBoxButtons.OK, MessageBoxIcon.Information);
+    }
+
+    private void BarraCarga_Click(object sender, EventArgs e)
+    {
+
     }
 }

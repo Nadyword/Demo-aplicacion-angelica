@@ -8,4 +8,18 @@ internal class Utilidades
     {
         ucTratamientos.GvTratamientos.DataSource = AgregarTratamiento.TraerTratamientosWithOrder();
     }
+
+    public static void IniciarCarga(UcTratamientos ucTratamientos)
+    {
+        ucTratamientos.BarraCarga.Style = ProgressBarStyle.Marquee;
+        ucTratamientos.BarraCarga.MarqueeAnimationSpeed = 20;
+        ucTratamientos.BarraCarga.Visible = true;
+    }
+
+    public static void DetenerCarga(UcTratamientos ucTratamientos)
+    {
+        ucTratamientos.BarraCarga.Style = ProgressBarStyle.Blocks;
+        ucTratamientos.BarraCarga.MarqueeAnimationSpeed = 0;
+        ucTratamientos.BarraCarga.Visible = false;
+    }
 }

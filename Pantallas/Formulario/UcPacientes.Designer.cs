@@ -83,6 +83,7 @@
             label1 = new Label();
             pictureBox2 = new PictureBox();
             PanelFromulario3 = new Panel();
+            PbRecargarBD = new PictureBox();
             TbBuscar = new TextBox();
             GvConsulta = new DataGridView();
             BtnImprimir = new DataGridViewButtonColumn();
@@ -92,7 +93,7 @@
             LvGaleria = new ListView();
             label14 = new Label();
             PbRostro = new PictureBox();
-            pictureBox1 = new PictureBox();
+            BarraCarga = new ProgressBar();
             ((System.ComponentModel.ISupportInitialize)PbSiguiente).BeginInit();
             PanelFromulario1.SuspendLayout();
             PanelFromulario2.SuspendLayout();
@@ -102,11 +103,11 @@
             ((System.ComponentModel.ISupportInitialize)PbAgregar).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
             PanelFromulario3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)PbRecargarBD).BeginInit();
             ((System.ComponentModel.ISupportInitialize)GvConsulta).BeginInit();
             ((System.ComponentModel.ISupportInitialize)PbGaleria).BeginInit();
             PanelFromulario4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)PbRostro).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
             // 
             // IlGaleria
@@ -604,8 +605,8 @@
             // PanelFromulario2
             // 
             PanelFromulario2.BackColor = Color.Transparent;
-            PanelFromulario2.Controls.Add(LbPaciente);
             PanelFromulario2.Controls.Add(RbGuardar);
+            PanelFromulario2.Controls.Add(LbPaciente);
             PanelFromulario2.Controls.Add(PbBorrar);
             PanelFromulario2.Controls.Add(BbAtras);
             PanelFromulario2.Controls.Add(label8);
@@ -797,12 +798,26 @@
             // PanelFromulario3
             // 
             PanelFromulario3.BackColor = Color.Transparent;
+            PanelFromulario3.Controls.Add(PbRecargarBD);
             PanelFromulario3.Controls.Add(TbBuscar);
             PanelFromulario3.Controls.Add(GvConsulta);
             PanelFromulario3.Location = new Point(22, 246);
             PanelFromulario3.Name = "PanelFromulario3";
             PanelFromulario3.Size = new Size(895, 709);
             PanelFromulario3.TabIndex = 1014;
+            // 
+            // PbRecargarBD
+            // 
+            PbRecargarBD.Cursor = Cursors.Hand;
+            PbRecargarBD.ErrorImage = (Image)resources.GetObject("PbRecargarBD.ErrorImage");
+            PbRecargarBD.Image = Properties.Resources.recargar;
+            PbRecargarBD.Location = new Point(798, 102);
+            PbRecargarBD.Name = "PbRecargarBD";
+            PbRecargarBD.Size = new Size(61, 57);
+            PbRecargarBD.SizeMode = PictureBoxSizeMode.StretchImage;
+            PbRecargarBD.TabIndex = 1023;
+            PbRecargarBD.TabStop = false;
+            PbRecargarBD.Click += PbRecargarBD_Click;
             // 
             // TbBuscar
             // 
@@ -919,18 +934,13 @@
             PbRostro.Visible = false;
             PbRostro.Click += PbRostro_Click;
             // 
-            // pictureBox1
+            // BarraCarga
             // 
-            pictureBox1.Cursor = Cursors.Hand;
-            pictureBox1.ErrorImage = (Image)resources.GetObject("pictureBox1.ErrorImage");
-            pictureBox1.Image = Properties.Resources.Guardar;
-            pictureBox1.Location = new Point(212, 108);
-            pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(138, 63);
-            pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
-            pictureBox1.TabIndex = 1023;
-            pictureBox1.TabStop = false;
-            pictureBox1.Click += pictureBox1_Click;
+            BarraCarga.Location = new Point(0, 228);
+            BarraCarga.Name = "BarraCarga";
+            BarraCarga.Size = new Size(934, 12);
+            BarraCarga.TabIndex = 1026;
+            BarraCarga.Visible = false;
             // 
             // UcPacientes
             // 
@@ -938,7 +948,7 @@
             AutoScaleMode = AutoScaleMode.Font;
             AutoScroll = true;
             BackgroundImage = Properties.Resources.fondo;
-            Controls.Add(pictureBox1);
+            Controls.Add(BarraCarga);
             Controls.Add(PbRostro);
             Controls.Add(PbGaleria);
             Controls.Add(pictureBox2);
@@ -962,12 +972,12 @@
             ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
             PanelFromulario3.ResumeLayout(false);
             PanelFromulario3.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)PbRecargarBD).EndInit();
             ((System.ComponentModel.ISupportInitialize)GvConsulta).EndInit();
             ((System.ComponentModel.ISupportInitialize)PbGaleria).EndInit();
             PanelFromulario4.ResumeLayout(false);
             PanelFromulario4.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)PbRostro).EndInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ResumeLayout(false);
         }
 
@@ -1033,6 +1043,7 @@
         private ListView LvGaleria;
         private ImageList IlGaleria;
         public PictureBox PbRostro;
-        public PictureBox pictureBox1;
+        public PictureBox PbRecargarBD;
+        public ProgressBar BarraCarga;
     }
 }
