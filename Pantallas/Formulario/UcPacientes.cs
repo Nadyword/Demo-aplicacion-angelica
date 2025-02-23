@@ -337,9 +337,9 @@ public partial class UcPacientes : UserControl
                 });
             }
 
-            if (!Directory.Exists(carpetaHistoriaClinica + tbCedula.Text + " " + tbNombre.Text + " " + TbApellido.Text))
+            if (!Directory.Exists(carpetaHistoriaClinica + tbCedula.Text + "-" + tbNombre.Text + "-" + TbApellido.Text))
             {
-                string rutaCarpeta = carpetaHistoriaClinica + tbCedula.Text + " " + tbNombre.Text + " " + TbApellido.Text;
+                string rutaCarpeta = carpetaHistoriaClinica + tbCedula.Text + "-" + tbNombre.Text + "-" + TbApellido.Text;
                 Directory.CreateDirectory(rutaCarpeta);
 
                 string sourceFilePathCuerpo = Path.Combine(basePath, cbSexo.SelectedIndex == 1 ? rutaCuerpoM : rutaCuerpoF);
@@ -508,7 +508,7 @@ public partial class UcPacientes : UserControl
     private void PbGaleria_Click(object sender, EventArgs e)
     {
         Utilidades.ShowPanels(4, this);
-        if (Estado == 2 && Directory.Exists("C:\\HistoriaClinica\\" + ci_cliente))
+        if (Estado == 2 && Directory.Exists("C:\\HistoriaClinica\\" + tbCedula.Text + "-" + tbNombre.Text + "-" + TbApellido.Text))
         {
             string carpeta = "C:\\HistoriaClinica\\" + ci_cliente;
             List<string> archivos = Directory.GetFiles(carpeta)
@@ -547,8 +547,8 @@ public partial class UcPacientes : UserControl
 
     private void PbRostro_Click(object sender, EventArgs e)
     {
-        string rostroPath = Path.Combine(carpetaHistoriaClinica, tbCedula.Text, "Rostro.pdf");
-        string cuerpoPath = Path.Combine(carpetaHistoriaClinica, tbCedula.Text, "Cuerpo.pdf");
+        string rostroPath = carpetaHistoriaClinica + tbCedula.Text + "-" + tbNombre.Text + "-" + TbApellido.Text + "\\Rostro.pdf";
+        string cuerpoPath = carpetaHistoriaClinica + tbCedula.Text + "-" + tbNombre.Text + "-" + TbApellido.Text + "\\Cuerpo.pdf";
 
         if (File.Exists(rostroPath) && File.Exists(cuerpoPath))
         {

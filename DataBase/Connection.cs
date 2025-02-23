@@ -4,12 +4,13 @@ namespace HitoriaClinica.DataBase
 {
     internal class Connection
     {
+        private const string connectionString = $"Data Source=C:\\HistoriaClinica\\HitoriaClinica.db";
+
         #region Simple
 
         private static SqliteConnection GetConnection()
         {
-            string dbPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "HitoriaClinica.db");
-            var connection = new SqliteConnection($"Data Source={dbPath}");
+            var connection = new SqliteConnection(connectionString);
             connection.Open();
             return connection;
         }
@@ -34,8 +35,7 @@ namespace HitoriaClinica.DataBase
 
         private static async Task<SqliteConnection> AsyncGetConnection()
         {
-            string dbPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "HitoriaClinica.db");
-            var connection = new SqliteConnection($"Data Source={dbPath}");
+            var connection = new SqliteConnection(connectionString);
             await connection.OpenAsync();
             return connection;
         }
