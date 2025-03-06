@@ -1,11 +1,11 @@
 ﻿using HitoriaClinica.Pantallas.Formulario.Logic;
-using HitoriaClinica.DataBase;
 using System.Text.RegularExpressions;
+using HitoriaClinica.DataBase;
 using HitoriaClinica.Modelos;
 using HitoriaClinica.Reportes;
-using DinkToPdf;
-using System.Diagnostics;
 using System.Globalization;
+using System.Diagnostics;
+using DinkToPdf;
 
 namespace HitoriaClinica;
 
@@ -45,7 +45,7 @@ public partial class UcPacientes : UserControl
     {
         Estado = 2;
         PbGaleria.Visible = PbRostro.Visible = true;
-        Id_cliente = Convert.ToInt32(Convert.ToInt32(GvConsulta.Rows[e.RowIndex].Cells[1].Value.ToString()));
+        Id_cliente = Convert.ToInt32(Convert.ToInt32(GvConsulta.Rows[e.RowIndex].Cells["id"].Value.ToString()));
         Utilidades.ShowPanels(1, this);
         _ = CargarDatosCliente();
         _ = CargarAntecedentes();
@@ -118,8 +118,9 @@ public partial class UcPacientes : UserControl
 
     public void DtNacimiendo_ValueChanged(object? sender, EventArgs e)
     {
-        DateTime Edad = DtNacimiendo.Value;
-        tbEdad.Text = (DateTime.Now.Year - Edad.Year).ToString() + " años";
+        TimeSpan anos = (DateTime)DtNacimiendo.Value - DateTime.Now;
+        DateTime edad = new(Math.Abs(anos.Ticks));
+        tbEdad.Text = edad.Year - 1 + " años";
     }
 
     public void TbTele_TextChanged(object? sender, EventArgs e)
@@ -141,13 +142,12 @@ public partial class UcPacientes : UserControl
         {
             try
             {
-                
                 string basePath = AppDomain.CurrentDomain.BaseDirectory;
                 string htmlTemplatePath = Path.Combine(basePath, "Reportes", "Modelos", "CosentimientoModelo.html");
                 string htmlCosentimientoPath = Path.Combine(basePath, "Reportes", "Modelos", "Cosentimiento.html");
                 string outputPdfPath = Path.Combine(basePath, "Reportes", "Modelos", "Ficha.pdf");
-                if(File.Exists(outputPdfPath)) File.Delete(outputPdfPath);
-                if(File.Exists(htmlCosentimientoPath)) File.Delete(htmlCosentimientoPath);  
+                if (File.Exists(outputPdfPath)) File.Delete(outputPdfPath);
+                if (File.Exists(htmlCosentimientoPath)) File.Delete(htmlCosentimientoPath);
                 int idClient = Convert.ToInt32(GvConsulta.Rows[e.RowIndex].Cells["id"].Value);
                 Cliente clientInfo = await Consult.AsyncTraerInfoClientById(idClient);
                 string modelo = File.ReadAllText(htmlTemplatePath);
@@ -190,6 +190,29 @@ public partial class UcPacientes : UserControl
             catch (Exception ex)
             {
                 MessageBox.Show($"Ocurrió un error: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+        else if (e.ColumnIndex == GvConsulta.Columns["BtnEliminar"].Index && e.RowIndex >= 0) 
+        {
+            DialogResult resul = MessageBox.Show("¿Seguro que quieres borrar este cliente?","Confirmar", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+            if (resul == DialogResult.Yes)
+            {
+                int idClient = Convert.ToInt32(GvConsulta.Rows[e.RowIndex].Cells["id"].Value);
+                string cedula = GvConsulta.Rows[e.RowIndex].Cells["cedula"].Value.ToString() ?? "QWEASDZXCERTDFGCVB";
+                Delete.DeleteClient(idClient);
+                Delete.DeleteExamenFisico(idClient);
+                Delete.DeleteAntecedentesPersonales(idClient);
+                Delete.DeleteHabitosPsicobio(idClient);
+                Delete.DeleteHistorialTratamiento(idClient);
+                Delete.DeleteTratamientos(idClient);
+                _ = Utilidades.CargarGrila(this);
+
+                foreach (string dire in Directory.GetDirectories(carpetaHistoriaClinica))
+                {
+                    if (dire.Contains(cedula))
+                        Directory.Delete(dire, true);
+                }
             }
         }
     }
@@ -434,7 +457,7 @@ public partial class UcPacientes : UserControl
     public void PreloadData()
     {
         _ = Utilidades.CargarGrila(this);
-        GvConsulta.Columns[1].Visible = false;
+        GvConsulta.Columns[2].Visible = false;
         Utilidades.Limpiar(this);
         Utilidades.CargarComboTratamientos(this);
     }
@@ -510,7 +533,7 @@ public partial class UcPacientes : UserControl
         Utilidades.ShowPanels(4, this);
         if (Estado == 2 && Directory.Exists("C:\\HistoriaClinica\\" + tbCedula.Text + "-" + tbNombre.Text + "-" + TbApellido.Text))
         {
-            string carpeta = "C:\\HistoriaClinica\\" + ci_cliente;
+            string carpeta = "C:\\HistoriaClinica\\" + tbCedula.Text + "-" + tbNombre.Text + "-" + TbApellido.Text;
             List<string> archivos = Directory.GetFiles(carpeta)
                 .Where(a => a.EndsWith(".png", StringComparison.OrdinalIgnoreCase) ||
                             a.EndsWith(".jpg", StringComparison.OrdinalIgnoreCase) ||
@@ -554,28 +577,8 @@ public partial class UcPacientes : UserControl
         {
             try
             {
-                ProcessStartInfo psiRostro = new()
-                {
-                    FileName = "cmd",
-                    Arguments = $"/c start {rostroPath}",
-                    WindowStyle = ProcessWindowStyle.Hidden
-                };
-
-                ProcessStartInfo psiCuerpo = new()
-                {
-                    FileName = "cmd",
-                    Arguments = $"/c start {cuerpoPath}",
-                    WindowStyle = ProcessWindowStyle.Hidden
-                };
-
-                Process processRostro = new() { StartInfo = psiRostro };
-                Process processCuerpo = new() { StartInfo = psiCuerpo };
-
-                processRostro.Start();
-                processCuerpo.Start();
-
-                processRostro.Close();
-                processCuerpo.Close();
+                Process.Start("explorer.exe", rostroPath);
+                Process.Start("explorer.exe", cuerpoPath);
             }
             catch (Exception ex)
             {

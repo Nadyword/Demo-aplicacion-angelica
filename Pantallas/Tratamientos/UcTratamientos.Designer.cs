@@ -31,6 +31,7 @@ namespace HitoriaClinica.Pantallas
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UcTratamientos));
+            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
             pictureBox1 = new PictureBox();
             menuStrip1 = new MenuStrip();
             TsMPacientes = new ToolStripMenuItem();
@@ -40,10 +41,11 @@ namespace HitoriaClinica.Pantallas
             agregarToolStripMenuItem = new ToolStripMenuItem();
             renombrarToolStripMenuItem = new ToolStripMenuItem();
             GvTratamientos = new DataGridView();
-            CbActivo = new DataGridViewCheckBoxColumn();
             TbAgreTrata = new TextBox();
             PbAgregar = new PictureBox();
             PbRecargar = new PictureBox();
+            CbActivo = new DataGridViewCheckBoxColumn();
+            BtnEliminar = new DataGridViewButtonColumn();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)GvTratamientos).BeginInit();
@@ -83,14 +85,14 @@ namespace HitoriaClinica.Pantallas
             // 
             toolStripMenuItemAgregar.Image = (Image)resources.GetObject("toolStripMenuItemAgregar.Image");
             toolStripMenuItemAgregar.Name = "toolStripMenuItemAgregar";
-            toolStripMenuItemAgregar.Size = new Size(180, 22);
+            toolStripMenuItemAgregar.Size = new Size(116, 22);
             toolStripMenuItemAgregar.Text = "Agregar";
             // 
             // toolStripMenuItemBuscar
             // 
             toolStripMenuItemBuscar.Image = (Image)resources.GetObject("toolStripMenuItemBuscar.Image");
             toolStripMenuItemBuscar.Name = "toolStripMenuItemBuscar";
-            toolStripMenuItemBuscar.Size = new Size(180, 22);
+            toolStripMenuItemBuscar.Size = new Size(116, 22);
             toolStripMenuItemBuscar.Text = "Buscar";
             // 
             // tratamientosToolStripMenuItem
@@ -115,17 +117,12 @@ namespace HitoriaClinica.Pantallas
             // GvTratamientos
             // 
             GvTratamientos.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            GvTratamientos.Columns.AddRange(new DataGridViewColumn[] { CbActivo });
+            GvTratamientos.Columns.AddRange(new DataGridViewColumn[] { CbActivo, BtnEliminar });
             GvTratamientos.Location = new Point(42, 415);
             GvTratamientos.Name = "GvTratamientos";
             GvTratamientos.Size = new Size(843, 406);
             GvTratamientos.TabIndex = 1015;
-            // 
-            // CbActivo
-            // 
-            CbActivo.DataPropertyName = "Activo";
-            CbActivo.HeaderText = "Mostrar";
-            CbActivo.Name = "CbActivo";
+            GvTratamientos.CellContentClick += GvTratamientos_CellContentClick;
             // 
             // TbAgreTrata
             // 
@@ -167,6 +164,27 @@ namespace HitoriaClinica.Pantallas
             PbRecargar.TabStop = false;
             PbRecargar.Click += PbRecargar_Click;
             // 
+            // CbActivo
+            // 
+            CbActivo.DataPropertyName = "Activo";
+            CbActivo.HeaderText = "Mostrar";
+            CbActivo.Name = "CbActivo";
+            // 
+            // BtnEliminar
+            // 
+            BtnEliminar.AutoSizeMode = DataGridViewAutoSizeColumnMode.None;
+            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.BackColor = SystemColors.ActiveCaption;
+            dataGridViewCellStyle1.Font = new Font("Arial", 8.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            dataGridViewCellStyle1.ForeColor = Color.White;
+            BtnEliminar.DefaultCellStyle = dataGridViewCellStyle1;
+            BtnEliminar.HeaderText = "Borrar";
+            BtnEliminar.Name = "BtnEliminar";
+            BtnEliminar.Text = "Borrar";
+            BtnEliminar.ToolTipText = "Borrar";
+            BtnEliminar.UseColumnTextForButtonValue = true;
+            BtnEliminar.Width = 75;
+            // 
             // UcTratamientos
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -204,9 +222,10 @@ namespace HitoriaClinica.Pantallas
         private ToolStripMenuItem agregarToolStripMenuItem;
         private ToolStripMenuItem renombrarToolStripMenuItem;
         public DataGridView GvTratamientos;
-        private DataGridViewCheckBoxColumn CbActivo;
         public TextBox TbAgreTrata;
         public PictureBox PbAgregar;
         public PictureBox PbRecargar;
+        private DataGridViewCheckBoxColumn CbActivo;
+        private DataGridViewButtonColumn BtnEliminar;
     }
 }

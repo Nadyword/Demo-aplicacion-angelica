@@ -16,9 +16,9 @@ public partial class UcTratamientos : UserControl
     public void PreloadData()
     {
         Utilidades.CargarComboTratamientos(this);
-        GvTratamientos.Columns[0].Visible = false;
-        GvTratamientos.Columns[1].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-        GvTratamientos.Rows[0].ReadOnly = true;
+        GvTratamientos.Columns[1].Visible = false;
+        GvTratamientos.Columns[2].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+        GvTratamientos.Rows[1].ReadOnly = true;
     }
 
     #endregion
@@ -38,5 +38,20 @@ public partial class UcTratamientos : UserControl
         }
         Utilidades.CargarComboTratamientos(this);
         MessageBox.Show("¡Actualizado!", "Tratamientos actualizados", MessageBoxButtons.OK, MessageBoxIcon.Information);
+    }
+
+    private void GvTratamientos_CellContentClick(object sender, DataGridViewCellEventArgs e)
+    {
+        DialogResult resul = MessageBox.Show("¿Seguro que quieres borrar el tratamiento?", "Confirmar", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+        if (resul == DialogResult.Yes)
+        {
+            if (e.ColumnIndex == GvTratamientos.Columns["BtnEliminar"].Index && e.RowIndex >= 0)
+            {
+                int id = Convert.ToInt32(GvTratamientos.Rows[e.RowIndex].Cells["id"].Value);
+                Delete.DeleteTratamientosCombo(id);
+            }
+            Utilidades.CargarComboTratamientos(this);
+        }
     }
 }

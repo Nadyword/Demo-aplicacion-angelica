@@ -31,6 +31,7 @@
             components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UcPacientes));
             DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
             IlGaleria = new ImageList(components);
             tbNombre = new TextBox();
             tbDireccion = new TextBox();
@@ -85,13 +86,14 @@
             PanelFromulario3 = new Panel();
             TbBuscar = new TextBox();
             GvConsulta = new DataGridView();
-            BtnImprimir = new DataGridViewButtonColumn();
             sqliteCommand1 = new Microsoft.Data.Sqlite.SqliteCommand();
             PbGaleria = new PictureBox();
             PanelFromulario4 = new Panel();
             LvGaleria = new ListView();
             label14 = new Label();
             PbRostro = new PictureBox();
+            BtnImprimir = new DataGridViewButtonColumn();
+            BtnEliminar = new DataGridViewButtonColumn();
             ((System.ComponentModel.ISupportInitialize)PbSiguiente).BeginInit();
             PanelFromulario1.SuspendLayout();
             PanelFromulario2.SuspendLayout();
@@ -822,7 +824,7 @@
             GvConsulta.BorderStyle = BorderStyle.Fixed3D;
             GvConsulta.CellBorderStyle = DataGridViewCellBorderStyle.Raised;
             GvConsulta.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            GvConsulta.Columns.AddRange(new DataGridViewColumn[] { BtnImprimir });
+            GvConsulta.Columns.AddRange(new DataGridViewColumn[] { BtnImprimir, BtnEliminar });
             GvConsulta.Location = new Point(33, 176);
             GvConsulta.Name = "GvConsulta";
             GvConsulta.ReadOnly = true;
@@ -831,24 +833,6 @@
             GvConsulta.TabIndex = 0;
             GvConsulta.CellContentClick += GvConsulta_BtnImprimir_Click;
             GvConsulta.CellDoubleClick += GvConsulta_CellContentClick;
-            // 
-            // BtnImprimir
-            // 
-            BtnImprimir.AutoSizeMode = DataGridViewAutoSizeColumnMode.None;
-            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle1.BackColor = SystemColors.ActiveCaption;
-            dataGridViewCellStyle1.Font = new Font("Arial", 8.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            dataGridViewCellStyle1.ForeColor = Color.White;
-            BtnImprimir.DefaultCellStyle = dataGridViewCellStyle1;
-            BtnImprimir.HeaderText = "Imprimir";
-            BtnImprimir.MinimumWidth = 7;
-            BtnImprimir.Name = "BtnImprimir";
-            BtnImprimir.ReadOnly = true;
-            BtnImprimir.Resizable = DataGridViewTriState.True;
-            BtnImprimir.Text = "Ver registro";
-            BtnImprimir.ToolTipText = "Ver registro";
-            BtnImprimir.UseColumnTextForButtonValue = true;
-            BtnImprimir.Width = 75;
             // 
             // sqliteCommand1
             // 
@@ -917,6 +901,41 @@
             PbRostro.Visible = false;
             PbRostro.Click += PbRostro_Click;
             // 
+            // BtnImprimir
+            // 
+            BtnImprimir.AutoSizeMode = DataGridViewAutoSizeColumnMode.None;
+            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.BackColor = SystemColors.ActiveCaption;
+            dataGridViewCellStyle1.Font = new Font("Arial", 8.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            dataGridViewCellStyle1.ForeColor = Color.White;
+            BtnImprimir.DefaultCellStyle = dataGridViewCellStyle1;
+            BtnImprimir.HeaderText = "Imprimir";
+            BtnImprimir.MinimumWidth = 7;
+            BtnImprimir.Name = "BtnImprimir";
+            BtnImprimir.ReadOnly = true;
+            BtnImprimir.Resizable = DataGridViewTriState.True;
+            BtnImprimir.Text = "Ver registro";
+            BtnImprimir.ToolTipText = "Ver registro";
+            BtnImprimir.UseColumnTextForButtonValue = true;
+            BtnImprimir.Width = 75;
+            // 
+            // BtnEliminar
+            // 
+            BtnEliminar.AutoSizeMode = DataGridViewAutoSizeColumnMode.None;
+            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle2.BackColor = SystemColors.ActiveCaption;
+            dataGridViewCellStyle2.Font = new Font("Arial", 8.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            dataGridViewCellStyle2.ForeColor = Color.FromArgb(255, 128, 128);
+            BtnEliminar.DefaultCellStyle = dataGridViewCellStyle2;
+            BtnEliminar.HeaderText = "Borrar";
+            BtnEliminar.MinimumWidth = 7;
+            BtnEliminar.Name = "BtnEliminar";
+            BtnEliminar.ReadOnly = true;
+            BtnEliminar.Text = "Borrar";
+            BtnEliminar.ToolTipText = "Borrar";
+            BtnEliminar.UseColumnTextForButtonValue = true;
+            BtnEliminar.Width = 75;
+            // 
             // UcPacientes
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -926,10 +945,10 @@
             Controls.Add(PbRostro);
             Controls.Add(PbGaleria);
             Controls.Add(pictureBox2);
-            Controls.Add(PanelFromulario2);
-            Controls.Add(PanelFromulario1);
             Controls.Add(PanelFromulario3);
             Controls.Add(PanelFromulario4);
+            Controls.Add(PanelFromulario2);
+            Controls.Add(PanelFromulario1);
             MaximumSize = new Size(955, 1000);
             MinimumSize = new Size(955, 0);
             Name = "UcPacientes";
@@ -1009,12 +1028,13 @@
         public TextBox TbBuscar;
         public Label LbPaciente;
         public Microsoft.Data.Sqlite.SqliteCommand sqliteCommand1;
-        private DataGridViewButtonColumn BtnImprimir;
         public PictureBox PbGaleria;
         public Panel PanelFromulario4;
         public Label label14;
         private ListView LvGaleria;
         private ImageList IlGaleria;
         public PictureBox PbRostro;
+        private DataGridViewButtonColumn BtnImprimir;
+        private DataGridViewButtonColumn BtnEliminar;
     }
 }
