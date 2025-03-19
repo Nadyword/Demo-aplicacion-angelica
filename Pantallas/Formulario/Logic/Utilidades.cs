@@ -70,6 +70,10 @@ internal class Utilidades
 
     public static void CargarFechaHistorialTratamiento(UcPacientes ucPacientes)
     {
-        ucPacientes.RtHistoTratamiento.Text += ucPacientes.RtHistoTratamiento.Text == "" ? "*---Fecha de tratamiento: " + DateTime.Now.ToString("D", new CultureInfo("es-ES")) + "---*" : "\n*---Fecha de tratamiento: " + DateTime.Now.ToString("D", new CultureInfo("es-ES")) + "---*";
+        if (ucPacientes.FechaTratamietno != ucPacientes.DtTratamiento.Value)
+        {
+            ucPacientes.RtHistoTratamiento.Text += ucPacientes.RtHistoTratamiento.Text == "" ? "*---Fecha de tratamiento: " + ucPacientes.DtTratamiento.Value.ToString("D", new CultureInfo("es-ES")) + "---*" : "\n*---Fecha de tratamiento: " + ucPacientes.DtTratamiento.Value.ToString("D", new CultureInfo("es-ES")) + "---*";
+            ucPacientes.FechaTratamietno = ucPacientes.DtTratamiento.Value;
+        }
     }
 }

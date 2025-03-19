@@ -3,28 +3,36 @@
   "WorkspaceRootPath": "C:\\Users\\samue\\Documents\\Proyectos\\Demo-aplicacion-angelica\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{F1EF480D-B6CA-425C-923F-14057DBEA5BC}|HitoriaClinica.csproj|c:\\users\\samue\\documents\\proyectos\\demo-aplicacion-angelica\\pantallas\\formulario\\ucpacientes.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{F1EF480D-B6CA-425C-923F-14057DBEA5BC}|HitoriaClinica.csproj|solutionrelative:pantallas\\formulario\\ucpacientes.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{F1EF480D-B6CA-425C-923F-14057DBEA5BC}|HitoriaClinica.csproj|c:\\users\\samue\\documents\\proyectos\\demo-aplicacion-angelica\\pantallas\\tratamientos\\uctratamientos.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F1EF480D-B6CA-425C-923F-14057DBEA5BC}|HitoriaClinica.csproj|solutionrelative:pantallas\\tratamientos\\uctratamientos.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F1EF480D-B6CA-425C-923F-14057DBEA5BC}|HitoriaClinica.csproj|c:\\users\\samue\\documents\\proyectos\\demo-aplicacion-angelica\\database\\updates.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F1EF480D-B6CA-425C-923F-14057DBEA5BC}|HitoriaClinica.csproj|solutionrelative:database\\updates.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F1EF480D-B6CA-425C-923F-14057DBEA5BC}|HitoriaClinica.csproj|c:\\users\\samue\\documents\\proyectos\\demo-aplicacion-angelica\\database\\connection.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F1EF480D-B6CA-425C-923F-14057DBEA5BC}|HitoriaClinica.csproj|solutionrelative:database\\connection.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{F1EF480D-B6CA-425C-923F-14057DBEA5BC}|HitoriaClinica.csproj|c:\\users\\samue\\documents\\proyectos\\demo-aplicacion-angelica\\pantallas\\formulario\\logic\\utilidades.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{F1EF480D-B6CA-425C-923F-14057DBEA5BC}|HitoriaClinica.csproj|solutionrelative:pantallas\\formulario\\logic\\utilidades.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{F1EF480D-B6CA-425C-923F-14057DBEA5BC}|HitoriaClinica.csproj|c:\\users\\samue\\documents\\proyectos\\demo-aplicacion-angelica\\pantallas\\formulario\\ucpacientes.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "AbsoluteMoniker": "D:0:0:{F1EF480D-B6CA-425C-923F-14057DBEA5BC}|HitoriaClinica.csproj|c:\\users\\samue\\documents\\proyectos\\demo-aplicacion-angelica\\pantallas\\formulario\\ucpacientes.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F1EF480D-B6CA-425C-923F-14057DBEA5BC}|HitoriaClinica.csproj|solutionrelative:pantallas\\formulario\\ucpacientes.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F1EF480D-B6CA-425C-923F-14057DBEA5BC}|HitoriaClinica.csproj|C:\\Users\\samue\\Documents\\Proyectos\\Demo-aplicacion-angelica\\pantallas\\formulario\\ucpacientes.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
       "RelativeMoniker": "D:0:0:{F1EF480D-B6CA-425C-923F-14057DBEA5BC}|HitoriaClinica.csproj|solutionrelative:pantallas\\formulario\\ucpacientes.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{F1EF480D-B6CA-425C-923F-14057DBEA5BC}|HitoriaClinica.csproj|C:\\Users\\samue\\Documents\\Proyectos\\Demo-aplicacion-angelica\\pantallas\\pantallainit\\programita.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{F1EF480D-B6CA-425C-923F-14057DBEA5BC}|HitoriaClinica.csproj|solutionrelative:pantallas\\pantallainit\\programita.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{F1EF480D-B6CA-425C-923F-14057DBEA5BC}|HitoriaClinica.csproj|c:\\users\\samue\\documents\\proyectos\\demo-aplicacion-angelica\\database\\delete.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{F1EF480D-B6CA-425C-923F-14057DBEA5BC}|HitoriaClinica.csproj|solutionrelative:database\\delete.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{F1EF480D-B6CA-425C-923F-14057DBEA5BC}|HitoriaClinica.csproj|c:\\users\\samue\\documents\\proyectos\\demo-aplicacion-angelica\\reportes\\pdfgenerator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{F1EF480D-B6CA-425C-923F-14057DBEA5BC}|HitoriaClinica.csproj|solutionrelative:reportes\\pdfgenerator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F1EF480D-B6CA-425C-923F-14057DBEA5BC}|HitoriaClinica.csproj|c:\\users\\samue\\documents\\proyectos\\demo-aplicacion-angelica\\database\\delete.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F1EF480D-B6CA-425C-923F-14057DBEA5BC}|HitoriaClinica.csproj|solutionrelative:database\\delete.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -34,48 +42,8 @@
       "DocumentGroups": [
         {
           "DockedHeight": 252,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 3,
           "Children": [
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "UcPacientes.cs",
-              "DocumentMoniker": "C:\\Users\\samue\\Documents\\Proyectos\\Demo-aplicacion-angelica\\Pantallas\\Formulario\\UcPacientes.cs",
-              "RelativeDocumentMoniker": "Pantallas\\Formulario\\UcPacientes.cs",
-              "ToolTip": "C:\\Users\\samue\\Documents\\Proyectos\\Demo-aplicacion-angelica\\Pantallas\\Formulario\\UcPacientes.cs",
-              "RelativeToolTip": "Pantallas\\Formulario\\UcPacientes.cs",
-              "ViewState": "AgIAANEBAAAAAAAAAAAAACACAAAFAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-04T16:34:46.102Z",
-              "IsPinned": true,
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "Utilidades.cs",
-              "DocumentMoniker": "C:\\Users\\samue\\Documents\\Proyectos\\Demo-aplicacion-angelica\\Pantallas\\Formulario\\Logic\\Utilidades.cs",
-              "RelativeDocumentMoniker": "Pantallas\\Formulario\\Logic\\Utilidades.cs",
-              "ToolTip": "C:\\Users\\samue\\Documents\\Proyectos\\Demo-aplicacion-angelica\\Pantallas\\Formulario\\Logic\\Utilidades.cs",
-              "RelativeToolTip": "Pantallas\\Formulario\\Logic\\Utilidades.cs",
-              "ViewState": "AgIAABgAAAAAAAAAAAAiwCcAAAA9AAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-18T18:24:20.82Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "PdfGenerator.cs",
-              "DocumentMoniker": "C:\\Users\\samue\\Documents\\Proyectos\\Demo-aplicacion-angelica\\Reportes\\PdfGenerator.cs",
-              "RelativeDocumentMoniker": "Reportes\\PdfGenerator.cs",
-              "ToolTip": "C:\\Users\\samue\\Documents\\Proyectos\\Demo-aplicacion-angelica\\Reportes\\PdfGenerator.cs",
-              "RelativeToolTip": "Reportes\\PdfGenerator.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-18T18:20:07.132Z",
-              "EditorCaption": ""
-            },
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{d84ee353-0bef-5a41-a649-8f89aca5d84d}"
@@ -87,6 +55,85 @@
             {
               "$type": "Document",
               "DocumentIndex": 4,
+              "Title": "UcPacientes.cs",
+              "DocumentMoniker": "C:\\Users\\samue\\Documents\\Proyectos\\Demo-aplicacion-angelica\\Pantallas\\Formulario\\UcPacientes.cs",
+              "RelativeDocumentMoniker": "Pantallas\\Formulario\\UcPacientes.cs",
+              "ToolTip": "C:\\Users\\samue\\Documents\\Proyectos\\Demo-aplicacion-angelica\\Pantallas\\Formulario\\UcPacientes.cs",
+              "RelativeToolTip": "Pantallas\\Formulario\\UcPacientes.cs",
+              "ViewState": "AgIAAL4BAAAAAAAAAAApwM8BAAAxAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-04T16:34:46.102Z",
+              "IsPinned": true,
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "UcTratamientos.cs",
+              "DocumentMoniker": "C:\\Users\\samue\\Documents\\Proyectos\\Demo-aplicacion-angelica\\Pantallas\\Tratamientos\\UcTratamientos.cs",
+              "RelativeDocumentMoniker": "Pantallas\\Tratamientos\\UcTratamientos.cs",
+              "ToolTip": "C:\\Users\\samue\\Documents\\Proyectos\\Demo-aplicacion-angelica\\Pantallas\\Tratamientos\\UcTratamientos.cs",
+              "RelativeToolTip": "Pantallas\\Tratamientos\\UcTratamientos.cs",
+              "ViewState": "AgIAABoAAAAAAAAAAAAiwBoAAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-19T17:35:31.14Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Updates.cs",
+              "DocumentMoniker": "C:\\Users\\samue\\Documents\\Proyectos\\Demo-aplicacion-angelica\\DataBase\\Updates.cs",
+              "RelativeDocumentMoniker": "DataBase\\Updates.cs",
+              "ToolTip": "C:\\Users\\samue\\Documents\\Proyectos\\Demo-aplicacion-angelica\\DataBase\\Updates.cs",
+              "RelativeToolTip": "DataBase\\Updates.cs",
+              "ViewState": "AgIAABkAAAAAAAAAAAApwCYAAAAEAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-19T17:35:13.824Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Connection.cs",
+              "DocumentMoniker": "C:\\Users\\samue\\Documents\\Proyectos\\Demo-aplicacion-angelica\\DataBase\\Connection.cs",
+              "RelativeDocumentMoniker": "DataBase\\Connection.cs",
+              "ToolTip": "C:\\Users\\samue\\Documents\\Proyectos\\Demo-aplicacion-angelica\\DataBase\\Connection.cs",
+              "RelativeToolTip": "DataBase\\Connection.cs",
+              "ViewState": "AgIAAAYAAAAAAAAAAAApwBIAAAAIAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-19T17:05:03.456Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Utilidades.cs",
+              "DocumentMoniker": "C:\\Users\\samue\\Documents\\Proyectos\\Demo-aplicacion-angelica\\Pantallas\\Formulario\\Logic\\Utilidades.cs",
+              "RelativeDocumentMoniker": "Pantallas\\Formulario\\Logic\\Utilidades.cs",
+              "ToolTip": "C:\\Users\\samue\\Documents\\Proyectos\\Demo-aplicacion-angelica\\Pantallas\\Formulario\\Logic\\Utilidades.cs",
+              "RelativeToolTip": "Pantallas\\Formulario\\Logic\\Utilidades.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAEYAAAAXAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-18T18:24:20.82Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "PdfGenerator.cs",
+              "DocumentMoniker": "C:\\Users\\samue\\Documents\\Proyectos\\Demo-aplicacion-angelica\\Reportes\\PdfGenerator.cs",
+              "RelativeDocumentMoniker": "Reportes\\PdfGenerator.cs",
+              "ToolTip": "C:\\Users\\samue\\Documents\\Proyectos\\Demo-aplicacion-angelica\\Reportes\\PdfGenerator.cs",
+              "RelativeToolTip": "Reportes\\PdfGenerator.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-18T18:20:07.132Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
               "Title": "Delete.cs",
               "DocumentMoniker": "C:\\Users\\samue\\Documents\\Proyectos\\Demo-aplicacion-angelica\\DataBase\\Delete.cs",
               "RelativeDocumentMoniker": "DataBase\\Delete.cs",
@@ -99,7 +146,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 5,
               "Title": "UcPacientes.cs [Design]",
               "DocumentMoniker": "C:\\Users\\samue\\Documents\\Proyectos\\Demo-aplicacion-angelica\\Pantallas\\Formulario\\UcPacientes.cs",
               "RelativeDocumentMoniker": "Pantallas\\Formulario\\UcPacientes.cs",
@@ -107,18 +154,6 @@
               "RelativeToolTip": "Pantallas\\Formulario\\UcPacientes.cs [Design]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-03-05T17:19:24.037Z",
-              "EditorCaption": " [Design]"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "Programita.cs [Design]",
-              "DocumentMoniker": "C:\\Users\\samue\\Documents\\Proyectos\\Demo-aplicacion-angelica\\Pantallas\\PantallaInit\\Programita.cs",
-              "RelativeDocumentMoniker": "Pantallas\\PantallaInit\\Programita.cs",
-              "ToolTip": "C:\\Users\\samue\\Documents\\Proyectos\\Demo-aplicacion-angelica\\Pantallas\\PantallaInit\\Programita.cs [Design]",
-              "RelativeToolTip": "Pantallas\\PantallaInit\\Programita.cs [Design]",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-05T17:18:51.81Z",
               "EditorCaption": " [Design]"
             }
           ]

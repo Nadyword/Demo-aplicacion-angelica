@@ -34,7 +34,10 @@ public partial class UcTratamientos : UserControl
     {
         foreach (DataGridViewRow row in GvTratamientos.Rows)
         {
-            Updates.UpdateTratamientoCombo(row.Cells[2].FormattedValue.ToString(), row.Cells[3].FormattedValue.ToString(), row.Cells[0].FormattedValue.ToString());
+            if (row.Cells[1].FormattedValue.ToString() != "1" && row.Cells[3].FormattedValue.ToString() != "0")
+            {
+                Updates.UpdateTratamientoCombo(row.Cells[3].FormattedValue.ToString(), row.Cells[4].FormattedValue.ToString(), row.Cells[1].FormattedValue.ToString());
+            }
         }
         Utilidades.CargarComboTratamientos(this);
         MessageBox.Show("¡Actualizado!", "Tratamientos actualizados", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -42,12 +45,13 @@ public partial class UcTratamientos : UserControl
 
     private void GvTratamientos_CellContentClick(object sender, DataGridViewCellEventArgs e)
     {
-        DialogResult resul = MessageBox.Show("¿Seguro que quieres borrar el tratamiento?", "Confirmar", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-
-        if (resul == DialogResult.Yes)
+        if (e.ColumnIndex == GvTratamientos.Columns["BtnEliminar"].Index && e.RowIndex >= 0)
         {
-            if (e.ColumnIndex == GvTratamientos.Columns["BtnEliminar"].Index && e.RowIndex >= 0)
+            DialogResult resul = MessageBox.Show("¿Seguro que quieres borrar el tratamiento?", "Confirmar", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+            if (resul == DialogResult.Yes)
             {
+
                 int id = Convert.ToInt32(GvTratamientos.Rows[e.RowIndex].Cells["id"].Value);
                 Delete.DeleteTratamientosCombo(id);
             }

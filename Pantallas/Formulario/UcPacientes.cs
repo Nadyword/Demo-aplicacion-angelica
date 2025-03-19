@@ -17,6 +17,7 @@ public partial class UcPacientes : UserControl
     public int Estado = 1;
     public int Id_cliente = 0;
     public string ci_cliente = "";
+    public DateTime FechaTratamietno;
     private readonly PdfGenerator pdfGenerator = new(new SynchronizedConverter(new PdfTools()));
 
     private readonly string basePath = AppDomain.CurrentDomain.BaseDirectory;
@@ -53,7 +54,6 @@ public partial class UcPacientes : UserControl
         _ = CargarExamenFisico();
         _ = CargarHistorialTrata();
         MostrarNombrePaciente(true);
-        Utilidades.CargarFechaHistorialTratamiento(this);
     }
 
     public void TbBuscar_KeyDown(object sender, KeyEventArgs e)
@@ -246,6 +246,8 @@ public partial class UcPacientes : UserControl
 
     public void PbAgregar_Click(object sender, EventArgs e)
     {
+
+        Utilidades.CargarFechaHistorialTratamiento(this);
         if (CbTratamientos.SelectedIndex == 0)
         {
             MessageBox.Show("Debe seleccionar un tratamiento", "No existe tratamiento", MessageBoxButtons.OK, MessageBoxIcon.Warning);

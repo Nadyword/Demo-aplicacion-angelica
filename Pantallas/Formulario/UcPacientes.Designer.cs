@@ -68,6 +68,7 @@
             tbEdad = new TextBox();
             label3 = new Label();
             PanelFromulario2 = new Panel();
+            DtTratamiento = new DateTimePicker();
             LbPaciente = new Label();
             RbGuardar = new PictureBox();
             PbBorrar = new PictureBox();
@@ -86,11 +87,11 @@
             PanelFromulario3 = new Panel();
             TbBuscar = new TextBox();
             GvConsulta = new DataGridView();
+            BtnImprimir = new DataGridViewButtonColumn();
+            BtnEliminar = new DataGridViewButtonColumn();
             sqliteCommand1 = new Microsoft.Data.Sqlite.SqliteCommand();
             PbGaleria = new PictureBox();
             PbRostro = new PictureBox();
-            BtnImprimir = new DataGridViewButtonColumn();
-            BtnEliminar = new DataGridViewButtonColumn();
             ((System.ComponentModel.ISupportInitialize)PbSiguiente).BeginInit();
             PanelFromulario1.SuspendLayout();
             PanelFromulario2.SuspendLayout();
@@ -601,6 +602,7 @@
             // PanelFromulario2
             // 
             PanelFromulario2.BackColor = Color.Transparent;
+            PanelFromulario2.Controls.Add(DtTratamiento);
             PanelFromulario2.Controls.Add(LbPaciente);
             PanelFromulario2.Controls.Add(RbGuardar);
             PanelFromulario2.Controls.Add(PbBorrar);
@@ -619,6 +621,19 @@
             PanelFromulario2.Name = "PanelFromulario2";
             PanelFromulario2.Size = new Size(895, 709);
             PanelFromulario2.TabIndex = 1011;
+            // 
+            // DtTratamiento
+            // 
+            DtTratamiento.CalendarMonthBackground = SystemColors.ControlLight;
+            DtTratamiento.Cursor = Cursors.IBeam;
+            DtTratamiento.CustomFormat = "\"dd/MM/yyyy\"";
+            DtTratamiento.Font = new Font("Arial", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            DtTratamiento.Format = DateTimePickerFormat.Short;
+            DtTratamiento.Location = new Point(60, 262);
+            DtTratamiento.Name = "DtTratamiento";
+            DtTratamiento.RightToLeft = RightToLeft.Yes;
+            DtTratamiento.Size = new Size(179, 26);
+            DtTratamiento.TabIndex = 1023;
             // 
             // LbPaciente
             // 
@@ -649,7 +664,7 @@
             PbBorrar.Cursor = Cursors.Hand;
             PbBorrar.ErrorImage = (Image)resources.GetObject("PbBorrar.ErrorImage");
             PbBorrar.Image = Properties.Resources.borrar;
-            PbBorrar.Location = new Point(156, 262);
+            PbBorrar.Location = new Point(156, 294);
             PbBorrar.Name = "PbBorrar";
             PbBorrar.Size = new Size(102, 49);
             PbBorrar.SizeMode = PictureBoxSizeMode.StretchImage;
@@ -675,7 +690,7 @@
             label8.AutoSize = true;
             label8.Font = new Font("Arial", 25F, FontStyle.Bold);
             label8.ForeColor = SystemColors.Control;
-            label8.Location = new Point(189, 353);
+            label8.Location = new Point(189, 372);
             label8.Name = "label8";
             label8.Size = new Size(511, 40);
             label8.TabIndex = 1020;
@@ -686,7 +701,7 @@
             PbAgregar.Cursor = Cursors.Hand;
             PbAgregar.ErrorImage = (Image)resources.GetObject("PbAgregar.ErrorImage");
             PbAgregar.Image = Properties.Resources.agregar;
-            PbAgregar.Location = new Point(48, 262);
+            PbAgregar.Location = new Point(48, 294);
             PbAgregar.Name = "PbAgregar";
             PbAgregar.Size = new Size(102, 49);
             PbAgregar.SizeMode = PictureBoxSizeMode.StretchImage;
@@ -742,10 +757,10 @@
             // 
             RtHistoTratamiento.BackColor = SystemColors.ControlLight;
             RtHistoTratamiento.Font = new Font("Arial", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            RtHistoTratamiento.Location = new Point(22, 406);
+            RtHistoTratamiento.Location = new Point(22, 418);
             RtHistoTratamiento.Name = "RtHistoTratamiento";
             RtHistoTratamiento.ReadOnly = true;
-            RtHistoTratamiento.Size = new Size(848, 201);
+            RtHistoTratamiento.Size = new Size(848, 189);
             RtHistoTratamiento.TabIndex = 1014;
             RtHistoTratamiento.Text = "";
             // 
@@ -831,6 +846,40 @@
             GvConsulta.CellContentClick += GvConsulta_BtnImprimir_Click;
             GvConsulta.CellDoubleClick += GvConsulta_CellContentClick;
             // 
+            // BtnImprimir
+            // 
+            BtnImprimir.AutoSizeMode = DataGridViewAutoSizeColumnMode.None;
+            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.BackColor = SystemColors.ActiveCaption;
+            dataGridViewCellStyle1.Font = new Font("Arial", 8.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            dataGridViewCellStyle1.ForeColor = Color.White;
+            BtnImprimir.DefaultCellStyle = dataGridViewCellStyle1;
+            BtnImprimir.HeaderText = "Imprimir";
+            BtnImprimir.MinimumWidth = 7;
+            BtnImprimir.Name = "BtnImprimir";
+            BtnImprimir.ReadOnly = true;
+            BtnImprimir.Resizable = DataGridViewTriState.True;
+            BtnImprimir.Text = "Consentimiento";
+            BtnImprimir.ToolTipText = "Consentimiento";
+            BtnImprimir.UseColumnTextForButtonValue = true;
+            // 
+            // BtnEliminar
+            // 
+            BtnEliminar.AutoSizeMode = DataGridViewAutoSizeColumnMode.None;
+            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle2.BackColor = SystemColors.ActiveCaption;
+            dataGridViewCellStyle2.Font = new Font("Arial", 8.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            dataGridViewCellStyle2.ForeColor = Color.FromArgb(255, 128, 128);
+            BtnEliminar.DefaultCellStyle = dataGridViewCellStyle2;
+            BtnEliminar.HeaderText = "Borrar";
+            BtnEliminar.MinimumWidth = 7;
+            BtnEliminar.Name = "BtnEliminar";
+            BtnEliminar.ReadOnly = true;
+            BtnEliminar.Text = "Borrar";
+            BtnEliminar.ToolTipText = "Borrar";
+            BtnEliminar.UseColumnTextForButtonValue = true;
+            BtnEliminar.Width = 75;
+            // 
             // sqliteCommand1
             // 
             sqliteCommand1.CommandTimeout = 30;
@@ -868,40 +917,6 @@
             PbRostro.Visible = false;
             PbRostro.Click += PbRostro_Click;
             // 
-            // BtnImprimir
-            // 
-            BtnImprimir.AutoSizeMode = DataGridViewAutoSizeColumnMode.None;
-            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle1.BackColor = SystemColors.ActiveCaption;
-            dataGridViewCellStyle1.Font = new Font("Arial", 8.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            dataGridViewCellStyle1.ForeColor = Color.White;
-            BtnImprimir.DefaultCellStyle = dataGridViewCellStyle1;
-            BtnImprimir.HeaderText = "Imprimir";
-            BtnImprimir.MinimumWidth = 7;
-            BtnImprimir.Name = "BtnImprimir";
-            BtnImprimir.ReadOnly = true;
-            BtnImprimir.Resizable = DataGridViewTriState.True;
-            BtnImprimir.Text = "Consentimiento";
-            BtnImprimir.ToolTipText = "Consentimiento";
-            BtnImprimir.UseColumnTextForButtonValue = true;
-            // 
-            // BtnEliminar
-            // 
-            BtnEliminar.AutoSizeMode = DataGridViewAutoSizeColumnMode.None;
-            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle2.BackColor = SystemColors.ActiveCaption;
-            dataGridViewCellStyle2.Font = new Font("Arial", 8.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            dataGridViewCellStyle2.ForeColor = Color.FromArgb(255, 128, 128);
-            BtnEliminar.DefaultCellStyle = dataGridViewCellStyle2;
-            BtnEliminar.HeaderText = "Borrar";
-            BtnEliminar.MinimumWidth = 7;
-            BtnEliminar.Name = "BtnEliminar";
-            BtnEliminar.ReadOnly = true;
-            BtnEliminar.Text = "Borrar";
-            BtnEliminar.ToolTipText = "Borrar";
-            BtnEliminar.UseColumnTextForButtonValue = true;
-            BtnEliminar.Width = 75;
-            // 
             // UcPacientes
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -911,9 +926,9 @@
             Controls.Add(PbRostro);
             Controls.Add(PbGaleria);
             Controls.Add(pictureBox2);
-            Controls.Add(PanelFromulario3);
             Controls.Add(PanelFromulario2);
             Controls.Add(PanelFromulario1);
+            Controls.Add(PanelFromulario3);
             MaximumSize = new Size(955, 1000);
             MinimumSize = new Size(955, 0);
             Name = "UcPacientes";
@@ -996,5 +1011,6 @@
         public PictureBox PbRostro;
         private DataGridViewButtonColumn BtnImprimir;
         private DataGridViewButtonColumn BtnEliminar;
+        public DateTimePicker DtTratamiento;
     }
 }
