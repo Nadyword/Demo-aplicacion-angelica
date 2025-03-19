@@ -530,40 +530,16 @@ public partial class UcPacientes : UserControl
 
     private void PbGaleria_Click(object sender, EventArgs e)
     {
-        Utilidades.ShowPanels(4, this);
         if (Estado == 2 && Directory.Exists("C:\\HistoriaClinica\\" + tbCedula.Text + "-" + tbNombre.Text + "-" + TbApellido.Text))
         {
             string carpeta = "C:\\HistoriaClinica\\" + tbCedula.Text + "-" + tbNombre.Text + "-" + TbApellido.Text;
-            List<string> archivos = Directory.GetFiles(carpeta)
-                .Where(a => a.EndsWith(".png", StringComparison.OrdinalIgnoreCase) ||
-                            a.EndsWith(".jpg", StringComparison.OrdinalIgnoreCase) ||
-                            a.EndsWith(".jpeg", StringComparison.OrdinalIgnoreCase))
-                .ToList();
-
-            LvGaleria.Items.Clear();
-            IlGaleria.Images.Clear();
-
-            if (archivos.Count > 0)
+            try
             {
-                LvGaleria.LargeImageList = IlGaleria;
-
-                foreach (string archivo in archivos)
-                {
-                    try
-                    {
-                        Image img = Image.FromFile(archivo);
-                        IlGaleria.Images.Add(img);
-                        ListViewItem item = new()
-                        {
-                            ImageIndex = IlGaleria.Images.Count - 1,
-                        };
-                        LvGaleria.Items.Add(item);
-                    }
-                    catch (Exception ex)
-                    {
-                        MessageBox.Show($"Error al cargar la imagen: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    }
-                }
+                Process.Start("explorer.exe", carpeta);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Ocurrió un error al abrir la carpeta: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
     }
@@ -590,4 +566,5 @@ public partial class UcPacientes : UserControl
             MessageBox.Show("Uno o ambos archivos PDF no se pudieron generar.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
     }
+
 }

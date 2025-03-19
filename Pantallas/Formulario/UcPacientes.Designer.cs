@@ -88,9 +88,6 @@
             GvConsulta = new DataGridView();
             sqliteCommand1 = new Microsoft.Data.Sqlite.SqliteCommand();
             PbGaleria = new PictureBox();
-            PanelFromulario4 = new Panel();
-            LvGaleria = new ListView();
-            label14 = new Label();
             PbRostro = new PictureBox();
             BtnImprimir = new DataGridViewButtonColumn();
             BtnEliminar = new DataGridViewButtonColumn();
@@ -105,7 +102,6 @@
             PanelFromulario3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)GvConsulta).BeginInit();
             ((System.ComponentModel.ISupportInitialize)PbGaleria).BeginInit();
-            PanelFromulario4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)PbRostro).BeginInit();
             SuspendLayout();
             // 
@@ -570,6 +566,7 @@
             // 
             DtNacimiendo.CalendarMonthBackground = SystemColors.ControlLight;
             DtNacimiendo.Cursor = Cursors.IBeam;
+            DtNacimiendo.CustomFormat = "\"dd/MM/yyyy\"";
             DtNacimiendo.Font = new Font("Arial", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             DtNacimiendo.Format = DateTimePickerFormat.Short;
             DtNacimiendo.Location = new Point(22, 79);
@@ -856,36 +853,6 @@
             PbGaleria.Visible = false;
             PbGaleria.Click += PbGaleria_Click;
             // 
-            // PanelFromulario4
-            // 
-            PanelFromulario4.BackColor = Color.Transparent;
-            PanelFromulario4.Controls.Add(LvGaleria);
-            PanelFromulario4.Controls.Add(label14);
-            PanelFromulario4.Location = new Point(22, 246);
-            PanelFromulario4.Name = "PanelFromulario4";
-            PanelFromulario4.Size = new Size(895, 709);
-            PanelFromulario4.TabIndex = 1024;
-            PanelFromulario4.Visible = false;
-            // 
-            // LvGaleria
-            // 
-            LvGaleria.Location = new Point(65, 92);
-            LvGaleria.Name = "LvGaleria";
-            LvGaleria.Size = new Size(772, 576);
-            LvGaleria.TabIndex = 1012;
-            LvGaleria.UseCompatibleStateImageBehavior = false;
-            // 
-            // label14
-            // 
-            label14.AutoSize = true;
-            label14.Font = new Font("Arial", 25F, FontStyle.Bold);
-            label14.ForeColor = SystemColors.Control;
-            label14.Location = new Point(377, 0);
-            label14.Name = "label14";
-            label14.Size = new Size(167, 40);
-            label14.TabIndex = 1011;
-            label14.Text = "GELERIA";
-            // 
             // PbRostro
             // 
             PbRostro.BackColor = Color.Transparent;
@@ -914,10 +881,9 @@
             BtnImprimir.Name = "BtnImprimir";
             BtnImprimir.ReadOnly = true;
             BtnImprimir.Resizable = DataGridViewTriState.True;
-            BtnImprimir.Text = "Ver registro";
-            BtnImprimir.ToolTipText = "Ver registro";
+            BtnImprimir.Text = "Consentimiento";
+            BtnImprimir.ToolTipText = "Consentimiento";
             BtnImprimir.UseColumnTextForButtonValue = true;
-            BtnImprimir.Width = 75;
             // 
             // BtnEliminar
             // 
@@ -946,7 +912,6 @@
             Controls.Add(PbGaleria);
             Controls.Add(pictureBox2);
             Controls.Add(PanelFromulario3);
-            Controls.Add(PanelFromulario4);
             Controls.Add(PanelFromulario2);
             Controls.Add(PanelFromulario1);
             MaximumSize = new Size(955, 1000);
@@ -967,8 +932,6 @@
             PanelFromulario3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)GvConsulta).EndInit();
             ((System.ComponentModel.ISupportInitialize)PbGaleria).EndInit();
-            PanelFromulario4.ResumeLayout(false);
-            PanelFromulario4.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)PbRostro).EndInit();
             ResumeLayout(false);
         }
@@ -1029,9 +992,6 @@
         public Label LbPaciente;
         public Microsoft.Data.Sqlite.SqliteCommand sqliteCommand1;
         public PictureBox PbGaleria;
-        public Panel PanelFromulario4;
-        public Label label14;
-        private ListView LvGaleria;
         private ImageList IlGaleria;
         public PictureBox PbRostro;
         private DataGridViewButtonColumn BtnImprimir;
