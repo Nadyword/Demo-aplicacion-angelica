@@ -37,7 +37,7 @@ public partial class UcPacientes : UserControl
         PreloadData();
         Utilidades.ShowPanels(1, this);
         cbSexo.SelectedIndex = 0;
-        PbGaleria.Visible = PbRostro.Visible = false;
+        PbGaleria.Visible = PbRostro.Visible = PBmas.Visible = false;
     }
 
     #endregion
@@ -45,7 +45,7 @@ public partial class UcPacientes : UserControl
     public void GvConsulta_CellContentClick(object sender, DataGridViewCellEventArgs e)
     {
         Estado = 2;
-        PbGaleria.Visible = PbRostro.Visible = true;
+        PbGaleria.Visible = PbRostro.Visible = PBmas.Visible = true;
         Id_cliente = Convert.ToInt32(Convert.ToInt32(GvConsulta.Rows[e.RowIndex].Cells["id"].Value.ToString()));
         Utilidades.ShowPanels(1, this);
         _ = CargarDatosCliente();
@@ -138,82 +138,89 @@ public partial class UcPacientes : UserControl
 
     public async void GvConsulta_BtnImprimir_Click(object sender, DataGridViewCellEventArgs e)
     {
-        if (e.ColumnIndex == GvConsulta.Columns["BtnImprimir"].Index && e.RowIndex >= 0)
+        if (DtpFechaConcen.Visible)
         {
-            try
+            if (e.ColumnIndex == GvConsulta.Columns["BtnImprimir"].Index && e.RowIndex >= 0)
             {
-                string basePath = AppDomain.CurrentDomain.BaseDirectory;
-                string htmlTemplatePath = Path.Combine(basePath, "Reportes", "Modelos", "CosentimientoModelo.html");
-                string htmlCosentimientoPath = Path.Combine(basePath, "Reportes", "Modelos", "Cosentimiento.html");
-                string outputPdfPath = Path.Combine(basePath, "Reportes", "Modelos", "Ficha.pdf");
-                if (File.Exists(outputPdfPath)) File.Delete(outputPdfPath);
-                if (File.Exists(htmlCosentimientoPath)) File.Delete(htmlCosentimientoPath);
-                int idClient = Convert.ToInt32(GvConsulta.Rows[e.RowIndex].Cells["id"].Value);
-                Cliente clientInfo = await Consult.AsyncTraerInfoClientById(idClient);
-                string modelo = File.ReadAllText(htmlTemplatePath);
-                modelo = modelo.Replace("#NombrePaciente#", clientInfo.Nombre + " " + clientInfo.Apellido)
-                               .Replace("#DocumentoIdentidad#", clientInfo.Cedula)
-                               .Replace("#FechaProcedimiento#", DateTime.Now.ToString("D", new CultureInfo("es-ES")))
-                               .Replace("#RutaCarpeta#", basePath + "Reportes\\Modelos\\");
-                File.WriteAllText(htmlCosentimientoPath, modelo);
-                pdfGenerator.GeneratePdfFromHtmlFile(htmlCosentimientoPath, outputPdfPath);
-
-                if (File.Exists(outputPdfPath))
+                try
                 {
-                    try
+                    string basePath = AppDomain.CurrentDomain.BaseDirectory;
+                    string htmlTemplatePath = Path.Combine(basePath, "Reportes", "Modelos", "CosentimientoModelo.html");
+                    string htmlCosentimientoPath = Path.Combine(basePath, "Reportes", "Modelos", "Cosentimiento.html");
+                    string outputPdfPath = Path.Combine(basePath, "Reportes", "Modelos", "Ficha.pdf");
+                    if (File.Exists(outputPdfPath)) File.Delete(outputPdfPath);
+                    if (File.Exists(htmlCosentimientoPath)) File.Delete(htmlCosentimientoPath);
+                    int idClient = Convert.ToInt32(GvConsulta.Rows[e.RowIndex].Cells["id"].Value);
+                    Cliente clientInfo = await Consult.AsyncTraerInfoClientById(idClient);
+                    string modelo = File.ReadAllText(htmlTemplatePath);
+                    modelo = modelo.Replace("#NombrePaciente#", clientInfo.Nombre + " " + clientInfo.Apellido)
+                                   .Replace("#DocumentoIdentidad#", clientInfo.Cedula)
+                                   .Replace("#FechaProcedimiento#", DtpFechaConcen.Value.ToString("D", new CultureInfo("es-ES")))
+                                   .Replace("#RutaCarpeta#", basePath + "Reportes\\Modelos\\");
+                    File.WriteAllText(htmlCosentimientoPath, modelo);
+                    pdfGenerator.GeneratePdfFromHtmlFile(htmlCosentimientoPath, outputPdfPath);
+
+                    if (File.Exists(outputPdfPath))
                     {
-                        ProcessStartInfo psi = new()
+                        try
                         {
-                            FileName = "cmd",
-                            Arguments = $"/c start {outputPdfPath}",
-                            WindowStyle = ProcessWindowStyle.Hidden
-                        };
+                            ProcessStartInfo psi = new()
+                            {
+                                FileName = "cmd",
+                                Arguments = $"/c start {outputPdfPath}",
+                                WindowStyle = ProcessWindowStyle.Hidden
+                            };
 
-                        Process process = new()
+                            Process process = new()
+                            {
+                                StartInfo = psi
+                            };
+
+                            process.Start();
+                            process.Close();
+                        }
+                        catch (Exception ex)
                         {
-                            StartInfo = psi
-                        };
-
-                        process.Start();
-                        process.Close();
+                            MessageBox.Show($"Ocurrió un error al abrir el archivo PDF: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
                     }
-                    catch (Exception ex)
+                    else
                     {
-                        MessageBox.Show($"Ocurrió un error al abrir el archivo PDF: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        MessageBox.Show("El archivo PDF no se pudo generar.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                 }
-                else
+                catch (Exception ex)
                 {
-                    MessageBox.Show("El archivo PDF no se pudo generar.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show($"Ocurrió un error: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
-            catch (Exception ex)
+            else if (e.ColumnIndex == GvConsulta.Columns["BtnEliminar"].Index && e.RowIndex >= 0)
             {
-                MessageBox.Show($"Ocurrió un error: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                DialogResult resul = MessageBox.Show("¿Seguro que quieres borrar este cliente?", "Confirmar", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+                if (resul == DialogResult.Yes)
+                {
+                    int idClient = Convert.ToInt32(GvConsulta.Rows[e.RowIndex].Cells["id"].Value);
+                    string cedula = GvConsulta.Rows[e.RowIndex].Cells["cedula"].Value.ToString() ?? "QWEASDZXCERTDFGCVB";
+                    Delete.DeleteClient(idClient);
+                    Delete.DeleteExamenFisico(idClient);
+                    Delete.DeleteAntecedentesPersonales(idClient);
+                    Delete.DeleteHabitosPsicobio(idClient);
+                    Delete.DeleteHistorialTratamiento(idClient);
+                    Delete.DeleteTratamientos(idClient);
+                    _ = Utilidades.CargarGrila(this);
+
+                    foreach (string dire in Directory.GetDirectories(carpetaHistoriaClinica))
+                    {
+                        if (dire.Contains(cedula))
+                            Directory.Delete(dire, true);
+                    }
+                }
             }
         }
-        else if (e.ColumnIndex == GvConsulta.Columns["BtnEliminar"].Index && e.RowIndex >= 0) 
+        else
         {
-            DialogResult resul = MessageBox.Show("¿Seguro que quieres borrar este cliente?","Confirmar", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-
-            if (resul == DialogResult.Yes)
-            {
-                int idClient = Convert.ToInt32(GvConsulta.Rows[e.RowIndex].Cells["id"].Value);
-                string cedula = GvConsulta.Rows[e.RowIndex].Cells["cedula"].Value.ToString() ?? "QWEASDZXCERTDFGCVB";
-                Delete.DeleteClient(idClient);
-                Delete.DeleteExamenFisico(idClient);
-                Delete.DeleteAntecedentesPersonales(idClient);
-                Delete.DeleteHabitosPsicobio(idClient);
-                Delete.DeleteHistorialTratamiento(idClient);
-                Delete.DeleteTratamientos(idClient);
-                _ = Utilidades.CargarGrila(this);
-
-                foreach (string dire in Directory.GetDirectories(carpetaHistoriaClinica))
-                {
-                    if (dire.Contains(cedula))
-                        Directory.Delete(dire, true);
-                }
-            }
+            DtpFechaConcen.Visible = true;
         }
     }
 
@@ -224,7 +231,7 @@ public partial class UcPacientes : UserControl
         Utilidades.CargarFechaHistorialTratamiento(this);
         Utilidades.CargarComboTratamientos(this);
         Utilidades.ShowPanels(1, this);
-        PbGaleria.Visible = PbRostro.Visible = false;
+        PbGaleria.Visible = PbRostro.Visible = PBmas.Visible = false;
         MostrarNombrePaciente(false);
     }
 
@@ -251,17 +258,17 @@ public partial class UcPacientes : UserControl
         if (CbTratamientos.SelectedIndex == 0)
         {
             MessageBox.Show("Debe seleccionar un tratamiento", "No existe tratamiento", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            return;
         }
-
-        RtHistoTratamiento.Text += "\n------->" + CbTratamientos.Text + "\n" + (RtDescriTrata.Text.Trim() == "" ? "Ninguna\n" : RtDescriTrata.Text.Trim() + "\n");
-
-        tratamientos.Add(new string[,] { { CbTratamientos?.SelectedValue?.ToString() ?? "0", RtDescriTrata.Text.Trim() } });
-
-        if (CbTratamientos != null)
+        else
         {
-            CbTratamientos.SelectedIndex = 0;
-            RtDescriTrata.Text = "";
+            RtHistoTratamiento.Text += "\n------->" + CbTratamientos.Text + "\n" + (RtDescriTrata.Text.Trim() == "" ? "Ninguna\n" : RtDescriTrata.Text.Trim() + "\n");
+            tratamientos.Add(new string[,] { { CbTratamientos?.SelectedValue?.ToString() ?? "0", RtDescriTrata.Text.Trim() } });
+
+            if (CbTratamientos != null)
+            {
+                CbTratamientos.SelectedIndex = 0;
+                RtDescriTrata.Text = "";
+            }
         }
     }
 
@@ -569,4 +576,58 @@ public partial class UcPacientes : UserControl
         }
     }
 
+    private void PBmas_Click(object sender, EventArgs e)
+    {
+        var result = MessageBox.Show("¿Quieres agregar un rostro?", "Agregar", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button1);
+
+        string rutaCarpeta = carpetaHistoriaClinica + tbCedula.Text + "-" + tbNombre.Text + "-" + TbApellido.Text;
+        string ExtencionNombre = DateTime.Now.ToString("dd-MM hh-mm");
+        string rutaArchivo = "";
+
+        if (result == DialogResult.Yes)
+        {
+            rutaArchivo = Path.Combine(basePath, cbSexo.SelectedIndex == 1 ? rutaRostroM : rutaRostroF);
+
+            if (File.Exists(rutaArchivo))
+            {
+                File.Copy(rutaArchivo, rutaCarpeta + "\\Rostro " + ExtencionNombre + ".pdf", true);
+            }
+        }
+        else if (result == DialogResult.No)
+        {
+            rutaArchivo = Path.Combine(basePath, cbSexo.SelectedIndex == 1 ? rutaCuerpoM : rutaCuerpoF);
+            if (File.Exists(rutaArchivo))
+            {
+                File.Copy(rutaArchivo, rutaCarpeta + "\\Cuerpo " + ExtencionNombre + ".pdf", true);
+            }
+        }
+
+        if (File.Exists(rutaArchivo))
+        {
+            if (result == DialogResult.No)
+            {
+                MessageBox.Show("Archivo de cuerpo guardado correctamente", "Guardado", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            else
+            {
+                MessageBox.Show("Archivo de rostro guardado correctamente", "Guardado", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+        }
+    }
+
+    private async void PbBorrahisto_Click(object sender, EventArgs e)
+    {
+        DialogResult result = MessageBox.Show("¿Segura que quieres borrar el historial?", "Borrar", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+
+        if (result == DialogResult.Yes) result = MessageBox.Show("¿Segura?", "Borrar", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+
+        if (result == DialogResult.Yes)
+        {
+            Delete.DeleteHistorialTratamiento(Id_cliente);
+            Delete.DeleteTratamientos(Id_cliente);
+        }
+
+        await CargarHistorialTrata();
+        MessageBox.Show("Historial borrado", "Borrado", MessageBoxButtons.OK, MessageBoxIcon.Information);
+    }
 }

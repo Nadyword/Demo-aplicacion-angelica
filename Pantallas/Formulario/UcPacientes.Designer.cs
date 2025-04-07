@@ -30,8 +30,8 @@
         {
             components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UcPacientes));
-            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle5 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle6 = new DataGridViewCellStyle();
             IlGaleria = new ImageList(components);
             tbNombre = new TextBox();
             tbDireccion = new TextBox();
@@ -68,6 +68,7 @@
             tbEdad = new TextBox();
             label3 = new Label();
             PanelFromulario2 = new Panel();
+            PbBorrahisto = new PictureBox();
             DtTratamiento = new DateTimePicker();
             LbPaciente = new Label();
             RbGuardar = new PictureBox();
@@ -85,6 +86,7 @@
             label1 = new Label();
             pictureBox2 = new PictureBox();
             PanelFromulario3 = new Panel();
+            DtpFechaConcen = new DateTimePicker();
             TbBuscar = new TextBox();
             GvConsulta = new DataGridView();
             BtnImprimir = new DataGridViewButtonColumn();
@@ -92,9 +94,11 @@
             sqliteCommand1 = new Microsoft.Data.Sqlite.SqliteCommand();
             PbGaleria = new PictureBox();
             PbRostro = new PictureBox();
+            PBmas = new PictureBox();
             ((System.ComponentModel.ISupportInitialize)PbSiguiente).BeginInit();
             PanelFromulario1.SuspendLayout();
             PanelFromulario2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)PbBorrahisto).BeginInit();
             ((System.ComponentModel.ISupportInitialize)RbGuardar).BeginInit();
             ((System.ComponentModel.ISupportInitialize)PbBorrar).BeginInit();
             ((System.ComponentModel.ISupportInitialize)BbAtras).BeginInit();
@@ -104,6 +108,7 @@
             ((System.ComponentModel.ISupportInitialize)GvConsulta).BeginInit();
             ((System.ComponentModel.ISupportInitialize)PbGaleria).BeginInit();
             ((System.ComponentModel.ISupportInitialize)PbRostro).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)PBmas).BeginInit();
             SuspendLayout();
             // 
             // IlGaleria
@@ -602,6 +607,7 @@
             // PanelFromulario2
             // 
             PanelFromulario2.BackColor = Color.Transparent;
+            PanelFromulario2.Controls.Add(PbBorrahisto);
             PanelFromulario2.Controls.Add(DtTratamiento);
             PanelFromulario2.Controls.Add(LbPaciente);
             PanelFromulario2.Controls.Add(RbGuardar);
@@ -621,6 +627,19 @@
             PanelFromulario2.Name = "PanelFromulario2";
             PanelFromulario2.Size = new Size(895, 709);
             PanelFromulario2.TabIndex = 1011;
+            // 
+            // PbBorrahisto
+            // 
+            PbBorrahisto.Cursor = Cursors.Hand;
+            PbBorrahisto.ErrorImage = Properties.Resources.Borrar_icono;
+            PbBorrahisto.Image = Properties.Resources.Borrar_icono;
+            PbBorrahisto.Location = new Point(813, 372);
+            PbBorrahisto.Name = "PbBorrahisto";
+            PbBorrahisto.Size = new Size(46, 40);
+            PbBorrahisto.SizeMode = PictureBoxSizeMode.StretchImage;
+            PbBorrahisto.TabIndex = 1024;
+            PbBorrahisto.TabStop = false;
+            PbBorrahisto.Click += PbBorrahisto_Click;
             // 
             // DtTratamiento
             // 
@@ -809,12 +828,27 @@
             // PanelFromulario3
             // 
             PanelFromulario3.BackColor = Color.Transparent;
+            PanelFromulario3.Controls.Add(DtpFechaConcen);
             PanelFromulario3.Controls.Add(TbBuscar);
             PanelFromulario3.Controls.Add(GvConsulta);
             PanelFromulario3.Location = new Point(22, 246);
             PanelFromulario3.Name = "PanelFromulario3";
             PanelFromulario3.Size = new Size(895, 709);
             PanelFromulario3.TabIndex = 1014;
+            // 
+            // DtpFechaConcen
+            // 
+            DtpFechaConcen.CalendarMonthBackground = SystemColors.ControlLight;
+            DtpFechaConcen.Cursor = Cursors.IBeam;
+            DtpFechaConcen.CustomFormat = "\"dd/MM/yyyy\"";
+            DtpFechaConcen.Font = new Font("Arial", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            DtpFechaConcen.Format = DateTimePickerFormat.Short;
+            DtpFechaConcen.Location = new Point(33, 112);
+            DtpFechaConcen.Name = "DtpFechaConcen";
+            DtpFechaConcen.RightToLeft = RightToLeft.Yes;
+            DtpFechaConcen.Size = new Size(206, 26);
+            DtpFechaConcen.TabIndex = 5;
+            DtpFechaConcen.Visible = false;
             // 
             // TbBuscar
             // 
@@ -849,11 +883,11 @@
             // BtnImprimir
             // 
             BtnImprimir.AutoSizeMode = DataGridViewAutoSizeColumnMode.None;
-            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle1.BackColor = SystemColors.ActiveCaption;
-            dataGridViewCellStyle1.Font = new Font("Arial", 8.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            dataGridViewCellStyle1.ForeColor = Color.White;
-            BtnImprimir.DefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle5.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle5.BackColor = SystemColors.ActiveCaption;
+            dataGridViewCellStyle5.Font = new Font("Arial", 8.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            dataGridViewCellStyle5.ForeColor = Color.White;
+            BtnImprimir.DefaultCellStyle = dataGridViewCellStyle5;
             BtnImprimir.HeaderText = "Imprimir";
             BtnImprimir.MinimumWidth = 7;
             BtnImprimir.Name = "BtnImprimir";
@@ -866,11 +900,11 @@
             // BtnEliminar
             // 
             BtnEliminar.AutoSizeMode = DataGridViewAutoSizeColumnMode.None;
-            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle2.BackColor = SystemColors.ActiveCaption;
-            dataGridViewCellStyle2.Font = new Font("Arial", 8.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            dataGridViewCellStyle2.ForeColor = Color.FromArgb(255, 128, 128);
-            BtnEliminar.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle6.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle6.BackColor = SystemColors.ActiveCaption;
+            dataGridViewCellStyle6.Font = new Font("Arial", 8.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            dataGridViewCellStyle6.ForeColor = Color.FromArgb(255, 128, 128);
+            BtnEliminar.DefaultCellStyle = dataGridViewCellStyle6;
             BtnEliminar.HeaderText = "Borrar";
             BtnEliminar.MinimumWidth = 7;
             BtnEliminar.Name = "BtnEliminar";
@@ -917,12 +951,28 @@
             PbRostro.Visible = false;
             PbRostro.Click += PbRostro_Click;
             // 
+            // PBmas
+            // 
+            PBmas.BackColor = Color.Transparent;
+            PBmas.Cursor = Cursors.Hand;
+            PBmas.ErrorImage = Properties.Resources.Rostro;
+            PBmas.Image = Properties.Resources.Mas;
+            PBmas.Location = new Point(154, 196);
+            PBmas.Name = "PBmas";
+            PBmas.Size = new Size(29, 26);
+            PBmas.SizeMode = PictureBoxSizeMode.StretchImage;
+            PBmas.TabIndex = 1026;
+            PBmas.TabStop = false;
+            PBmas.Visible = false;
+            PBmas.Click += PBmas_Click;
+            // 
             // UcPacientes
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             AutoScroll = true;
             BackgroundImage = Properties.Resources.fondo;
+            Controls.Add(PBmas);
             Controls.Add(PbRostro);
             Controls.Add(PbGaleria);
             Controls.Add(pictureBox2);
@@ -938,6 +988,7 @@
             PanelFromulario1.PerformLayout();
             PanelFromulario2.ResumeLayout(false);
             PanelFromulario2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)PbBorrahisto).EndInit();
             ((System.ComponentModel.ISupportInitialize)RbGuardar).EndInit();
             ((System.ComponentModel.ISupportInitialize)PbBorrar).EndInit();
             ((System.ComponentModel.ISupportInitialize)BbAtras).EndInit();
@@ -948,6 +999,7 @@
             ((System.ComponentModel.ISupportInitialize)GvConsulta).EndInit();
             ((System.ComponentModel.ISupportInitialize)PbGaleria).EndInit();
             ((System.ComponentModel.ISupportInitialize)PbRostro).EndInit();
+            ((System.ComponentModel.ISupportInitialize)PBmas).EndInit();
             ResumeLayout(false);
         }
 
@@ -1012,5 +1064,8 @@
         private DataGridViewButtonColumn BtnImprimir;
         private DataGridViewButtonColumn BtnEliminar;
         public DateTimePicker DtTratamiento;
+        public PictureBox PBmas;
+        public DateTimePicker DtpFechaConcen;
+        public PictureBox PbBorrahisto;
     }
 }

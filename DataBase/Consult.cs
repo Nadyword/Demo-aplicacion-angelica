@@ -94,12 +94,21 @@ namespace HitoriaClinica.DataBase
         {
             using SqliteDataReader historial_tratamiento = await AsyncExecuteQuery($"SELECT * FROM historial_tratamiento WHERE cliente_id = '{id}'");
             historial_tratamiento.Read();
-            HistorialTratamiento historialTratamiento = new()
+            if (historial_tratamiento.HasRows)
             {
-                ClienteId = historial_tratamiento.GetInt32(0),
-                Descripcion = historial_tratamiento.GetString(1)
+                HistorialTratamiento historialTratamiento = new()
+                {
+                    ClienteId = historial_tratamiento.GetInt32(0),
+                    Descripcion = historial_tratamiento.GetString(1)
+                };
+                return historialTratamiento;
+            }
+
+            return new HistorialTratamiento
+            {
+                ClienteId = 0,
+                Descripcion = ""
             };
-            return historialTratamiento;
         }
     }
 }

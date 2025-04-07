@@ -82,3 +82,5 @@ C:\Users\samue\Documents\Proyectos\Demo-aplicacion-angelica\bin\Debug\net8.0-win
 C:\Users\samue\Documents\Proyectos\Demo-aplicacion-angelica\bin\Debug\net8.0-windows\Google.Apis.dll
 C:\Users\samue\Documents\Proyectos\Demo-aplicacion-angelica\bin\Debug\net8.0-windows\Google.Apis.Core.dll
 C:\Users\samue\Documents\Proyectos\Demo-aplicacion-angelica\bin\Debug\net8.0-windows\Newtonsoft.Json.dll
+C:\Users\samue\Documents\Proyectos\Demo-aplicacion-angelica\bin\Debug\net8.0-windows\Recursos\Images\Mas.png
+C:\Users\samue\Documents\Proyectos\Demo-aplicacion-angelica\bin\Debug\net8.0-windows\Recursos\Images\Borrar icono.png

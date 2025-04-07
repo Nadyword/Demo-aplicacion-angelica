@@ -49,7 +49,7 @@ internal class Utilidades
                 ucPacientes.PanelFromulario1.Visible = false;
                 ucPacientes.PanelFromulario2.Visible = false;
                 ucPacientes.PanelFromulario3.Visible = true;
-                ucPacientes.PbRostro.Visible = ucPacientes.PbGaleria.Visible = false;
+                ucPacientes.PbRostro.Visible = ucPacientes.PbGaleria.Visible = ucPacientes.PBmas.Visible = ucPacientes.DtpFechaConcen.Visible = false;
                 break;
         }
         ucPacientes.ResumeLayout();
@@ -70,7 +70,7 @@ internal class Utilidades
 
     public static void CargarFechaHistorialTratamiento(UcPacientes ucPacientes)
     {
-        if (ucPacientes.FechaTratamietno != ucPacientes.DtTratamiento.Value)
+        if (ucPacientes.FechaTratamietno != ucPacientes.DtTratamiento.Value && ucPacientes.CbTratamientos.SelectedIndex != 0)
         {
             ucPacientes.RtHistoTratamiento.Text += ucPacientes.RtHistoTratamiento.Text == "" ? "*---Fecha de tratamiento: " + ucPacientes.DtTratamiento.Value.ToString("D", new CultureInfo("es-ES")) + "---*" : "\n*---Fecha de tratamiento: " + ucPacientes.DtTratamiento.Value.ToString("D", new CultureInfo("es-ES")) + "---*";
             ucPacientes.FechaTratamietno = ucPacientes.DtTratamiento.Value;
