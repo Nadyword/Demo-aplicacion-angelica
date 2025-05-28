@@ -49,7 +49,7 @@ internal class Utilidades
                 ucPacientes.PanelFromulario1.Visible = false;
                 ucPacientes.PanelFromulario2.Visible = false;
                 ucPacientes.PanelFromulario3.Visible = true;
-                ucPacientes.PbRostro.Visible = ucPacientes.PbGaleria.Visible = ucPacientes.PBmas.Visible = ucPacientes.DtpFechaConcen.Visible = false;
+                ucPacientes.PbRostro.Visible = ucPacientes.PbGaleria.Visible = ucPacientes.PBmas.Visible = ucPacientes.DtpFechaConcen.Visible = ucPacientes.PbCambiarFoto.Visible = false;
                 break;
         }
         ucPacientes.ResumeLayout();

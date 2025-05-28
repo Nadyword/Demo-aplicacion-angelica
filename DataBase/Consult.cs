@@ -34,7 +34,8 @@ namespace HitoriaClinica.DataBase
                 Sexo = cliente.GetInt32(5),
                 Direccion = cliente.GetString(6),
                 Ocupacion = cliente.GetString(7),
-                Nacimiento = cliente.GetString(8)
+                Nacimiento = cliente.GetString(8),
+                Foto = cliente.GetString(9)
             };
 
             return infoCliente;

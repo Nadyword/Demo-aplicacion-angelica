@@ -93,6 +93,16 @@ namespace HitoriaClinica.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Cambiar {
+            get {
+                object obj = ResourceManager.GetObject("Cambiar", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap flachaIsquierda {
             get {
                 object obj = ResourceManager.GetObject("flachaIsquierda", resourceCulture);

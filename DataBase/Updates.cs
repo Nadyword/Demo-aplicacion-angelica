@@ -9,6 +9,11 @@ internal class Updates : Connection
         ExecuteNonQuery($"UPDATE clientes SET nombre = '{cliente.Nombre}', apellido = '{cliente.Apellido}', cedula = '{cliente.Cedula}', telefono = '{cliente.Telefono}', sexo = {cliente.Sexo}, direccion = '{cliente.Direccion}', ocupacion = '{cliente.Ocupacion}', Nacimiento = '{cliente.Nacimiento}' WHERE id = {cliente.Id};");
     }
 
+    public static void UpdateFoto(int idCliente, string pathFile)
+    {
+        ExecuteNonQuery($"UPDATE clientes SET foto = '{pathFile}'WHERE id = {idCliente};");
+    }
+
     public static void UpdateAntecedente(Antecedente antecedente)
     {
         ExecuteNonQuery($"UPDATE antecedentes_personales SET enfermedad_cronica = '{antecedente.Enfermedad}', alergia_medicamentos = '{antecedente.AlergiaMedicamentos}', alergia_alimentos = '{antecedente.AlergiaAlimentos}', cirugias = '{antecedente.Cirugias}', tratamientos_esteticos = '{antecedente.Tratamientos}', biopolimeros = '{antecedente.Biopsias}' WHERE cliente_id = {antecedente.ClienteId};");

@@ -6,7 +6,7 @@ namespace HitoriaClinica.DataBase
     {
         public static void InsertClient(Cliente cliente)
         {
-            ExecuteNonQuery($"INSERT INTO clientes (nombre, apellido, cedula, telefono, sexo, direccion, ocupacion, Nacimiento) VALUES ('{cliente.Nombre}', '{cliente.Apellido}', '{cliente.Cedula}', '{cliente.Telefono}', {cliente.Sexo}, '{cliente.Direccion}', '{cliente.Ocupacion}', '{cliente.Nacimiento}');");
+            ExecuteNonQuery($"INSERT INTO clientes (nombre, apellido, cedula, telefono, sexo, direccion, ocupacion, Nacimiento, foto) VALUES ('{cliente.Nombre}', '{cliente.Apellido}', '{cliente.Cedula}', '{cliente.Telefono}', {cliente.Sexo}, '{cliente.Direccion}', '{cliente.Ocupacion}', '{cliente.Nacimiento}', '{cliente.Foto}');");
         }
 
         public static void InsertAntecedente(Antecedente antecedente)

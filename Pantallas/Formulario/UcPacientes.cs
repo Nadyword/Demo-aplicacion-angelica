@@ -25,6 +25,7 @@ public partial class UcPacientes : UserControl
     private readonly string rutaRostroM = "Recursos\\Archivos\\RostroM.pdf";
     private readonly string rutaCuerpoF = "Recursos\\Archivos\\CuerpoF.pdf";
     private readonly string rutaCuerpoM = "Recursos\\Archivos\\CuerpoM.pdf";
+    private readonly string rutaImagnes = "\\Recursos\\Images\\galeria.png";
     private readonly string carpetaHistoriaClinica = "C:\\HistoriaClinica\\";
 
     #endregion
@@ -37,7 +38,7 @@ public partial class UcPacientes : UserControl
         PreloadData();
         Utilidades.ShowPanels(1, this);
         cbSexo.SelectedIndex = 0;
-        PbGaleria.Visible = PbRostro.Visible = PBmas.Visible = false;
+        PbGaleria.Visible = PbRostro.Visible = PBmas.Visible = PbCambiarFoto.Visible = false;
     }
 
     #endregion
@@ -45,7 +46,7 @@ public partial class UcPacientes : UserControl
     public void GvConsulta_CellContentClick(object sender, DataGridViewCellEventArgs e)
     {
         Estado = 2;
-        PbGaleria.Visible = PbRostro.Visible = PBmas.Visible = true;
+        PbGaleria.Visible = PbRostro.Visible = PBmas.Visible = PbCambiarFoto.Visible = true;
         Id_cliente = Convert.ToInt32(Convert.ToInt32(GvConsulta.Rows[e.RowIndex].Cells["id"].Value.ToString()));
         Utilidades.ShowPanels(1, this);
         _ = CargarDatosCliente();
@@ -109,6 +110,8 @@ public partial class UcPacientes : UserControl
         tbDireccion.Text = cliente.Direccion;
         TbOcupa.Text = cliente.Ocupacion;
         DtNacimiendo.Value = Convert.ToDateTime(cliente.Nacimiento);
+        CambiarImagenGaleria(cliente.Foto ?? basePath + rutaImagnes);
+
     }
 
     public void MostrarNombrePaciente(bool Mostrar)
@@ -231,7 +234,7 @@ public partial class UcPacientes : UserControl
         Utilidades.CargarFechaHistorialTratamiento(this);
         Utilidades.CargarComboTratamientos(this);
         Utilidades.ShowPanels(1, this);
-        PbGaleria.Visible = PbRostro.Visible = PBmas.Visible = false;
+        PbGaleria.Visible = PbRostro.Visible = PBmas.Visible = PbCambiarFoto.Visible = false;
         MostrarNombrePaciente(false);
     }
 
@@ -629,5 +632,42 @@ public partial class UcPacientes : UserControl
 
         await CargarHistorialTrata();
         MessageBox.Show("Historial borrado", "Borrado", MessageBoxButtons.OK, MessageBoxIcon.Information);
+    }
+
+    private void PbCambiarFoto_Click(object sender, EventArgs e)
+    {
+        using OpenFileDialog openFileDialog = new OpenFileDialog();
+        openFileDialog.Title = "Seleccionar archivo";
+        openFileDialog.Filter = "Todos los archivos (*.*)|*.*";
+        openFileDialog.InitialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
+
+        if (openFileDialog.ShowDialog() == DialogResult.OK)
+        {
+            string selectedFilePath = openFileDialog.FileName;
+            Updates.UpdateFoto(Id_cliente, selectedFilePath);
+            using var imgTemp = Image.FromFile(selectedFilePath);
+            PbGaleria.Image = (Image)imgTemp.Clone();
+            PbGaleria.Refresh();
+        }
+    }
+
+    public void CambiarImagenGaleria(string rutaArchivo)
+    {
+        if (!string.IsNullOrEmpty(rutaArchivo))
+        {
+            if (File.Exists(rutaArchivo))
+            {
+                using var imgTemp = Image.FromFile(rutaArchivo);
+                PbGaleria.Image = (Image)imgTemp.Clone();
+            }
+            else
+            {
+                MessageBox.Show("No se encontró el archivo de imagen.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+        else
+        {
+            PbGaleria.Image = Image.FromFile(basePath + rutaImagnes);
+        }
     }
 }

@@ -14,13 +14,16 @@ C:\Users\samue\Documents\Proyectos\Publicaciones\Recursos\Iconos\Modifcar.ico
 C:\Users\samue\Documents\Proyectos\Publicaciones\Recursos\Iconos\Salir.ico
 C:\Users\samue\Documents\Proyectos\Publicaciones\Recursos\Iconos\Seguiente.ico
 C:\Users\samue\Documents\Proyectos\Publicaciones\Recursos\Images\agregar.png
+C:\Users\samue\Documents\Proyectos\Publicaciones\Recursos\Images\Borrar icono.png
 C:\Users\samue\Documents\Proyectos\Publicaciones\Recursos\Images\borrar.png
+C:\Users\samue\Documents\Proyectos\Publicaciones\Recursos\Images\Cambiar.png
 C:\Users\samue\Documents\Proyectos\Publicaciones\Recursos\Images\descarga.jpg
 C:\Users\samue\Documents\Proyectos\Publicaciones\Recursos\Images\flachaIsquierda.png
 C:\Users\samue\Documents\Proyectos\Publicaciones\Recursos\Images\flechaDerecha.png
 C:\Users\samue\Documents\Proyectos\Publicaciones\Recursos\Images\fondo.jpg
 C:\Users\samue\Documents\Proyectos\Publicaciones\Recursos\Images\galeria.png
 C:\Users\samue\Documents\Proyectos\Publicaciones\Recursos\Images\Guardar.png
+C:\Users\samue\Documents\Proyectos\Publicaciones\Recursos\Images\Mas.png
 C:\Users\samue\Documents\Proyectos\Publicaciones\Recursos\Images\Membrete.png
 C:\Users\samue\Documents\Proyectos\Publicaciones\Recursos\Images\recargar.png
 C:\Users\samue\Documents\Proyectos\Publicaciones\Recursos\Images\Rostro.png

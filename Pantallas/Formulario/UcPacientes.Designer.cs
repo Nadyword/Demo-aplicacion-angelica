@@ -30,8 +30,8 @@
         {
             components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UcPacientes));
-            DataGridViewCellStyle dataGridViewCellStyle5 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle6 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle4 = new DataGridViewCellStyle();
             IlGaleria = new ImageList(components);
             tbNombre = new TextBox();
             tbDireccion = new TextBox();
@@ -95,6 +95,7 @@
             PbGaleria = new PictureBox();
             PbRostro = new PictureBox();
             PBmas = new PictureBox();
+            PbCambiarFoto = new PictureBox();
             ((System.ComponentModel.ISupportInitialize)PbSiguiente).BeginInit();
             PanelFromulario1.SuspendLayout();
             PanelFromulario2.SuspendLayout();
@@ -109,6 +110,7 @@
             ((System.ComponentModel.ISupportInitialize)PbGaleria).BeginInit();
             ((System.ComponentModel.ISupportInitialize)PbRostro).BeginInit();
             ((System.ComponentModel.ISupportInitialize)PBmas).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)PbCambiarFoto).BeginInit();
             SuspendLayout();
             // 
             // IlGaleria
@@ -883,11 +885,11 @@
             // BtnImprimir
             // 
             BtnImprimir.AutoSizeMode = DataGridViewAutoSizeColumnMode.None;
-            dataGridViewCellStyle5.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle5.BackColor = SystemColors.ActiveCaption;
-            dataGridViewCellStyle5.Font = new Font("Arial", 8.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            dataGridViewCellStyle5.ForeColor = Color.White;
-            BtnImprimir.DefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle3.BackColor = SystemColors.ActiveCaption;
+            dataGridViewCellStyle3.Font = new Font("Arial", 8.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            dataGridViewCellStyle3.ForeColor = Color.White;
+            BtnImprimir.DefaultCellStyle = dataGridViewCellStyle3;
             BtnImprimir.HeaderText = "Imprimir";
             BtnImprimir.MinimumWidth = 7;
             BtnImprimir.Name = "BtnImprimir";
@@ -900,11 +902,11 @@
             // BtnEliminar
             // 
             BtnEliminar.AutoSizeMode = DataGridViewAutoSizeColumnMode.None;
-            dataGridViewCellStyle6.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle6.BackColor = SystemColors.ActiveCaption;
-            dataGridViewCellStyle6.Font = new Font("Arial", 8.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            dataGridViewCellStyle6.ForeColor = Color.FromArgb(255, 128, 128);
-            BtnEliminar.DefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle4.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle4.BackColor = SystemColors.ActiveCaption;
+            dataGridViewCellStyle4.Font = new Font("Arial", 8.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            dataGridViewCellStyle4.ForeColor = Color.FromArgb(255, 128, 128);
+            BtnEliminar.DefaultCellStyle = dataGridViewCellStyle4;
             BtnEliminar.HeaderText = "Borrar";
             BtnEliminar.MinimumWidth = 7;
             BtnEliminar.Name = "BtnEliminar";
@@ -927,9 +929,9 @@
             PbGaleria.Cursor = Cursors.Hand;
             PbGaleria.ErrorImage = (Image)resources.GetObject("PbGaleria.ErrorImage");
             PbGaleria.Image = Properties.Resources.galeria;
-            PbGaleria.Location = new Point(845, 55);
+            PbGaleria.Location = new Point(787, 55);
             PbGaleria.Name = "PbGaleria";
-            PbGaleria.Size = new Size(72, 60);
+            PbGaleria.Size = new Size(130, 129);
             PbGaleria.SizeMode = PictureBoxSizeMode.StretchImage;
             PbGaleria.TabIndex = 1023;
             PbGaleria.TabStop = false;
@@ -966,12 +968,28 @@
             PBmas.Visible = false;
             PBmas.Click += PBmas_Click;
             // 
+            // PbCambiarFoto
+            // 
+            PbCambiarFoto.BackColor = Color.Transparent;
+            PbCambiarFoto.Cursor = Cursors.Hand;
+            PbCambiarFoto.ErrorImage = (Image)resources.GetObject("PbCambiarFoto.ErrorImage");
+            PbCambiarFoto.Image = Properties.Resources.Cambiar;
+            PbCambiarFoto.Location = new Point(767, 165);
+            PbCambiarFoto.Name = "PbCambiarFoto";
+            PbCambiarFoto.Size = new Size(36, 32);
+            PbCambiarFoto.SizeMode = PictureBoxSizeMode.StretchImage;
+            PbCambiarFoto.TabIndex = 1027;
+            PbCambiarFoto.TabStop = false;
+            PbCambiarFoto.Visible = false;
+            PbCambiarFoto.Click += PbCambiarFoto_Click;
+            // 
             // UcPacientes
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             AutoScroll = true;
             BackgroundImage = Properties.Resources.fondo;
+            Controls.Add(PbCambiarFoto);
             Controls.Add(PBmas);
             Controls.Add(PbRostro);
             Controls.Add(PbGaleria);
@@ -1000,6 +1018,7 @@
             ((System.ComponentModel.ISupportInitialize)PbGaleria).EndInit();
             ((System.ComponentModel.ISupportInitialize)PbRostro).EndInit();
             ((System.ComponentModel.ISupportInitialize)PBmas).EndInit();
+            ((System.ComponentModel.ISupportInitialize)PbCambiarFoto).EndInit();
             ResumeLayout(false);
         }
 
@@ -1067,5 +1086,6 @@
         public PictureBox PBmas;
         public DateTimePicker DtpFechaConcen;
         public PictureBox PbBorrahisto;
+        public PictureBox PbCambiarFoto;
     }
 }

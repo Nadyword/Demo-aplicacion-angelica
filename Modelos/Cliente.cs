@@ -11,6 +11,7 @@ namespace HitoriaClinica.Modelos
         public string? Direccion { get; set; }
         public string? Ocupacion { get; set; }
         public string? Nacimiento { get; set; }
+        public string? Foto { get; set; }
     }
 }
 
