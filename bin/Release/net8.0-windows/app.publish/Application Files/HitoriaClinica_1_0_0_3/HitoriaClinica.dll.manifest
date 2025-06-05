@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <asmv1:assembly xsi:schemaLocation="urn:schemas-microsoft-com:asm.v1 assembly.adaptive.xsd" manifestVersion="1.0" xmlns:asmv1="urn:schemas-microsoft-com:asm.v1" xmlns="urn:schemas-microsoft-com:asm.v2" xmlns:asmv2="urn:schemas-microsoft-com:asm.v2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:co.v1="urn:schemas-microsoft-com:clickonce.v1" xmlns:asmv3="urn:schemas-microsoft-com:asm.v3" xmlns:dsig="http://www.w3.org/2000/09/xmldsig#" xmlns:co.v2="urn:schemas-microsoft-com:clickonce.v2">
-  <asmv1:assemblyIdentity name="HitoriaClinica.exe" version="1.0.0.2" publicKeyToken="0000000000000000" language="neutral" processorArchitecture="msil" type="win32" />
+  <asmv1:assemblyIdentity name="HitoriaClinica.exe" version="1.0.0.3" publicKeyToken="0000000000000000" language="neutral" processorArchitecture="msil" type="win32" />
   <application />
   <entryPoint>
     <assemblyIdentity name="Launcher" version="8.0.0.0" language="neutral" processorArchitecture="msil" />
@@ -89,22 +89,22 @@
       <dsig:DigestValue>pwuMW1lHPtHFmaerprqlletrBIvCWNqpPRObYOcs8KA=</dsig:DigestValue>
     </hash>
   </file>
-  <file name="HitoriaClinica.dll" size="6009344">
+  <file name="HitoriaClinica.dll" size="6372352">
     <hash>
       <dsig:Transforms>
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-      <dsig:DigestValue>lct/O+qlo3qiyWhXFpbOAkGOs47at6X9vMMhfRoPEOk=</dsig:DigestValue>
+      <dsig:DigestValue>R10nsiFPRgL61TfhhHdLgIrwWQwECCeP7huZ2cavggc=</dsig:DigestValue>
     </hash>
   </file>
-  <file name="HitoriaClinica.exe" size="138752">
+  <file name="HitoriaClinica.exe" size="139264">
     <hash>
       <dsig:Transforms>
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-      <dsig:DigestValue>sqmer7gISu/EbI2EAWfND3be+9uCoA6y2XVhcHWFoL4=</dsig:DigestValue>
+      <dsig:DigestValue>7g7X1qz4koiOxweIn/zAPY+BzXI8W6bduxsZVZTqnQA=</dsig:DigestValue>
     </hash>
   </file>
   <file name="HitoriaClinica.runtimeconfig.json" size="515">
