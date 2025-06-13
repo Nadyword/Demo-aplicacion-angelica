@@ -14,13 +14,16 @@ C:\Users\samue\Documents\Proyectos\Demo-aplicacion-angelica\bin\Release\net8.0-w
 C:\Users\samue\Documents\Proyectos\Demo-aplicacion-angelica\bin\Release\net8.0-windows\app.publish\Recursos\Iconos\Salir.ico
 C:\Users\samue\Documents\Proyectos\Demo-aplicacion-angelica\bin\Release\net8.0-windows\app.publish\Recursos\Iconos\Seguiente.ico
 C:\Users\samue\Documents\Proyectos\Demo-aplicacion-angelica\bin\Release\net8.0-windows\app.publish\Recursos\Images\agregar.png
+C:\Users\samue\Documents\Proyectos\Demo-aplicacion-angelica\bin\Release\net8.0-windows\app.publish\Recursos\Images\Borrar icono.png
 C:\Users\samue\Documents\Proyectos\Demo-aplicacion-angelica\bin\Release\net8.0-windows\app.publish\Recursos\Images\borrar.png
+C:\Users\samue\Documents\Proyectos\Demo-aplicacion-angelica\bin\Release\net8.0-windows\app.publish\Recursos\Images\Cambiar.png
 C:\Users\samue\Documents\Proyectos\Demo-aplicacion-angelica\bin\Release\net8.0-windows\app.publish\Recursos\Images\descarga.jpg
 C:\Users\samue\Documents\Proyectos\Demo-aplicacion-angelica\bin\Release\net8.0-windows\app.publish\Recursos\Images\flachaIsquierda.png
 C:\Users\samue\Documents\Proyectos\Demo-aplicacion-angelica\bin\Release\net8.0-windows\app.publish\Recursos\Images\flechaDerecha.png
 C:\Users\samue\Documents\Proyectos\Demo-aplicacion-angelica\bin\Release\net8.0-windows\app.publish\Recursos\Images\fondo.jpg
 C:\Users\samue\Documents\Proyectos\Demo-aplicacion-angelica\bin\Release\net8.0-windows\app.publish\Recursos\Images\galeria.png
 C:\Users\samue\Documents\Proyectos\Demo-aplicacion-angelica\bin\Release\net8.0-windows\app.publish\Recursos\Images\Guardar.png
+C:\Users\samue\Documents\Proyectos\Demo-aplicacion-angelica\bin\Release\net8.0-windows\app.publish\Recursos\Images\Mas.png
 C:\Users\samue\Documents\Proyectos\Demo-aplicacion-angelica\bin\Release\net8.0-windows\app.publish\Recursos\Images\Membrete.png
 C:\Users\samue\Documents\Proyectos\Demo-aplicacion-angelica\bin\Release\net8.0-windows\app.publish\Recursos\Images\recargar.png
 C:\Users\samue\Documents\Proyectos\Demo-aplicacion-angelica\bin\Release\net8.0-windows\app.publish\Recursos\Images\Rostro.png
